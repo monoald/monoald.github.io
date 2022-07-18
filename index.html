@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index,follow" >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg" href="./assets/icons/image2vector+(1).svg">
+  <meta name="description" content="Carlos S. Aldazosa best front-end articles and projects, usign technologies as JavaScript, CSS, HTML, React JS and more.">
+  <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="stylesheet" href="./assets/icons/style.css">
+  <title>Monoald</title>
+</head>
+<body>
+  <header class="header">
+    <a href="/" class="logo">Carlos S. Aldazosa</a>
+
+    <nav class="navbar">
+      <button id="menu-icon" aria-label="button to show menu" class="menu icon-menu"></button>
+      <div id="menu" class="menu-float">
+        <button id="menu-close" class="close-menu icon-cross"></button>
+        
+        <ul class="navbar-list">
+          <li class="navbar-list__item">
+            <a href="/" class="navbar-list__link">
+              <span class="icon-blog"></span>
+              Blog
+            </a>
+          </li>
+  
+          <li class="navbar-list__item">
+            <a href="/" class="navbar-list__link">
+              <span class="icon-computer"></span>
+              Projects
+            </a>
+          </li>
+  
+          <li class="navbar-list__item">
+            <a href="/" class="navbar-list__link">
+              <span class="icon-mail"></span>
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <span class="hero__img"></span>
+      <h1 class="hero__title">
+        Welcome! This is my website, learn <strong>front-end</strong> development through my <strong>articles</strong> or see my personal <strong>projects</strong>.
+      </h1>
+    </section>
+
+    <section class="recent-articles container">
+      <h2 class="subtitle">LATEST ARTICLES</h2>
+
+      <div class="articles-container">
+        <div class="article">
+          <figure class="article__banner">
+            <img class="article__image"
+              src="./assets/images/post-1.webp" 
+              alt="photo of a guy with Google Lens"
+              width="311"
+              height="187"
+            >
+          </figure>
+
+          <div class="article__data">
+            <div class="article__tags">
+              <p class="tag">JavaScript</p>
+              <p class="tag">React</p>
+            </div>
+  
+            <h3 class="article__title">Blogpost Title</h3>
+            
+            <p class="article__info">July 16th, 2022 - 11 min read</p>
+
+            <a class="primary-button" href="/">
+              Read 
+              <span class="icon-arrow-right"></span>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="article">
+
+          <figure class="article__banner">
+            <img class="article__image"
+              src="./assets/images/post-2.webp" 
+              alt="photo of a laptop on a desk"
+              width="311"
+              height="187"
+            >
+          </figure>
+
+          <div class="article__data">
+            <div class="article__tags">
+              <p class="tag">JavaScript</p>
+              <p class="tag">React</p>
+            </div>
+  
+            <h3 class="article__title">Blogpost Title</h3>
+            
+            <p class="article__info">July 16th, 2022 - 11 min read</p>
+            <a class="primary-button" href="/">
+              Read 
+              <span class="icon-arrow-right"></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="article">
+          <figure class="article__banner">
+            <img class="article__image"
+              src="./assets/images/post-3.webp" 
+              alt="Photo of a person typing in a laptop"
+              width="311"
+              height="187"
+            >
+          </figure>
+
+          <div class="article__data">
+            <div class="article__tags">
+              <p class="tag">JavaScript</p>
+              <p class="tag">React</p>
+            </div>
+  
+            <h3 class="article__title">Blogpost Title</h3>
+            
+            <p class="article__info">July 16th, 2022 - 11 min read</p>
+
+            <a class="primary-button" href="/">
+              Read 
+              <span class="icon-arrow-right"></span>
+            </a>
+          </div>
+        </div>
+
+        
+      </div>
+    </section>
+
+    <section class="recent-projects container">
+      <h2 class="subtitle">LATEST PROJECTS</h2>
+
+      <div class="projects-container">
+        <div class="project">
+          <div class="project__data">
+            <h3 class="project__title">Pokedex</h3>
+
+            <p class="project__date">April 11th, 2022</p>
+
+            <ul class="project__technologies">
+              <li class="technology">HTML</li>
+              <li class="technology">CSS</li>
+              <li class="technology">JavaScript</li>
+            </ul>
+
+            <p class="project__description">
+              Pokedex build using the
+              <a target="_blank" href="https://pokeapi.co/docs/v2">Poke API</a>.
+            </p>
+
+            <div class="project__buttons">
+              <a class="primary-button" target="_blank" href="https://monoald.github.io/pokedex/">
+                Go to 
+                <span class="icon-arrow-right"></span>
+              </a>
+  
+              <a class="primary-button" target="_blank" href="https://github.com/monoald/pokedex">
+                Repo 
+                <span class="icon-arrow-right"></span>
+              </a>
+            </div>
+          </div>
+
+          <figure class="project__banner">
+            <img class="project__image"
+              src="./assets/images/project-1.webp" 
+              alt="Image of a pokedex build by Carlos S. Aldazosa"
+            >
+          </figure>
+        </div>
+
+        <div class="project">
+          <div class="project__data">
+            <h3 class="project__title">Restaurant</h3>
+
+            <p class="project__date">April 11th, 2022</p>
+
+            <ul class="project__technologies">
+              <li class="technology">HTML</li>
+              <li class="technology">CSS</li>
+              <li class="technology">JavaScript</li>
+            </ul>
+
+            <p class="project__description">
+              Restaurant landing page, you can find the services and menu.
+            </p>
+
+            <div class="project__buttons">
+              <a class="primary-button" target="_blank" href="https://monoald.github.io/pokedex/">
+                Go to 
+                <span class="icon-arrow-right"></span>
+              </a>
+  
+              <a class="primary-button" target="_blank" href="https://github.com/monoald/pokedex">
+                Repo 
+                <span class="icon-arrow-right"></span>
+              </a>
+            </div>
+          </div>
+
+          <figure class="project__banner">
+            <img class="project__image"
+              src="./assets/images/project-2.webp" 
+              alt="Image of a pokedex build by Carlos S. Aldazosa"
+            >
+          </figure>
+        </div>
+
+        <div class="project">
+          <div class="project__data">
+            <h3 class="project__title">Batatabit</h3>
+
+            <p class="project__date">April 11th, 2022</p>
+
+            <ul class="project__technologies">
+              <li class="technology">HTML</li>
+              <li class="technology">CSS</li>
+              <li class="technology">JavaScript</li>
+            </ul>
+
+            <p class="project__description">
+              Landing page of a crypto exchange company called Batatabit.
+            </p>
+
+            <div class="project__buttons">
+              <a class="primary-button" target="_blank" href="https://monoald.github.io/pokedex/">
+                Go to 
+                <span class="icon-arrow-right"></span>
+              </a>
+  
+              <a class="primary-button" target="_blank" href="https://github.com/monoald/pokedex">
+                Repo 
+                <span class="icon-arrow-right"></span>
+              </a>
+            </div>
+          </div>
+
+          <figure class="project__banner">
+            <img class="project__image"
+              src="./assets/images/project-3.webp" 
+              alt="Image of a pokedex build by Carlos S. Aldazosa"
+            >
+          </figure>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+      <ul class="list">
+        <li class="list__item" >
+          <a class="list__link icon-linkedin" href="/">
+            <span class=""></span>
+          </a>
+        </li>
+
+        <li class="list__item" >
+          <a class="list__link icon-github" href="/">
+          </a>
+        </li>
+
+        <li class="list__item" >
+          <a class="list__link icon-twitter" href="/">
+          </a>
+        </li>
+      </ul>
+
+      <a href="/" class="logo">Carlos S. Aldazosa</a>
+
+      <p class="greetings">Thanks for your visit!</p>
+
+    
+      <ul class="menu-list">
+        <li class="menu-list__title">General</li>
+
+        <li class="menu-list__item">
+          <a href="/" class="menu-list__link">Blog</a>
+        </li>
+
+        <li class="menu-list__item">
+          <a href="/" class="menu-list__link">Portfolio</a>
+        </li>
+
+        <li class="menu-list__item">
+          <a href="/" class="menu-list__link">Contact</a>
+        </li>
+      </ul>
+      
+      <p class="license">© 2022 Carlos S. Aldazosa - All Rights Reserved.</p>
+  </footer>
+
+  <script src="./main.js"></script>
+</body>
+</html>
