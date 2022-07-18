@@ -1,0 +1,132 @@
+html {
+  scrollbar-color: var(--secondary-alter) var(--primary-alter);
+  scrollbar-width: 12px;
+  overflow-y: auto;
+}
+body::-webkit-scrollbar {
+  width: 12px;
+  padding: 8px;
+}
+body::-webkit-scrollbar-track {
+  background-color: var(--primary-alter);
+  border-radius: 8px;
+  margin: 14px;
+}
+body::-webkit-scrollbar-thumb {
+  border: 3px solid var(--primary-alter);
+  border-radius: 8px;
+  margin: 8px;
+  background-color: var(--secondary-alter);
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: var(--secondary);
+}
+
+.navbar {
+  position: static;
+  width: 440px;
+  height: 100%;
+  border-radius: 0;
+  justify-content: end;
+  box-shadow: none;
+}
+.menu {
+  display: none;
+}
+.menu-close {
+  display: none;
+}
+.navbar .menu-float {
+  position: static;
+  width: auto;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  box-shadow: none;
+  gap: var(--spacing-unit-x4);
+}
+.menu-float__head {
+  width: 40px;
+  justify-content: center;
+}
+.menu-float__icons {
+  width: 18px;
+}
+.menu-float__icons .icon {
+  margin: 0;
+  cursor: pointer;
+}
+.menu-float__title {
+  display: none;
+}
+.navbar-list {
+  margin: 0;
+  justify-content: center;
+  gap: var(--spacing-unit-x4);
+}
+.navbar-list__link:hover,
+.menu-list__link:hover {
+  color: var(--tertiary);
+  text-decoration: underline;
+}
+.navbar-list__link span{
+  display: none;
+}
+
+.subtitle {
+  width: 70%;
+  order: 1;
+}
+.container .secondary-button {
+  order: 2;
+  margin: 0 0 0 auto;
+  cursor: pointer;
+}
+.articles-container,
+.projects-container {
+  order: 3;
+}
+.project__data {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.project__technologies{
+  justify-content: center;
+}
+.project__buttons {
+  gap: var(--spacing-unit-x2);
+}
+.footer-container {
+  width: 80%;
+  max-width: 684px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: repeat(4, 28px);
+  grid-template-columns: 3fr 2fr;
+  align-items: center;
+  text-align: start;
+}
+.footer .logo {
+  width: fit-content;
+  grid-area: 1;
+}
+.footer .greetings {
+  grid-area: 2;
+}
+.footer .list {
+  width: fit-content;
+  grid-area: 3;
+}
+.footer .license {
+  grid-area: 4 / 1 / 5 / 3;
+  text-align: center;
+}
+.footer .menu-list {
+  grid-area: 1 / 2 / 5 / 3;
+  margin: 0 0 0 auto;
+}

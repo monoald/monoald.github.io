@@ -11,6 +11,8 @@
   <link rel="icon" type="image/svg" href="./assets/icons/image2vector+(1).svg">
   <meta name="description" content="Carlos S. Aldazosa best front-end articles and projects, usign technologies as JavaScript, CSS, HTML, React JS and more.">
   <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="stylesheet" href="./styles/home-tablet.css" media="(min-width: 688px)">
+  <link rel="stylesheet" href="./styles/home-desktop.css" media="(min-width: 1012px)">
   <link rel="stylesheet" href="./assets/icons/style.css">
   <title>Monoald</title>
 </head>
@@ -26,7 +28,7 @@
           <h3 class="menu-float__title">Menu</h3>
           <div class="menu-float__icons">
             <button id="theme" class="icon icon-moon"></button>
-            <button id="menu-close" class="icon icon-cross"></button>
+            <button id="menu-close" class="menu-close icon icon-cross"></button>
           </div>
         </div>
         
@@ -140,12 +142,12 @@
             <a class="primary-button" href="/">Read</a>
           </div>
         </div>
-
-        <button class="secondary-button">
-          See more
-          <span class="icon-arrow-right"></span>
-        </button>
       </div>
+
+      <button class="secondary-button">
+        See more
+        <span class="icon-arrow-right"></span>
+      </button>
     </section>
 
     <section class="recent-projects container">
@@ -256,16 +258,17 @@
             >
           </figure>
         </div>
-
-        <button class="secondary-button">
-          See more
-          <span class="icon-arrow-right"></span>
-        </button>
       </div>
+
+      <button class="secondary-button">
+        See more
+        <span class="icon-arrow-right"></span>
+      </button>
     </section>
   </main>
 
   <footer class="footer">
+    <div class="footer-container">
       <ul class="list">
         <li class="list__item" >
           <a class="list__link icon-linkedin" href="/">
@@ -306,6 +309,7 @@
       </ul>
       
       <p class="license">© 2022 Carlos S. Aldazosa - All Rights Reserved.</p>
+    </div>
   </footer>
 
   <script src="./main.js"></script>
