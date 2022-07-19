@@ -1,3 +1,36 @@
+/*----Header----*/
+.navbar-list .extra {
+  flex-direction:row;
+  cursor: pointer;
+}
+.navbar-list__link .icon{
+  display: inline-block;
+  font-size: var(--font-xs);
+  transform: rotate(90deg);
+}
+/*----Tags----*/
+.tags-container {
+  position: static;
+  width: 100%;
+  height: auto;
+  min-height: auto;
+  border-radius: 0;
+  grid-template-columns: minmax(668px, 820px);
+  place-content: center;
+  gap: var(--spacing-unit-x2);
+  box-shadow: none;
+}
+.tags-container--active {
+  display: grid;
+}
+.close-tags {
+  display: none;
+}
+.tag-list {
+  grid-area: 2;
+  grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+}
+/*----Articles----*/
 .last-article {
   margin: calc(var(--spacing-unit-x4) * 3) 0;
 }

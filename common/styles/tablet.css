@@ -41,6 +41,7 @@
 }
 .navbar-list {
   margin: 0;
+  flex-wrap: nowrap;
   justify-content: center;
   gap: var(--spacing-unit-x4);
 }
@@ -48,6 +49,9 @@
 .menu-list__link:hover {
   color: var(--tertiary);
   text-decoration: underline;
+}
+.navbar-list__link {
+  width: fit-content;
 }
 .navbar-list__link span{
   display: none;

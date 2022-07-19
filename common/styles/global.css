@@ -78,6 +78,7 @@ body::-webkit-scrollbar-thumb:hover {
   text-align: center;
   color: var(--secondary-alter);
 }
+/*---Menu---*/
 .navbar {
   position: fixed;
   top: 20px;
@@ -139,15 +140,19 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .navbar-list {
   width: 100%;
-  max-width: 320px;
+  max-width: 360px;
   margin: var(--spacing-unit-x2) 0;
   margin-top: var(--spacing-unit-x4);
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: var(--spacing-unit-x3);
+  /* justify-content: space-between; */
   list-style: none;
 }
 .navbar-list__link {
+  width: 88px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -253,7 +258,7 @@ body::-webkit-scrollbar-thumb:hover {
   font-size: var(--font-xs);
   color: var(--secondary-alter);
 }
-.tag,
+.article__tags .tag,
 .technology {
   padding: var(--spacing-unit-half) calc(var(--spacing-unit) * 1.5);
   border-radius: 8px;

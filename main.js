@@ -1,19 +1,32 @@
 const menu = document.getElementById('menu');
+const menuClass = menu.className;
 const menuIcon = document.getElementById('menu-icon');
 const menuClose = document.getElementById('menu-close')
 
-menuIcon.addEventListener('click', displayMenu);
-menuClose.addEventListener('click', displayMenu);
+menuIcon.addEventListener('click', () => { 
+  display(menu, menuClass);
+});
+menuClose.addEventListener('click', () => { 
+  display(menu, menuClass);
+});
 
+const tags = document.getElementById('tags');
+const tagsClass = tags.className;
+const tagButton = document.getElementById('tags-button');
+const tagsClose = document.getElementById('close-tags');
 
-function displayMenu() {
-  const isActive = document.querySelector('.menu-float--active');
+tagButton.addEventListener('click', () => { 
+  display(tags, tagsClass);
+});
+tagsClose.addEventListener('click', () => { 
+  display(tags, tagsClass);
+})
 
+function display(element, elementClass) {
+  const isActive = document.querySelector(`.${elementClass}--active`);
   if (isActive) {
-    menu.setAttribute('class', 'menu-float');
-    menuIcon.setAttribute('class', 'menu icon-menu')
+    element.classList.remove(`${elementClass}--active`);
   } else {
-    menu.setAttribute('class', 'menu-float menu-float--active')
-    menuIcon.setAttribute('class', 'menu icon-menu menu--inactive')
+    element.classList.add(`${elementClass}--active`);
   }
 }
