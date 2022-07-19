@@ -1,0 +1,6 @@
+.last-article {
+  margin: calc(var(--spacing-unit-x4) * 3) 0;
+}
+.article-container {
+  gap: var(--spacing-unit-x4);
+}
