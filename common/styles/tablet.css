@@ -48,7 +48,6 @@
 .navbar-list__link:hover,
 .menu-list__link:hover {
   color: var(--tertiary);
-  text-decoration: underline;
 }
 .navbar-list__link {
   width: fit-content;
