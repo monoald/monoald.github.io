@@ -222,7 +222,7 @@ body::-webkit-scrollbar-thumb:hover {
   justify-content: center;
   gap: var(--spacing-unit-x3);
 }
-.article {
+.articles-container .article {
   width: 100%;
   min-width: 256px;
   max-width: 300px;
@@ -230,18 +230,18 @@ body::-webkit-scrollbar-thumb:hover {
   border-radius: 14px;
   overflow: hidden; 
 }
-.article__banner {
+.articles-container .article__banner {
   width: 100%;
   height: 120px;
   display: flex;
   align-items: center;
   overflow: hidden;
 }
-.article__image {
+.articles-container .article__image {
   width: 100%;
   object-fit: contain;
 }
-.article__data {
+.articles-container .article__data {
   padding: var(--spacing-unit-x2);
   background-color: var(--primary-alter);
   border-top: none;
@@ -264,7 +264,7 @@ body::-webkit-scrollbar-thumb:hover {
   border-radius: 8px;
   background-color: var(--primary);
 }
-.article__title,
+.articles-container .article__title,
 .project__title {
   font-size: var(--font-l);
   font-weight: 600;
