@@ -1,0 +1,13 @@
+/*----Form----*/
+.form-container .title {
+  font-size: var(--font-xl);
+}
+.form-container .text {
+  font-size: var(--font-m);
+}
+.item__input {
+  height: 44px;
+}
+.message .item__input {
+  min-height: 220px;
+}

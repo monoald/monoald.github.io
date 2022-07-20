@@ -14,7 +14,6 @@ menuClose.addEventListener('click', () => {
 
 const project = document.querySelectorAll('.project__banner');
 const projectButtons = document.querySelectorAll('.project__buttons');
-console.log(projectButtons);
 
 for (let element = 0; element < project.length; element++) {
   project[element].addEventListener('mousemove', () => {

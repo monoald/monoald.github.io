@@ -1,0 +1,57 @@
+/*----Form----*/
+.form-container {
+  width: 100%;
+  height: auto;
+  padding: var(--spacing-unit-x3);
+}
+.form-container .title {
+  font-size: var(--font-l);
+  font-weight: 600;
+  color: var(--tertiary);
+}
+.form-container .text {
+  margin: var(--spacing-unit-x3) 0;
+  font-size: var(--font-s);
+  line-height: var(--font-l);
+}
+.form-container .text strong {
+  font-weight: 600;
+  color: var(--tertiary);
+}
+.contact {
+  max-width: 556px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-unit-x2);
+}
+.contact .name {
+  max-width: 270px;
+}
+.contact .email {
+  max-width: 270px;
+}
+.contact .item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.item__title {
+  font-size: var(--font-m);
+  font-weight: 600;
+  margin-bottom: var(--spacing-unit);
+}
+.item__input {
+  height: 38px;
+  padding: 0 var(--spacing-unit-x2);
+  border: none;
+  border-radius: 6px;
+  background-color: var(--primary-alter);
+  color: var(--secondary);
+}
+.message .item__input {
+  height: auto;
+  min-height: 300px;
+  line-height: var(--font-m);
+  padding: var(--spacing-unit-x2);
+}
