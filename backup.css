@@ -1,32 +1,3 @@
-/*----Variables----*/
-:root {
-  --primary: #171b27;
-  --primary-alter: #1F2333;
-  --primary-shadow: #07090D;
-  --secondary: #d9dce8;
-  --secondary-alter: #A6ADC9;
-  --tertiary: #a882dd;
-  --font-xs: 1.2rem;
-  --font-s: 1.6rem;
-  --font-m: 1.8rem;
-  --font-l: 2.2rem;
-  --font-xl: 2.6rem;
-  --font-xxl: 3rem;
-  --spacing-unit: 8px;
-  --spacing-unit-half: 4px;
-  --spacing-unit-x2: 16px;
-  --spacing-unit-x3: 24px;
-  --spacing-unit-x4: 32px;
-}
-.light-mode {
-  --primary: #D9DCE8;
-  --primary-alter: #A6ADC9;
-  --primary-shadow: #464F72;
-  --secondary: #171B27;
-  --secondary-alter: #1F2333;
-  --tertiary: #5C2CA0;
-}
-/*----Global----*/
 * {
   box-sizing: border-box;
   padding: 0;
@@ -199,23 +170,13 @@ body::-webkit-scrollbar-thumb:hover {
   font-size: var(--font-xs);
   color: var(--tertiary);
 }
-.primary-button:hover {
-  border: none;
-  color: var(--primary);
-  background-color: #a882dd;
-}
 .secondary-button {
   width: 122px;
   height: 32px;
   padding: 0 var(--spacing-unit-x2);
   font-size: 1.4rem;
   color: var(--primary);
-  background-color: #a882dd;
-  transition: all .3s cubic-bezier(0,0,.5,1);
-}
-.secondary-button:hover {
-  transform: scale3d(1.06,1.06,1.06);
-  box-shadow: 0px 4px 4px var(--primary-shadow);
+  background-color: var(--tertiary);
 }
 /*----Articles----*/
 .container {

@@ -1,5 +1,16 @@
+/*----Header----*/
+.navbar-list__link {
+  font-size: var(--font-m);
+}
 .logo {
   font-size: var(--font-xxl);
+}
+/*----Articles----*/
+.article__info {
+  font-size: 1.4rem;
+}
+.subtitle {
+  font-size: var(--font-l);
 }
 /*----Projects----*/
 .project {
@@ -30,13 +41,10 @@
 .project__buttons--active {
   display: flex;
 }
-.project__buttons .button {
+.button {
   margin: var(--spacing-unit-x2);
-}
-.project__buttons .button:hover {
-  border: none;
-  color: var(--primary);
-  background-color: var(--tertiary);
+  color: #a882dd;
+  border-color: #a882dd;
 }
 .project__banner {
   border-radius: 0;
@@ -52,5 +60,23 @@
 }
 /*----Footer----*/
 .footer {
+  height: 240px;
   margin-top: var(--spacing-unit-x4);
+}
+.footer-container {
+  height: 100%;
+  place-content: center;
+}
+.footer .greetings {
+  font-size: var(--font-s);
+}
+.menu-list__title {
+  font-size: var(--font-l);
+}
+.menu-list__link {
+  font-size: var(--font-s);
+}
+.footer .license {
+  font-size: var(--font-xs);
+  padding-top: var(--spacing-unit-x4);
 }

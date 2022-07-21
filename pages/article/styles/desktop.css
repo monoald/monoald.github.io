@@ -29,6 +29,9 @@
 .share {
   grid-area: 2 / 1 / 3 / 2;
 }
+.button {
+  margin: 0;
+}
 /*----Form----*/
 .subscribe {
   width: 680px;
