@@ -79,4 +79,5 @@
 .footer .license {
   font-size: var(--font-xs);
   padding-top: var(--spacing-unit-x4);
+  pointer-events: none;
 }

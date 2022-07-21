@@ -28,7 +28,6 @@ function retrieveTheme() {
     } else {
       theme.classList.add('icon-sun');
     }
-    theme.classList.add('icon-moon');
   }
 }
 retrieveTheme();
