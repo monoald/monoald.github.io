@@ -53,8 +53,11 @@
   cursor: pointer;
 }
 .interaction .button:hover,
-.like:hover, 
-.dislike:hover {
+.interaction .button:focus,
+.like:hover,
+.like:focus, 
+.dislike:hover,
+.dislike:focus {
   color: var(--tertiary);
 }
 /*----Article----*/

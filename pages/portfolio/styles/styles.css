@@ -23,10 +23,9 @@
 /*----Skills----*/
 .skills {
   width: 100%;
-  max-width: 1012px;
+  max-width: 800px;
   height: auto;
-  margin: 0 auto;
-  padding: 0 var(--spacing-unit-x4);
+  margin: 0 auto 40px;
   display: grid;
   gap: var(--spacing-unit-x2);
 }
@@ -40,6 +39,7 @@
   grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
   grid-auto-rows: 128px;
   place-items: center;
+  list-style: none;
 }
 .skill {
   text-align: center;

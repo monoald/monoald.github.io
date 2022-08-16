@@ -61,7 +61,8 @@
   text-decoration: none;
   color: var(--tertiary);
 }
-.tag__link:hover {
+.tag__link:hover,
+.tag__link:focus {
   text-decoration: underline;
 }
 /*----Last-article----*/
