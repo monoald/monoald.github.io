@@ -185,8 +185,8 @@ body::-webkit-scrollbar-thumb:hover {
 /*----Subtitle----*/
 .subtitle {
   width: 100%;
-  font-size: var(--font-m);
-  font-weight: 600;
+  font-size: var(--font-l);
+  font-weight: 700;
   letter-spacing: 0.5px;
   color: var(--tertiary);
 }
@@ -364,6 +364,7 @@ body::-webkit-scrollbar-thumb:hover {
 .recent-projects .subtitle {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 40px;
 }
 .project-background {
   background-color: var(--tertiary);
@@ -438,28 +439,44 @@ body::-webkit-scrollbar-thumb:hover {
 }
 /*----Placeholder----*/
 input::-webkit-input-placeholder,
-input::placeholder {
+input::placeholder,
+textarea::-webkit-textarea-placeholder,
+textarea::placeholder {
   color: var(--secondary-alter);
   opacity: 1;
+  font-size: var(--font-s);
+}
+input, textarea {
+  font-size: var(--font-s);
 }
 /*----Tags----*/
 .js {
-  background-color: #E2BC12;
-  color: #423210;
-  box-shadow: 4px 4px 0px #423210;
+  background-color: #eecc32;
+  color: #66411c;
+  box-shadow: 6px 6px 0px #66411c;
 }
 .html {
-  background-color: #D23751;
-  color: #551137;
-  box-shadow: 4px 4px 0px #551137;
+  background-color: #df7184;
+  color: #751336;
+  box-shadow: 6px 6px 0px #751336;
 }
 .css {
-  background-color: #385EE5;
+  background-color: #5D7BEA;
   color: #1F107F;
-  box-shadow: 4px 4px 0px #1F107F;
+  box-shadow: 6px 6px 0px #1F107F;
 }
 .react {
   background-color: #5AC1ED;
   color: #062837;
-  box-shadow: 4px 4px 0px #062837;
+  box-shadow: 6px 6px 0px #062837;
+}
+.next-js {
+  background-color: #fff;
+  color: #292929;
+  box-shadow: 6px 6px 0px #292929;
+}
+.git {
+  background-color: #9BF391;
+  color: #0F432D;
+  box-shadow: 6px 6px 0px #0F432D;
 }
