@@ -6,19 +6,10 @@
   font-size: var(--font-xxl);
 }
 /*----Articles----*/
-.article__info {
-  font-size: 1.4rem;
-}
-.subtitle {
-  font-size: var(--font-l);
-}
 .articles-container .article {
-  min-width: 800px;
+  width: 32%;
 }
-/*----Container----*/
-.container {
-  padding: 0;
-}
+
 /*----Footer----*/
 .footer {
   height: 240px;

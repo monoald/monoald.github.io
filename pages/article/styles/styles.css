@@ -69,23 +69,12 @@
   flex-direction: column;
   gap: var(--spacing-unit-x3);
 }
-.article-post .article__baner {
-  width: 100%;
-  height: auto;
-}
-.article-post .article__image {
-  width: 100%;
-  object-fit: fill;
-}
 .article__text {
   width: 100%;
   padding: 0 var(--spacing-unit-x3);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-unit-x2);
-}
-.article__tags .tag {
-  background-color: var(--primary-alter);
 }
 .article__text .article__title{
   font-size: var(--font-xl);
@@ -107,9 +96,16 @@
 /*----Form----*/
 .newsletter {
   width: 100%;
+  height: 480px;
   padding: var(--spacing-unit-x3);
   margin-bottom: calc(var(--spacing-unit-x4) * 2);
+  display: grid;
+  grid-template-rows: repeat(2, min-content);
+  place-items: center;
+  align-content: center;
   background-color: var(--primary-alter);
+  -webkit-clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
+  clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
 }
 .newsletter .subtitle {
   text-align: center;
@@ -136,7 +132,7 @@
   width: 100%;
   height: 38px;
   padding: 0 var(--spacing-unit-x2);
-  border: none;
+  border: 2px solid var(--secondary-alter);
   border-radius: 6px;
   background-color: var(--primary);
   color: var(--secondary);

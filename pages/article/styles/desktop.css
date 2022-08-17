@@ -33,6 +33,11 @@
   margin: 0;
 }
 /*----Form----*/
+.newsletter {
+  height: 320px;
+  -webkit-clip-path: polygon(0 20%, 100% 0%, 100% 80%, 0% 100%);
+  clip-path: polygon(0 20%, 100% 0%, 100% 80%, 0% 100%);
+}
 .subscribe {
-  width: 680px;
+  width: 560px;
 }

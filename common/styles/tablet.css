@@ -58,7 +58,21 @@
 .navbar-list__link span{
   display: none;
 }
-
+/*----Articles----*/
+.container {
+  padding: var(--spacing-unit-x5);
+}
+.articles-container .article {
+  width: 48%;
+}
+.project {
+  height: 380px;
+  flex-direction: row;
+}
+.project__data {
+  height: 100%;
+}
+/*----Footer----*/
 .footer-container {
   width: 80%;
   max-width: 684px;
@@ -87,10 +101,6 @@
 .footer .menu-list {
   grid-area: 1 / 2 / 5 / 3;
   margin: 0 0 0 auto;
-}
-/*----Articles----*/
-.article .hyphen {
-  display: block;
 }
 /*----Projects----*/
 .project {

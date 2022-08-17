@@ -30,10 +30,3 @@
   grid-area: 2;
   grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
 }
-/*----Articles----*/
-.last-article {
-  margin: calc(var(--spacing-unit-x4) * 3) 0;
-}
-.article-container {
-  gap: var(--spacing-unit-x4);
-}
