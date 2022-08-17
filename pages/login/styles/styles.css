@@ -55,4 +55,5 @@ form div {
 form .secondary-button {
   justify-content: center;
   margin: 40px auto;
+  border: none;
 }
