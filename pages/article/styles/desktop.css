@@ -8,9 +8,6 @@
 .interaction {
   grid-column: 1;
 }
-.article {
-  grid-column: 2;
-}
 /*----Interaction----*/
 .interaction .return {
   display: none;

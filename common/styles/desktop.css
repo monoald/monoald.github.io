@@ -33,3 +33,13 @@
   padding-top: var(--spacing-unit-x4);
   pointer-events: none;
 }
+/*----Projects----*/
+.project-background:nth-child(2) {
+  height: 320px;
+}
+.project-background:nth-child(1),
+.project-background:nth-child(3) {
+  -webkit-clip-path: polygon(0 30%, 100% 0%, 100% 70%, 0% 100%);
+  clip-path: polygon(0 30%, 100% 0%, 100% 70%, 0% 100%);
+  height: 940px;
+}
