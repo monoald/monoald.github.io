@@ -12,7 +12,7 @@
   height: auto;
   border-radius: 8px;
   font-size: var(--font-l);
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
   line-height: 38px;
 }
@@ -21,10 +21,6 @@
   color: var(--secondary);
   color: var(--tertiary);
 }
-/* .subtitle {
-  max-width: 1000px;
-  margin: 0 auto;
-} */
 /*----Skills----*/
 .skills {
   width: 100%;

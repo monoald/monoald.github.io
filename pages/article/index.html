@@ -6,9 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index,follow">
   <meta name="description" content="JavaScript State 2022">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg" href="../../assets/icons/image2vector+(1).svg">
   <link rel="stylesheet" href="../../assets/icons/style.css">
   <link rel="stylesheet" href="../../common/styles/global.css">
@@ -19,6 +16,8 @@
   <title>Article</title>
 </head>
 <body>
+  <div class="skip"><a href="#content">Skip to Main Content</a></div>
+
   <header class="header">
     <a href="../../" class="logo">Carlos S. Aldazosa</a>
 
@@ -29,7 +28,7 @@
         <div class="menu-float__head">
           <h3 class="menu-float__title">Menu</h3>
           <div class="menu-float__icons">
-            <button id="theme" class="icon icon-moon"></button>
+            <button id="theme" class="icon icon-moon" aria-label="Change theme"></button>
             <button id="menu-close" class="menu-close icon icon-cross"></button>
           </div>
         </div>
@@ -56,40 +55,55 @@
   <main class="main">
     <div class="article-post">
       <section class="interaction">
-        <a href="../blog/" class="return">
+        
+        <a href="../blog/" class="return" aria-label="Back to menu">
           <i class="icon-arrow-right"></i>
         </a>
+
+        <h2 class="interaction__title">Share</h2>
+        
+        <ul class="like-dislike interaction__list">
+          <li>
+            <button id="like" class="like" aria-label="like article">
+              <i class="icon-heart" id="icon-like"></i>
+            </button>
+          </li>
   
-        <div class="like-dislike">
-          <button id="like" class="like" aria-label="like article">
-            <i class="icon-heart"></i>
-          </button>
+          <li>
+            <button id="dislike" class="dislike" aria-label="dislike article">
+              <i class="icon-dislike" id="icon-dislike"></i>
+            </button>
+          </li>
+        </ul>
   
-          <button id="dislike" class="dislike" aria-label="dislike article">
-            <i class="icon-dislike"></i>
-          </button>
-        </div>
+        <ul class="share interaction__list">
+          <li class="share__item">
+            <button class="button link icon-sm" aria-label="copy article link to share">
+              <i class="icon-link"></i>
+            </button>
+          </li>
+
+          <li class="share__item">
+            <a class="share__link" aria-label="share article on facebook">
+              <i class="facebook icon-sm"></i>
+            </a>
+          </li>
+
+          <li class="share__item share__link">
+            <a class="share__link" aria-label="share article on twitter">
+              <i class="twitter icon-sm"></i>
+            </a>
+          </li>
   
-        <div class="share">
-          <button class="button share__link" aria-label="copy article link to share">
-            <i class="icon-link"></i>
-          </button>
-  
-          <button class="button share__facebook" aria-label="share article on facebook">
-            <i class="icon-facebook"></i>
-          </button>
-  
-          <button class="button share__twitter" aria-label="share article on twitter">
-            <i class="icon-twitter"></i>
-          </button>
-  
-          <button class="button share__linkedin" aria-label="share article on linkedin">
-            <i class="icon-linkedin"></i>
-          </button>
-        </div>
+          <li class="share__item share__link">
+            <a class="share__link" aria-label="share article on linkedin">
+              <i class="linkedin icon-sm"></i>
+            </a>
+          </li>
+        </ul>
       </section>
 
-      <article class="article">
+      <article class="article" id="content">
         <div class="article__text">
           <ul class="article__tags">
             <li class="tag js">JavaScript</li>
@@ -207,18 +221,17 @@
     <div class="footer-container">
       <ul class="list">
         <li class="list__item" >
-          <a aria-label="Linkedin Page" class="list__link icon-linkedin" href="https://www.linkedin.com/in/carlos-sanjines-aldazosa/">
-            <span class=""></span>
+          <a aria-label="Linkedin Page" class="list__link linkedin" href="https://www.linkedin.com/in/carlos-sanjines-aldazosa/">
           </a>
         </li>
 
         <li class="list__item" >
-          <a aria-label="Github Page" class="list__link icon-github" href="https://github.com/monoald">
+          <a aria-label="Github Page" class="list__link github" href="https://github.com/monoald">
           </a>
         </li>
 
         <li class="list__item" >
-          <a aria-label="Twitter Page" class="list__link icon-twitter" href="https://twitter.com/monoald">
+          <a aria-label="Twitter Page" class="list__link twitter" href="https://twitter.com/monoald">
           </a>
         </li>
       </ul>
@@ -226,7 +239,6 @@
       <a href="../../" class="logo">Carlos S. Aldazosa</a>
 
       <p class="greetings">Thanks for your visit!</p>
-
     
       <ul class="menu-list">
         <li class="menu-list__title">General</li>

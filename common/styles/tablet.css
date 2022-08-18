@@ -72,10 +72,12 @@
 .footer-container {
   width: 80%;
   max-width: 684px;
+  height: 190px;
   margin: 0 auto;
   display: grid;
   grid-template-rows: repeat(3, 28px) auto;
   grid-template-columns: 3fr 2fr;
+  row-gap: 14px;
   align-items: center;
   text-align: start;
 }
@@ -95,8 +97,9 @@
   text-align: center;
 }
 .footer .menu-list {
-  grid-area: 1 / 2 / 5 / 3;
+  grid-area: 1 / 2 / 4 / 3;
   margin: 0 0 0 auto;
+  text-align: center;
 }
 /*----Projects----*/
 .project {

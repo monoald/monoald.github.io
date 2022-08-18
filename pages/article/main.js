@@ -1,23 +1,24 @@
 import display from '../../utils/display.js'
 
-const like = document.getElementById('like');
-const likeClass = like.className;
-const dislike = document.getElementById('dislike');
-const dislikeClass = dislike.className;
-
+const like = document.querySelector('#like');
+const likeIcon = document.querySelector('#icon-like');
+const dislike = document.querySelector('#dislike');
+const dislikeIcon = document.querySelector('#icon-dislike')
 like.addEventListener('click', () => {
-  if (document.querySelector('.dislike--active')) {
-    display(dislike, dislikeClass);
-    display(like, likeClass);
-  } else {
-    display(like, likeClass);
+  if (document.querySelector('.icon-dislike-fill')) {
+    dislikeIcon.classList.toggle('icon-dislike');
+    dislikeIcon.classList.toggle('icon-dislike-fill')
   }
+    likeIcon.classList.toggle('icon-heart');
+    likeIcon.classList.toggle('icon-heart-fill')
+  
 });
 dislike.addEventListener('click', () => {
-  if (document.querySelector('.like--active')){
-    display(like, likeClass);
-    display(dislike, dislikeClass);
-  } else {
-    display(dislike, dislikeClass);
+  if (document.querySelector('.icon-heart-fill')) {
+    likeIcon.classList.toggle('icon-heart');
+    likeIcon.classList.toggle('icon-heart-fill')
   }
+    dislikeIcon.classList.toggle('icon-dislike');
+    dislikeIcon.classList.toggle('icon-dislike-fill')
+  
 });

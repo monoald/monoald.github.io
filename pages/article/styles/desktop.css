@@ -14,26 +14,20 @@
 }
 .interaction {
   height: fit-content;
-  place-items: center;
-  grid-template-columns: none;
   position: sticky;
   top: 48px;
+  border-top: 0;
   gap: var(--spacing-unit-x4);
-}
-.like-dislike {
-  grid-area: 1 / 1 / 2 / 2;
-}
-.share {
-  grid-area: 2 / 1 / 3 / 2;
-}
-.button {
-  margin: 0;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+  background-color: transparent;
 }
 /*----Form----*/
 .newsletter {
-  height: 320px;
-  -webkit-clip-path: polygon(0 20%, 100% 0%, 100% 80%, 0% 100%);
-  clip-path: polygon(0 20%, 100% 0%, 100% 80%, 0% 100%);
+  height: 260px;
+  padding-bottom: 0;
+  -webkit-clip-path: polygon(0 20%, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 20%, 100% 0%, 100% 100%, 0% 100%);
 }
 .subscribe {
   width: 560px;
