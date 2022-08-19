@@ -210,29 +210,51 @@
         <h2 class="title">Contact me</h2>
         <p class="text">if you wan't to hire me, work with me or you just got some questions <strong>write me!</strong></p>
 
-        <form action="/" class="contact">
+        <form id="contact-form" method="POST" class="contact">
           <div class="item name">
             <label for="name" class="item__title">Name</label>
-            <input type="text" name="name" id="name" class="item__input" autocomplete="name" placeholder="Carlos S. Aldazosa">
+            <input type="text" name="name" id="name" class="item__input" autocomplete="name" placeholder="Carlos S. Aldazosa" required>
           </div>
   
           <div class="item email">
             <label for="email" class="item__title">Email</label>
-            <input type="email" name="email" id="email" class="item__input" autocomplete="email" placeholder="example@mail.com">
+            <input type="email" name="email" id="email" class="item__input" autocomplete="email" placeholder="example@mail.com" required>
           </div>
   
           <div class="item subject">
             <label for="subject" class="item__title">Subject</label>
-            <input type="text" name="subject" id="subject" class="item__input" placeholder="Hire as freelancer">
+            <input type="text" name="subject" id="subject" class="item__input" placeholder="Hire as freelancer" required>
           </div>
   
           <div class="item message">
             <label for="message" class="item__title">Message</label>
-            <textarea name="message" id="message" class="item__input" placeholder="Message..."></textarea>
+            <textarea name="message" id="message" class="item__input" placeholder="Message..." required></textarea>
           </div>
 
-          <input type="submit" class="secondary-button" value="Send">
+          <input type="submit" id="submit" class="secondary-button" value="Send">
         </form>
+
+        <dialog id="form-success" class="modal succesful">
+          <div class="modal__content">
+            <i class="icon-check modal__icon"></i>
+            <h2 class="modal__title">Email sent</h2>
+          </div>
+        </dialog>
+
+        <dialog id="form-error" class="modal error">
+          <div class="modal__content">
+            <i class="icon-cross modal__icon"></i>
+            <h2 class="modal__title">Something went wrong!</h2>
+          </div>
+        </dialog>
+
+        <dialog close id="form-incomplete" class="modal error">
+          <div class="modal__content">
+            <i class="icon-cross modal__icon"></i>
+            <h2 class="modal__title">You must fill all the gaps</h2>
+          </div>
+        </dialog>
+
       </div>
     </section>
   </main>
@@ -278,5 +300,13 @@
 
   <script src="./utils/setTheme.js"></script>
   <script type="module" src="./main.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('kJTLdpz6P0uu9UyjB');
+        })();
+    </script>
+  <script type="module" src="./utils/sendEmail.js"></script>
 </body>
 </html>
