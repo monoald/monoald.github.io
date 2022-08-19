@@ -168,3 +168,17 @@ body {
 .articles-container {
   padding: var(--spacing-unit-x3) 0;
 }
+/*----Modal----*/
+.link {
+  position: relative;
+}
+.modal-copy {
+  position: absolute;
+  bottom: -40px;
+  padding: var(--spacing-unit);
+  border: none;
+  border-radius: 8px;
+  color: var(--primary);
+  font-size: var(--font-xs);
+  background-color: var(--secondary);
+}

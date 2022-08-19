@@ -1,4 +1,5 @@
-import display from '../../utils/display.js'
+import clipboardLink from "../../utils/clipboardLink.js";
+import toggleModal from "../../utils/toggleModal.js";
 
 const like = document.querySelector('#like');
 const likeIcon = document.querySelector('#icon-like');
@@ -21,4 +22,11 @@ dislike.addEventListener('click', () => {
     dislikeIcon.classList.toggle('icon-dislike');
     dislikeIcon.classList.toggle('icon-dislike-fill')
   
+});
+
+const clipIcon = document.querySelector('#clip-icon');
+
+clipIcon.addEventListener('click', () => {
+  clipboardLink();
+  toggleModal('#link-copied');
 });

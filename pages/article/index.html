@@ -77,10 +77,14 @@
         </ul>
   
         <ul class="share interaction__list">
-          <li class="share__item">
-            <button class="button link icon-sm" aria-label="copy article link to share">
+          <li class="share__item link">
+            <button id="clip-icon" class="button link icon-sm" aria-label="copy article link to share">
               <i class="icon-link"></i>
             </button>
+
+            <dialog class="modal-copy" id="link-copied">
+              <p>Copied!</p>
+            </dialog>
           </li>
 
           <li class="share__item">
