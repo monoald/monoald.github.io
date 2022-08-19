@@ -1,8 +1,7 @@
 /*----Baner----*/
 .baner {
   width: 100%;
-  height: 70vw;
-  max-height: 400px;
+  height: 300px;
   display: grid;
   place-items: center;
 }
@@ -33,13 +32,13 @@
 }
 .skills__container {
   width: 100%;
-  min-width: 256px;
-  max-width: 639px;
+  /* min-width: 256px; */
+  /* max-width: 639px; */
   height: auto;
   margin: inherit;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
-  grid-auto-rows: 128px;
+  grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+  grid-auto-rows: 108px;
   place-items: center;
   list-style: none;
 }
@@ -58,6 +57,7 @@
 .skill__title {
   font-size: var(--font-m);
   margin-top: var(--spacing-unit);
+  text-decoration: none;
 }
 /*----Form----*/
 .form-container {
@@ -97,6 +97,9 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+.contact .secondary-button {
+  cursor: pointer;
 }
 .item__title {
   font-size: var(--font-m);

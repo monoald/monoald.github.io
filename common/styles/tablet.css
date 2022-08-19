@@ -103,7 +103,7 @@
 }
 /*----Projects----*/
 .project {
-  height: 380px;
+  height: auto;
   flex-direction: row;
 }
 .project__data {

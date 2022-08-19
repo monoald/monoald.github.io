@@ -15,3 +15,8 @@
 .message .item__input {
   min-height: 220px;
 }
+.skills__container {
+  max-width: 639px;
+  grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+
+}

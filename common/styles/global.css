@@ -274,6 +274,8 @@ body::-webkit-scrollbar-thumb:hover {
 .project__technologies {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 18px;
 }
 .tag,
@@ -296,6 +298,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .articles-container .article__preview,
 .project__description {
+  max-width: 400px;
   font-size: var(--font-s);
   font-weight: 500;
   line-height: 24px;
@@ -392,9 +395,10 @@ body::-webkit-scrollbar-thumb:hover {
   align-items: center;
 }
 .project {
+  width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: var(--spacing-unit-x3);
+  padding: var(--spacing-unit-x2);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -405,12 +409,13 @@ body::-webkit-scrollbar-thumb:hover {
   color: var(--primary);
 }
 .project__banner {
-  width: 90%;
-  max-width: 360px;
+  width: auto;
+  width: min-content;
+  /* max-width: 360px; */
 }
 .project__image {
-  width: 100%;
-  object-fit: contain;
+  /* width: 100%; */
+  object-fit: cover;
 }
 .project__data {
   width: 100%;
@@ -421,6 +426,9 @@ body::-webkit-scrollbar-thumb:hover {
   grid-template-rows: repeat(3, min-content) auto 44px;
   justify-items: center;
   gap: 20px;
+}
+.project__description {
+  padding: 0 var(--spacing-unit-x2);
 }
 .project__description a {
   max-width: 440px;
@@ -433,35 +441,49 @@ body::-webkit-scrollbar-thumb:hover {
   display: flex;
   gap: 20px;
 }
-.project-background:nth-child(2) {
-  height: 300px;
-  height: 560px;
+.project-background:nth-child(2),
+.project-background:nth-child(4),
+.project-background:nth-child(6) {
+  height: fit-content;
   background-color: transparent;
 }
-.project-background:nth-child(2) .project__title {
+.project-background:nth-child(2) .project__title,
+.project-background:nth-child(4) .project__title,
+.project-background:nth-child(6) .project__title {
   color: var(--secondary);
 }
-.project-background:nth-child(2) .project__subtitle {
+.project-background:nth-child(2) .project__subtitle,
+.project-background:nth-child(4) .project__subtitle,
+.project-background:nth-child(6) .project__subtitle {
   color: var(--secondary);
 }
-.project-background:nth-child(2) .project__description {
+.project-background:nth-child(2) .project__description,
+.project-background:nth-child(4) .project__description,
+.project-background:nth-child(6) .project__description {
   color: var(--secondary);
 }
-.project-background:nth-child(2) .project__description a {
+.project-background:nth-child(2) .project__description a,
+.project-background:nth-child(4) .project__description a,
+.project-background:nth-child(6) .project__description a {
   color: var(--secondary);
   font-weight: 700;
 }
-.project-background:nth-child(2) .primary-button {
+.project-background:nth-child(2) .primary-button,
+.project-background:nth-child(4) .primary-button,
+.project-background:nth-child(6) .primary-button {
   border: 2px solid var(--button-secondary);
   color: var(--button-secondary);
   background-color: transparent;
   box-shadow: 4px 4px 0px var(--button-secondary);
 }
 .project-background:nth-child(1),
-.project-background:nth-child(3) {
-  height: 800px;
-  -webkit-clip-path: polygon(0 16%, 100% 0%, 100% 84%, 0% 100%);
-  clip-path: polygon(0 16%, 100% 0%, 100% 84%, 0% 100%);
+.project-background:nth-child(3),
+.project-background:nth-child(5),
+.project-background:nth-child(7) {
+  height: fit-content;
+  padding: 80px 0;
+  -webkit-clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
+  clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
 }
 /*----Placeholder----*/
 input::-webkit-input-placeholder,
@@ -502,6 +524,26 @@ input, textarea {
   box-shadow: 6px 6px 0px #292929;
 }
 .git {
+  background-color: #9BF391;
+  color: #0F432D;
+  box-shadow: 6px 6px 0px #0F432D;
+}
+.webpack {
+  background-color: #A9E4EF;
+  color: #0F2B57;
+  box-shadow: 6px 6px 0px #0F2B57;
+}
+.sass {
+  background-color: #C072A2;
+  color: #28132A;
+  box-shadow: 6px 6px 0px #28132A;
+}
+.eslint {
+  background-color: #a08bf7;
+  color: #351D72;
+  box-shadow: 6px 6px 0px #351D72;
+}
+.tailwind {
   background-color: #9BF391;
   color: #0F432D;
   box-shadow: 6px 6px 0px #0F432D;
