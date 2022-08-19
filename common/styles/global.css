@@ -244,7 +244,7 @@ body::-webkit-scrollbar-thumb:hover {
 .articles-container .article {
   width: 100%;
   height: auto;
-  min-height: 420px;
+  min-height: 480px;
   padding: var(--spacing-unit-x3);
   border-radius: 18px;
   background-color: var(--tertiary);
@@ -530,7 +530,7 @@ input, textarea {
   background-size: contain;
   border: 2px solid var(--secondary-alter);
   border-radius: 50%;
-  box-shadow: 4px 4px 0px var(--secondary-alter);
+  box-shadow: 3px 3px 0px var(--secondary-alter);
 }
 .footer .list__item,
 .footer .list__link,
