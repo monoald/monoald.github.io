@@ -1,0 +1,18 @@
+
+.main {
+  padding-top: var(--spacing-unit-x5);
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 
+  "aside main .";
+}
+/*----Aside----*/
+.aside {
+  grid-area: aside;
+  margin: 0 0 auto;
+  padding: var(--spacing-unit-x2) var(--spacing-unit-x5);
+}
+.main-content {
+  grid-area: main;
+  padding-right: 0;
+}

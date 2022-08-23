@@ -1,6 +1,25 @@
-/*----Baner----*/
-.baner .title {
-  font-size: var(--font-xl);
+.main {
+  width: 100%;
+  padding-top: var(--spacing-unit-x5);
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 
+  "aside main";
+}
+.section {
+  padding: 20px 0;
+}
+/*----Aside----*/
+.aside {
+  position: sticky;
+  top: 40px;
+  grid-area: aside;
+  margin: 0 auto auto;
+  padding: var(--spacing-unit-x2) 0;
+}
+.main-content {
+  grid-area: main;
+  padding: 0 var(--spacing-unit-x4);
 }
 /*----Form----*/
 .form-container .title {
@@ -16,7 +35,9 @@
   min-height: 220px;
 }
 .skills__container {
-  max-width: 639px;
-  grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
-
+  /* max-width: 639px; */
+  grid-template-columns: repeat(auto-fill, minmax(134px, 1fr));
+}
+.skill {
+  width: 134px;
 }

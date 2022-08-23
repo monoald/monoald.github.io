@@ -1,49 +1,79 @@
-/*----Baner----*/
-.baner {
-  width: 100%;
-  height: 300px;
+.main {
   display: grid;
-  place-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, min-content);
 }
-.baner .title {
-  width: 90%;
-  max-width: 580px;
-  height: auto;
-  border-radius: 8px;
-  font-size: var(--font-l);
-  font-weight: 400;
+.aside {
+  margin: 0 0 auto;
+  padding: var(--spacing-unit-x2);
+}
+/*----Aside----*/
+.aside {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-unit-x3);
+}
+.photo {
+  width: 180px;
+  height: 180px;
+  border: 4px solid var(--tertiary);
+  border-radius: 50%;
+  background-image: url('./../assets/images/profile-picture.jpg');
+  background-size: cover;
+}
+.contact__title {
+  font-size: var(--font-m);
   text-align: center;
-  line-height: 38px;
-}
-.baner .title strong {
-  font-weight: 700;
-  color: var(--secondary);
   color: var(--tertiary);
 }
+.social-media {
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+.social-media__link {
+  width: 40px;
+  height: 40px;
+  display: block;
+  background-size: cover;
+}
+.linkedin {
+  background-image: url('./../assets/icons/linkedin.svg');
+}
+.github {
+  background-image: url('./../assets/icons/github.svg');
+}
+.twitter {
+  background-image: url('./../assets/icons/twitter.svg');
+}
+.main-content {
+  width: 100%;
+}
 /*----Skills----*/
-.skills {
+.section {
   width: 100%;
   max-width: 1000px;
   height: auto;
-  padding: 40px;
-  margin: 0 auto 40px;
+  padding: 20px 40px;
   display: grid;
   gap: var(--spacing-unit-x2);
 }
 .skills__container {
   width: 100%;
-  /* min-width: 256px; */
-  /* max-width: 639px; */
   height: auto;
   margin: inherit;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
   grid-auto-rows: 108px;
   place-items: center;
+  column-gap: var(--spacing-unit-x3);
   list-style: none;
 }
 .skill {
-  width: 90%;
+  width: 114px;
   height: 90%;
   text-align: center;
   border-radius: 14px;
@@ -63,7 +93,6 @@
 .form-container {
   width: 100%;
   height: auto;
-  padding: var(--spacing-unit-x3);
 }
 .form-container .title {
   width: fit-content;
@@ -74,6 +103,7 @@
 .form-container .text {
   margin: var(--spacing-unit-x3) 0;
   font-size: var(--font-s);
+  text-align: center;
   line-height: var(--font-l);
 }
 .form-container .text strong {

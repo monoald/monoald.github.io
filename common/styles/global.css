@@ -411,10 +411,8 @@ body::-webkit-scrollbar-thumb:hover {
 .project__banner {
   width: auto;
   width: min-content;
-  /* max-width: 360px; */
 }
 .project__image {
-  /* width: 100%; */
   object-fit: cover;
 }
 .project__data {
