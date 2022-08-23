@@ -52,6 +52,18 @@
 .main-content {
   width: 100%;
 }
+/*----ABout----*/
+.text {
+  font-size: var(--font-s);
+  line-height: 26px;
+  letter-spacing: 0.5px;
+}
+.goals ul {
+  padding: 0 40px;
+  font-size: var(--font-s);
+  line-height: 26px;
+  letter-spacing: 0.5px;
+}
 /*----Skills----*/
 .section {
   width: 100%;
