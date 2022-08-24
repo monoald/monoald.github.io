@@ -35,7 +35,6 @@
   min-height: 220px;
 }
 .skills__container {
-  /* max-width: 639px; */
   grid-template-columns: repeat(auto-fill, minmax(134px, 1fr));
 }
 .skill {

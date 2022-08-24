@@ -16,3 +16,8 @@
   grid-area: main;
   padding-right: 0;
 }
+
+.skills__container {
+  max-width: 639px;
+  margin: 0 auto;
+}

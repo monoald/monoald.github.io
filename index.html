@@ -55,7 +55,7 @@
     <aside class="aside">
       <div class="photo"></div>
 
-      <h2 class="contact__title">CONTACT ME</h2>
+      <h2 class="contact__title">SOCIAL MEDIA</h2>
       <ul class="social-media">
         <li class="social-media__item" >
           <a aria-label="Linkedin Page" class="social-media__link linkedin" href="https://www.linkedin.com/in/carlos-sanjines-aldazosa/">
@@ -103,7 +103,7 @@
       </section>
   
       <section class="skills section">
-        <h2 class="subtitle">SKILLS</h2>
+        <h2 class="subtitle">SKILLS AND PROJECTS</h2>
   
         <ul class="skills__container">
           <li class="skill">
@@ -138,6 +138,80 @@
             <a href="#" class="skill__title tag eslint">ESLint</a>
           </li>
         </ul>
+
+        <div class="projects-container">
+          <div class="project">
+            <picture class="project__banner">
+              <source media="(max-width:688px)" srcset="./assets/images/real-estate-sm.webp" width="280" height="172">
+              <source media="(min-width: 688px)" srcset="./assets/images/real-estate-mobile.webp" width="300" height="630">
+              <img src="./assets/images/real-estate-sm.webp" 
+              alt="Image of an e-commerce build by Carlos S. Aldazosa" >
+            </picture>
+            
+            <div class="project__data">
+              <h3 class="project__title">Real Estate SPA</h3>
+
+              <p class="project__subtitle">Build with:</p>
+      
+              <ul class="project__technologies">
+                <li class="tech css">CSS</li>
+                <li class="tech js">JavaScript</li>
+                <li class="tech react">React</li>
+                <li class="tech webpack">Webpack</li>
+              </ul>
+      
+              <article class="project__description">
+                Single Page Aplication of a Real Estate business minified with Webpack and transpiled with Babel for a great browser compatibility, it manage state to present the business projects and trajectory, build using the desing system mobile first to smooth the responsive design.
+              </article>
+      
+              <div class="project__buttons">
+                <a class="primary-button" target="_blank" href="https://real-estate-monoald.netlify.app/">
+                  Open Project
+                </a>
+      
+                <a class="primary-button" target="_blank" href="https://github.com/monoald/real-estate-web">
+                  Repository</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project">
+            <picture class="project__banner">
+              <source media="(max-width:688px)" srcset="./assets/images/admin-sm.webp" width="280" height="172">
+              <source media="(min-width: 688px)" srcset="./assets/images/admin-mobile.webp" width="300" height="630">
+              <img src="./assets/images/admin-mobile.webp" 
+                alt="Image of an e-commerce build by Carlos S. Aldazosa">
+        </picture>
+          
+          <div class="project__data">
+            <h3 class="project__title">Admin Shop</h3>
+
+            <p class="project__subtitle">Build with:</p>
+    
+            <ul class="project__technologies">
+              <li class="tech css">CSS</li>
+              <li class="tech js">JavaScript</li>
+              <li class="tech react">React</li>
+              <li class="tech next-js">Next</li>
+              <li class="tech eslint">ESlint</li>
+              <li class="tech tailwind">Tailwind</li>
+            </ul>
+    
+            <article class="project__description">
+              E-commerce admin page, this project has a dashboard and it is a CRUD to manage the e-commerce build with React and Next. The interface was build usign Tailwind UI to focus the development on the functionallity. The CRUD was manage usign this <a href="https://api.escuelajs.co/docs/">API</a>.
+            </article>
+    
+            <div class="project__buttons">
+              <a class="primary-button" target="_blank" href="https://admin-shop-k25o8jkvb-monoald.vercel.app/">
+                Open Project
+              </a>
+    
+              <a class="primary-button" target="_blank" href="https://github.com/monoald/admin-shop">
+                Repository</a>
+            </div>
+          </div>
+        </div>
+        </div>
   
       </section>
   

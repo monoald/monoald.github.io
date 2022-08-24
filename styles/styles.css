@@ -202,3 +202,22 @@
 .modal__title {
   font-size: var(--font-m);
 }
+.project__data {
+  padding: var(--spacing-unit-x2) 0;
+}
+.project__subtitle {
+  font-size: var(--font-s);
+}
+.project {
+  background-color: var(--tertiary);
+  border-radius: 12px;
+}
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-unit-x5);
+}
+.project__banner {
+  border-radius: 10px;
+  overflow: hidden;
+}
