@@ -102,10 +102,3 @@
   text-align: center;
 }
 /*----Projects----*/
-.project {
-  height: auto;
-  flex-direction: row;
-}
-.project__data {
-  height: 100%;
-}

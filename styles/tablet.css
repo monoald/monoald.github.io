@@ -7,7 +7,7 @@
   "aside main";
 }
 .section {
-  padding: 20px 0;
+  padding: var(--spacing-unit-x5) 0;
 }
 /*----Aside----*/
 .aside {
@@ -19,7 +19,7 @@
 }
 .main-content {
   grid-area: main;
-  padding: 0 var(--spacing-unit-x4);
+  padding-right: var(--spacing-unit-x4);
 }
 /*----Form----*/
 .form-container .title {
