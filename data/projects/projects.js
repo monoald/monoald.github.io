@@ -1,4 +1,4 @@
-[
+export const data = [
   {
     "id": "project-1",
     "name": "Real Estate SPA",
@@ -76,4 +76,4 @@
     "link-deploy": "https://monoald.github.io/restaurant-landing-page/",
     "link-repository": "https://github.com/monoald/restaurant-landing-page"
   }
-]
+];

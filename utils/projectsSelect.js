@@ -1,4 +1,4 @@
-import data  from '../data/projects/projects.json' assert { type: 'json' };
+import { data }  from '../data/projects/projects.js';
 
 const buttonContainer = document.querySelector('#skills-container');
 const projectContainer = document.querySelector('#projects-container');
@@ -37,24 +37,13 @@ function addProject(project) {
   const picture = document.createElement('picture');
   picture.classList.add('project__banner');
 
-  const sourceMobile = document.createElement('source');
-  sourceMobile.media = "(max-width:688px)";
-  sourceMobile.srcset = project.image;
-  sourceMobile.width = 280;
-  sourceMobile.height = 176;
-
-  const sourceDesktop = document.createElement('source');
-  sourceDesktop.media = "(min-width:688px)";
-  sourceDesktop.srcset = project.image;
-  sourceDesktop.width = 400;
-  sourceDesktop.height = 252;
-
   const image = document.createElement('img');
+  image.classList.add('project__image')
   image.src = project.image;
   image.alt = `${project.name} built by Carlos S. Aldazosa`;
-
-  picture.appendChild(sourceMobile);
-  picture.appendChild(sourceDesktop);
+  image.width = 280;
+  image.height = 176;
+  
   picture.appendChild(image);
 
   const data = document.createElement('div');

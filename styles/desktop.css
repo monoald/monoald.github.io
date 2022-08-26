@@ -23,3 +23,7 @@
   margin: 0 auto;
   color: rgb(20, 214, 20);
 }
+.project__image {
+  width: 400px;
+  height: 252px;
+}
