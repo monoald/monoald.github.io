@@ -4,7 +4,7 @@
   --primary-alter: #1F2333;
   --primary-shadow: #07090D;
   --secondary: #d9dce8;
-  --secondary-alter: #A6ADC9;
+  --secondary-alter: #F0F7F4;
   --tertiary: #F75C03;
   --button-primary: #51FF00;
   --button-primary-shodw: #133D00;
@@ -23,7 +23,7 @@
   --spacing-unit-x5: 40px;
 }
 .light-mode {
-  --primary: #C7CEDB;
+  --primary: #F0F7F4;
   --primary-alter: #A6ADC9;
   --primary-shadow: #464F72;
   --secondary: #000;

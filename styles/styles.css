@@ -101,9 +101,13 @@
   letter-spacing: 0.6px;
 }
 .skill__title {
+  border: none;
   font-size: var(--font-m);
   margin-top: var(--spacing-unit);
-  text-decoration: none;
+  transition: all .3s cubic-bezier(0,0,.5,1);
+}
+.skill__title:hover {
+  transform: scale3d(1.07,1.07,1.07);
 }
 /*----Form----*/
 .form-container {
@@ -121,7 +125,7 @@
   font-size: var(--font-s);
   line-height: var(--font-l);
 }
-.form-container .text strong {
+.text strong {
   font-weight: 600;
   color: var(--tertiary);
 }

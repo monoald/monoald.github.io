@@ -124,47 +124,51 @@
   
       <section class="skills section">
         <h2 class="subtitle">SKILLS AND PROJECTS</h2>
+
+        <p class="text">
+          Choose a <strong>skill</strong> and see what <strong>projects</strong> I built with it.
+        </p>
   
-        <ul class="skills__container">
+        <ul class="skills__container" id="skills-container">
           <li class="skill">
-            <a href="#" class="skill__title tag js">JavaScript</a>
+            <button class="skill__title tag js">JavaScript</button>
           </li>
   
           <li class="skill">
-            <a href="#" class="skill__title tag css">CSS3</a>
+            <button class="skill__title tag css">CSS</button>
           </li>
   
           <li class="skill">
-            <a href="#" class="skill__title tag html">HTML 5</a>
+            <button class="skill__title tag html">HTML</button>
           </li>
   
           <li class="skill">
-            <a href="#" class="skill__title tag react">React JS</a>
+            <button class="skill__title tag react">React JS</button>
           </li>
     
           <li class="skill">
-            <a href="#" class="skill__title tag next-js">Next JS</a>
-          </li>
-    
-          <li class="skill">
-            <a href="#" class="skill__title tag git">Git</a>
+            <button class="skill__title tag next-js">Next JS</button>
           </li>
   
           <li class="skill">
-            <a href="#" class="skill__title tag webpack">Webpack</a>
+            <button class="skill__title tag webpack">Webpack</button>
           </li>
   
           <li class="skill">
-            <a href="#" class="skill__title tag eslint">ESLint</a>
+            <button class="skill__title tag eslint">ESLint</button>
+          </li>
+
+          <li class="skill">
+            <button class="skill__title tag git">Git</button>
           </li>
         </ul>
 
-        <div class="projects-container">
-          <div class="project">
+        <div class="projects-container" id="projects-container">
+          <div class="project" id="project-1">
             <picture class="project__banner">
               <source media="(max-width:688px)" srcset="./assets/images/real-estate.webp" width="280" height="176">
               <source media="(min-width: 688px)" srcset="./assets/images/real-estate.webp" width="400" height="252">
-              <img src="./assets/images/1463.webp" 
+              <img src="./assets/images/real-estate.webp" 
               alt="Image of an e-commerce build by Carlos S. Aldazosa" >
             </picture>
             
@@ -174,15 +178,6 @@
               <p class="project__tech">
                 <b>Technologies:</b> CSS, JavaScript, React JS, Webpack
               </p>
-
-              <!-- <p class="project__subtitle">Build with:</p> -->
-      
-              <!-- <ul class="project__technologies">
-                <li class="tech css">CSS</li>
-                <li class="tech js">JavaScript</li>
-                <li class="tech react">React</li>
-                <li class="tech webpack">Webpack</li>
-              </ul> -->
       
               <article class="project__description">
                 Single Page Aplication of a Real Estate business minified with Webpack and transpiled with Babel for a great browser compatibility, it manage state to present the business projects and trajectory, build using the desing system mobile first to smooth the responsive design.
@@ -199,278 +194,38 @@
             </div>
           </div>
 
-          
-        </div>
-        
-  
-      </section>
-  
-      <!-- <section class="recent-projects">
-        <h2 class="subtitle">PERSONAL PROJECTS</h2>
-  
-        <div class="projects-container">
-          <div class="project-background">
-            <div class="project">
-                <picture class="project__banner">
-                  <source media="(max-width:688px)" srcset="./assets/images/real-estate-sm.webp" width="280" height="172">
-                  <source media="(min-width: 688px)" srcset="./assets/images/real-estate-md.webp" width="400" height="246">
-                  <img src="./assets/images/real-estate-md.webp" 
-                  alt="Image of an e-commerce build by Carlos S. Aldazosa" >
-              </picture>
-              
-              <div class="project__data">
-                <h3 class="project__title">Real Estate SPA</h3>
-  
-                <p class="project__subtitle">Build with:</p>
-        
-                <ul class="project__technologies">
-                  <li class="tech css">CSS</li>
-                  <li class="tech js">JavaScript</li>
-                  <li class="tech react">React</li>
-                  <li class="tech webpack">Webpack</li>
-                </ul>
-        
-                <article class="project__description">
-                  Single Page Aplication of a Real Estate business minified with Webpack and transpiled with Babel for a great browser compatibility, it manage state to present the business projects and trajectory, build using the desing system mobile first to smooth the responsive design.
-                </article>
-        
-                <div class="project__buttons">
-                  <a class="primary-button" target="_blank" href="https://real-estate-monoald.netlify.app/">
-                    Open Project
-                  </a>
-        
-                  <a class="primary-button" target="_blank" href="https://github.com/monoald/real-estate-web">
-                    Repository</a>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <div class="project-background">
-            <div class="project">
-                <picture class="project__banner">
-                  <source media="(max-width:688px)" srcset="./assets/images/admin-sm.webp" width="280" height="172">
-                  <source media="(min-width: 688px)" srcset="./assets/images/admin-md.webp" width="400" height="246">
-                  <img src="./assets/images/admin-md.webp" 
-                    alt="Image of an e-commerce build by Carlos S. Aldazosa">
+          <div class="project" id="project-5">
+            <picture class="project__banner">
+              <source media="(max-width:688px)" srcset="./assets/images/pokedex.webp" width="280" height="176">
+              <source media="(min-width: 688px)" srcset="./assets/images/pokedex.webp" width="400" height="252">
+              <img src="./assets/images/real-estate.webp" 
+                alt="Image of an e-commerce build by Carlos S. Aldazosa">
             </picture>
-              
-              <div class="project__data">
-                <h3 class="project__title">Admin Shop</h3>
-  
-                <p class="project__subtitle">Build with:</p>
-        
-                <ul class="project__technologies">
-                  <li class="tech css">CSS</li>
-                  <li class="tech js">JavaScript</li>
-                  <li class="tech react">React</li>
-                  <li class="tech next-js">Next</li>
-                  <li class="tech eslint">ESlint</li>
-                  <li class="tech tailwind">Tailwind</li>
-                </ul>
-        
-                <article class="project__description">
-                  E-commerce admin page, this project has a dashboard and it is a CRUD to manage the e-commerce build with React and Next. The interface was build usign Tailwind UI to focus the development on the functionallity. The CRUD was manage usign this <a href="https://api.escuelajs.co/docs/">API</a>.
-                </article>
-        
-                <div class="project__buttons">
-                  <a class="primary-button" target="_blank" href="https://admin-shop-k25o8jkvb-monoald.vercel.app/">
-                    Open Project
-                  </a>
-        
-                  <a class="primary-button" target="_blank" href="https://github.com/monoald/admin-shop">
-                    Repository</a>
-                </div>
-              </div>
-            </div>
-          </div> 
-  
-          <div class="project-background">
-            <div class="project">
-                <picture class="project__banner">
-                  <source media="(max-width:688px)" srcset="./assets/images/e-commerce-sm.webp" width="280" height="172">
-                  <source media="(min-width: 688px)" srcset="./assets/images/e-commerce-md.webp" width="400" height="246">
-                  <img src="./assets/images/e-commerce-md.webp" 
-                  alt="Image of an e-commerce build by Carlos S. Aldazosa">
-              </picture>
-              
-              <div class="project__data">
-                <h3 class="project__title">Next Shop</h3>
-  
-                <p class="project__subtitle">Build with:</p>
-        
-                <ul class="project__technologies">
-                  <li class="tech sass">SASS</li>
-                  <li class="tech js">JavaScript</li>
-                  <li class="tech react">React</li>
-                  <li class="tech next-js">Next</li>
-                  <li class="tech eslint">ESlint</li>
-                </ul>
-        
-                <article class="project__description">
-                  E-commerce made with Next JS, this is a <strong>migration</strong> of this <a href="https://github.com/monoald/react-shop">project</a> build with React JS. Improving the performance with Server-Side-Rendering.
-                </article>
-        
-                <div class="project__buttons">
-                  <a class="primary-button" target="_blank" href="https://next-react-shop.vercel.app/">
-                    Open Project
-                  </a>
-        
-                  <a class="primary-button" target="_blank" href="https://github.com/monoald/next-react-shop">
-                    Repository</a>
-                </div>
-              </div>
-            </div>
-          </div> 
-  
-          <div class="project-background">
-            <div class="project">
-              <picture class="project__banner">
-                <source media="(max-width:688px)" srcset="./assets/images/e-commerce-sm.webp" width="280" height="172">
-                <source media="(min-width: 688px)" srcset="./assets/images/e-commerce-md.webp" width="400" height="246">
-                <img src="./assets/images/e-commerce-md.webp" 
-                alt="Image of a e-commerce build by Carlos S. Aldazosa">
-              </picture>
-              
-              <div class="project__data">
-                <h3 class="project__title">React Shop</h3>
-  
-                <p class="project__subtitle">Build with:</p>
-        
-                <ul class="project__technologies">
-                  <li class="tech css">CSS</li>
-                  <li class="tech js">JavaScript</li>
-                  <li class="tech react">React</li>
-                  <li class="tech webpack">Webpack</li>
-                </ul>
-        
-                <article class="project__description">
-                  E-commerce made with React JS, minified with Webpack and transpiled with Babel for a great browser compatibility. In this project I learn how state and context works to manage my components and send information across them. Products were request from and <a href="https://api.escuelajs.co/docs/">API</a>.
-                </article>
-        
-                <div class="project__buttons">
-                  <a class="primary-button" target="_blank" href="https://react-shop-monoald.netlify.app/">
-                    Open Project
-                  </a>
-        
-                  <a class="primary-button" target="_blank" href="https://github.com/monoald/react-shop">
-                    Repository</a>
-                </div>
-              </div>
-            </div>
-          </div> 
-  
-          <div class="project-background">
-            <div class="project">
-              <picture class="project__banner">
-                <source media="(max-width:688px)" srcset="./assets/images/pokedex-sm.webp" width="280" height="172">
-                <source media="(min-width: 688px)" srcset="./assets/images/pokedex-md.webp" width="400" height="246">
-                <img src="./assets/images/pokedex-md.webp" 
-                alt="Image of a pokedex build by Carlos S. Aldazosa" >
-              </picture>
-              
-              <div class="project__data">
-                <h3 class="project__title">Pokedex</h3>
-  
-                <p class="project__subtitle">Build with:</p>
-        
-                <ul class="project__technologies">
-                  <li class="tech html">HTML</li>
-                  <li class="tech css">CSS</li>
-                  <li class="tech js">JavaScript</li>
-                </ul>
-        
-                <article class="project__description">
-                  Pokedex build using the
-                  <a target="_blank" href="https://pokeapi.co/docs/v2">Poke API</a>.
-                  You can see every pokemon of each region and filter them by type, see pokemon stats and their evolutions. Also you can check the moves and see what pokemon can learn it.
-                </article>
-        
-                <div class="project__buttons">
-                  <a class="primary-button" target="_blank" href="https://monoald.github.io/pokedex/">
-                    Open Project
-                  </a>
-        
-                  <a class="primary-button" target="_blank" href="https://github.com/monoald/pokedex">
-                    Repository</a>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <div class="project-background">
-            <div class="project">
-              <picture class="project__banner">
-                <source media="(max-width:688px)" srcset="./assets/images/batatabit-lp-sm.webp" width="280" height="172">
-                <source media="(min-width: 688px)" srcset="./assets/images/batatabit-lp-md.webp" width="400" height="246">
-                <img src="./assets/images/batatabit-lp-md.webp" 
-                alt="Image of a crypto exchange build by Carlos S. Aldazosa">
-              </picture>
-              
-              <div class="project__data">
-                <h3 class="project__title">Batatabit Landing Page</h3>
-                
-                <p class="project__subtitle">Build with:</p>
-  
-                <ul class="project__technologies">
-                  <li class="tech html">HTML</li>
-                  <li class="tech css">CSS</li>
-                  <li class="tech js">JavaScript</li>
-                </ul>
-        
-                <article class="project__description">
-                  Landing Page of a crypto exchange, build using the design system mobile first, using a <a href="https://www.figma.com/file/sMmlQaZldfDcLERYYWe6h4/Bata-Bit?node-id=81%3A132">desing</a> build in figma.
-                </article>
-        
-                <div class="project__buttons">
-                  <a class="primary-button" target="_blank" href="https://monoald.github.io/bata-bit/">
-                    Open Project
-                  </a>
-        
-                  <a class="primary-button" target="_blank" href="https://github.com/monoald/bata-bit">
-                    Repository</a>
-                </div>
-              </div>
-            </div>
-          </div> 
+          
+            <div class="project__data">
+              <h3 class="project__title">Pokedex</h3>
+
+              <p class="project__tech">
+                <b>Technologies:</b> HTML, CSS and JavaScript
+              </p>
       
-          <div class="project-background">
-            <div class="project">
-              <picture class="project__banner">
-                <source media="(max-width:688px)" srcset="./assets/images/restaurant-lp-sm.webp" width="280" height="172">
-                <source media="(min-width: 688px)" srcset="./assets/images/restaurant-lp-md.webp" width="400" height="246">
-                <img src="./assets/images/restaurant-lp-md.webp" 
-                alt="Image of a restaurant landing page build by Carlos S. Aldazosa">
-              </picture>
-              
-              <div class="project__data">
-                <h3 class="project__title">Restaurant Landing Page</h3>
-  
-                <p class="project__subtitle">Build with:</p>
-        
-                <ul class="project__technologies">
-                  <li class="tech html">HTML</li>
-                  <li class="tech css">CSS</li>
-                  <li class="tech js">JavaScript</li>
-                </ul>
-        
-                <article class="project__description">
-                  Layout created with CSS Grid to make easier and smooth transitions through different screen sizes
-                </article>
-        
-                <div class="project__buttons">
-                  <a class="primary-button" target="_blank" href="https://monoald.github.io/restaurant-landing-page/">
-                    Open Project
-                  </a>
-        
-                  <a class="primary-button" target="_blank" href="https://github.com/monoald/restaurant-landing-page">
-                    Repository</a>
-                </div>
+              <article class="project__description">
+                Pokedex built using the Poke API. You can see every pokemon of each region, and filter them by type, see pokemon stats and their evolutions. Also, you can check the moves and see what pokemon can learn it. It uses the native fetch method to make asynchronous requests to the API.
+              </article>
+      
+              <div class="project__buttons">
+                <a class="primary-button" target="_blank" href="https://monoald.github.io/pokedex/">
+                  Open Project
+                </a>
+      
+                <a class="primary-button" target="_blank" href="https://github.com/monoald/pokedex">
+                  Repository</a>
               </div>
             </div>
           </div>
+
         </div>
-      </section> -->
+      </section>
   
       <section class="section">
         <div class="form-container">
@@ -569,6 +324,7 @@
 
   <script src="./utils/setTheme.js"></script>
   <script src="./utils/openPdf.js"></script>
+  <script type="module" src="./utils/projectsSelect.js"></script>
   <script type="module" src="./main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
