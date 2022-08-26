@@ -68,6 +68,7 @@ body {
 .like-dislike,
 .share {
   display: flex;
+  align-items: center;
   gap: var(--spacing-unit-x3);
 }
 .like-dislike .like--active,
@@ -79,7 +80,7 @@ body {
 .dislike {
   border: none;
   font-size: var(--font-xxl);
-  color: var(--secondary-alter);
+  color: var(--tertiary);
   background-color: transparent;
   cursor: pointer;
 }

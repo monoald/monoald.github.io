@@ -1,11 +1,16 @@
 .main {
+  max-width: 1440px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, min-content);
+  margin: 0 auto;
 }
 .aside {
   margin: 0 0 auto;
   padding: var(--spacing-unit-x2);
+}
+.main-content {
+  width: 100%;
 }
 /*----Aside----*/
 .aside {
@@ -23,7 +28,8 @@
   background-image: url('./../assets/images/profile-picture.jpg');
   background-size: cover;
 }
-.contact__title {
+.contact__title,
+.cv__title {
   font-size: var(--font-m);
   text-align: center;
   color: var(--tertiary);
@@ -48,9 +54,6 @@
 }
 .twitter {
   background-image: url('./../assets/icons/twitter.svg');
-}
-.main-content {
-  width: 100%;
 }
 /*----ABout----*/
 .text {
@@ -167,6 +170,9 @@
   color: var(--secondary-alter);
   opacity: 1;
 }
+.contact .primary-button {
+  margin: auto;
+}
 /*----Modal----*/
 .section {
   position: relative;
@@ -201,4 +207,10 @@
 }
 .modal__title {
   font-size: var(--font-m);
+}
+/*----CV----*/
+.cv {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-unit-x2);
 }

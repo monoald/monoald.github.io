@@ -58,20 +58,40 @@
       <h2 class="contact__title">SOCIAL MEDIA</h2>
       <ul class="social-media">
         <li class="social-media__item" >
-          <a aria-label="Linkedin Page" class="social-media__link linkedin" href="https://www.linkedin.com/in/carlos-sanjines-aldazosa/">
+          <a aria-label="Linkedin Page" class="social-media__link linkedin" href="https://www.linkedin.com/in/carlos-sanjines-aldazosa/" target="_blank">
           </a>
         </li>
 
         <li class="social-media__item" >
-          <a aria-label="Github Page" class="social-media__link github" href="https://github.com/monoald">
+          <a aria-label="Github Page" class="social-media__link github" href="https://github.com/monoald" target="_blank">
           </a>
         </li>
 
         <li class="social-media__item" >
-          <a aria-label="Twitter Page" class="social-media__link twitter" href="https://twitter.com/monoald">
+          <a aria-label="Twitter Page" class="social-media__link twitter" href="https://twitter.com/monoald" target="_blank">
           </a>
         </li>
       </ul>
+
+      <section class="cv" id="cv">
+        <h2 class="cv__title">CV</h2>
+        <a
+          href="./assets/files/Frontend_Developer_Carlos_Sanjines_Aldazosa_CV.pdf"
+          class="secondary-button"
+          id="cv-english"
+          download="Frontend_Developer_Carlos_Sanjines_Aldazosa_CV"
+        >
+          CV English
+        </a>
+        <a 
+          href="./assets/files/Desarrollador_Frontend_Carlos_Sanjines_Aldazosa_CV.pdf" 
+          class="secondary-button"
+          id="cv-espanol"
+          download="Desarrollador_Frontend_Carlos_Sanjines_Aldazosa_CV"
+        >
+          CV Espanol
+        </a>
+      </section>
     </aside>
 
     <div class="main-content">
@@ -150,6 +170,10 @@
             
             <div class="project__data">
               <h3 class="project__title">Real Estate SPA</h3>
+
+              <p class="project__tech">
+                <b>Technologies:</b> CSS, JavaScript, React JS, Webpack
+              </p>
 
               <!-- <p class="project__subtitle">Build with:</p> -->
       
@@ -474,7 +498,7 @@
               <textarea name="message" id="message" class="item__input" placeholder="Message..." required></textarea>
             </div>
   
-            <input type="submit" id="submit" class="secondary-button" value="Send">
+            <input type="submit" id="submit" class="primary-button" value="Send">
           </form>
   
           <dialog id="form-success" class="modal succesful">
@@ -506,19 +530,19 @@
 
   <footer class="footer">
     <div class="footer-container">
-      <ul class="list">
-        <li class="list__item" >
-          <a aria-label="Linkedin Page" class="list__link linkedin" href="https://www.linkedin.com/in/carlos-sanjines-aldazosa/">
+      <ul class="social-media">
+        <li class="social-media__item" >
+          <a aria-label="Linkedin Page" class="social-media__link linkedin" href="https://www.linkedin.com/in/carlos-sanjines-aldazosa/">
           </a>
         </li>
 
-        <li class="list__item" >
-          <a aria-label="Github Page" class="list__link github" href="https://github.com/monoald">
+        <li class="social-media__item" >
+          <a aria-label="Github Page" class="social-media__link github" href="https://github.com/monoald">
           </a>
         </li>
 
-        <li class="list__item" >
-          <a aria-label="Twitter Page" class="list__link twitter" href="https://twitter.com/monoald">
+        <li class="social-media__item" >
+          <a aria-label="Twitter Page" class="social-media__link twitter" href="https://twitter.com/monoald">
           </a>
         </li>
       </ul>
@@ -544,6 +568,7 @@
   </footer>
 
   <script src="./utils/setTheme.js"></script>
+  <script src="./utils/openPdf.js"></script>
   <script type="module" src="./main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
