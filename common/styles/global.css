@@ -86,7 +86,7 @@ body::-webkit-scrollbar-thumb:hover {
   color: var(--secondary);
 }
 .logo {
-  width: auto;
+  width: fit-content;
   font-size: var(--font-xl);
   font-weight: 700;
   text-decoration: none;
