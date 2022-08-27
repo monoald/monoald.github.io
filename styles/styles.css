@@ -218,3 +218,15 @@
   flex-direction: column;
   gap: var(--spacing-unit-x2);
 }
+.cv__icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+}
+.usa {
+  background-image: url('../assets/icons/united-states.svg');
+}
+.spain {
+  background-image: url('../assets/icons/spain.svg');
+}
