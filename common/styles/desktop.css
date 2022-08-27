@@ -42,3 +42,11 @@
 .project__description {
   padding: 0 var(--spacing-unit-x4);
 }
+/*----Buttons----*/
+.primary-button {
+  transition: all .3s cubic-bezier(0,0,.5,1);
+}
+.primary-button:hover,
+.primary-button:focus {
+  transform: scale3d(1.07,1.07,1.07);
+}

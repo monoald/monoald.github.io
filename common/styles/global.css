@@ -225,7 +225,8 @@ body::-webkit-scrollbar-thumb:hover {
   color: var(--tertiary);
   background-color: transparent;
 }
-.secondary-button:hover {
+.secondary-button:hover,
+.secondary-button:focus {
   background-color: var(--tertiary);
   color: var(--primary);
 }
