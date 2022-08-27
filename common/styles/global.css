@@ -211,9 +211,14 @@ body::-webkit-scrollbar-thumb:hover {
   box-shadow: 2px 4px 0px var(--button-primary-shodw);
 }
 .secondary-button {
-  padding: var(--spacing-unit-half) var(--spacing-unit-x2);
+  width: 120px;
+  height: 38px;
+  padding: var(--spacing-unit-half) var(--spacing-unit);
   border: 1px solid var(--tertiary);
   border-radius: 4px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   font-size: var(--font-s);
   font-weight: 600;
   text-decoration: none;
