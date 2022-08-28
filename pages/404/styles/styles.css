@@ -1,18 +1,17 @@
 .container {
   width: 90%;
   max-width: 800px;
-  height: calc(100vh - 88px);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: var(--spacing-unit-x2);
 }
 .container .image {
-  width: 200px;
-  height: 200px;
-  background-image: url('../../../assets/icons/404.png');
+  width: 260px;
+  height: 260px;
+  background-image: url('../../../assets/images/404.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -28,8 +27,11 @@
 }
 
 @media (min-width: 688px) {
+  .container {
+    padding: var(--spacing-unit);
+  }
   .container .image {
-    width: 400px;
-    height: 400px;
+    width: 360px;
+    height: 360px;
   }
 }
