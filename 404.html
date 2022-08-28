@@ -6,53 +6,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index,follow">
   <meta name="description" content="JavaScript State 2022">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg" href="../../assets/icons/image2vector+(1).svg">
-  <link rel="stylesheet" href="./assets/icons/style.css">
-  <link rel="stylesheet" href="./common/styles/global.css">
-  <link rel="stylesheet" href="./common/styles/tablet.css" media="(min-width: 688px)">
-  <link rel="stylesheet" href="./common/styles/desktop.css" media="(min-width: 1012px)">
-  <link rel="stylesheet" href="./pages/404/styles/styles.css">
   <title>404</title>
+  <style>
+    :root {
+      --primary: #0B0C11;
+      --secondary: #d9dce8;
+      --tertiary: #F75C03;
+      --font-s: 1.6rem;
+      --font-l: 2rem;
+      --spacing-unit: 8px;
+      --spacing-unit-half: 4px;
+      --spacing-unit-x2: 16px;
+      --spacing-unit-x4: 32px;
+    }
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    html {
+      font-size: 62.5%;
+      font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";
+    }
+    .main {
+      height: 100vh;
+      display: grid;
+      place-items: center;
+      background-color: var(--primary);
+    }
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-unit-x2);
+    }
+    .container .image {
+      width: 260px;
+      height: 260px;
+      background-image: url('https://github.com/monoald/monoald.github.io/blob/main/assets/images/404.png?raw=true');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    .container .title {
+      width: fit-content;
+      font-size: 5.8rem;
+      color: var(--tertiary);
+    }
+    .container .message {
+      font-size: var(--font-l);
+      text-align: center;
+      color: var(--secondary);
+    }
+    .secondary-button {
+      width: 120px;
+      height: 38px;
+      margin: var(--spacing-unit-x4) 0;
+      padding: var(--spacing-unit-half) var(--spacing-unit);
+      border: 1px solid var(--tertiary);
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      font-size: var(--font-s);
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--tertiary);
+      background-color: transparent;
+    }
+    .secondary-button:hover,
+    .secondary-button:focus {
+      background-color: var(--tertiary);
+      color: var(--primary);
+    }
+    @media (min-width: 688px) {
+      .container {
+        padding: var(--spacing-unit);
+      }
+      .container .image {
+        width: 320px;
+        height: 320px;
+      }
+}
+  </style>
 </head>
 <body>
-  <header class="header">
-    <a href="./" class="logo">Carlos S. Aldazosa</a>
-
-    <nav class="navbar">
-      <button id="menu-icon" aria-label="button to show menu" class="menu icon-menu"></button>
-      
-      <div id="menu" class="menu-float">
-        <div class="menu-float__head">
-          <h3 class="menu-float__title">Menu</h3>
-          <div class="menu-float__icons">
-            <button aria-label="change theme" id="theme" class="icon icon-moon"></button>
-            <button id="menu-close" class="menu-close icon icon-cross"></button>
-          </div>
-        </div>
-        
-        <ul class="navbar-list">
-          <li class="navbar-list__item">
-            <a href="./pages/blog/" class="navbar-list__link">
-              <span class="icon-blog"></span>
-              Blog
-            </a>
-          </li>
-  
-          <li class="navbar-list__item">
-            <a href="./" class="navbar-list__link">
-              <span class="icon-computer"></span>
-              Portfolio
-            </a>
-          </li>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  
   <main class="main">
     <div class="container">
       <div class="image"></div>
@@ -61,48 +104,9 @@
       
       <p class="message">Well, this is embarrasing. <br> I can't find the page you are lookin for, <br> click below while I clean the mess</p>
 
-      <a href="./" class="secondary-button" focus="true">Back to home</a>
+      <a href="https://monoald.github.io/" class="secondary-button" focus="true">Back to home</a>
     </div>
   </main>
-
-  <footer class="footer">
-    <div class="footer-container">
-      <ul class="social-media">
-        <li class="social-media__item" >
-          <a aria-label="Linkedin Page" class="social-media__link linkedin" href="https://www.linkedin.com/in/carlos-sanjines-aldazosa/">
-          </a>
-        </li>
-
-        <li class="social-media__item" >
-          <a aria-label="Github Page" class="social-media__link github" href="https://github.com/monoald">
-          </a>
-        </li>
-
-        <li class="social-media__item" >
-          <a aria-label="Twitter Page" class="social-media__link twitter" href="https://twitter.com/monoald">
-          </a>
-        </li>
-      </ul>
-
-      <a href="./" class="logo">Carlos S. Aldazosa</a>
-
-      <p class="greetings">Thanks for your visit!</p>
-    
-      <ul class="menu-list">
-        <li class="menu-list__title">General</li>
-
-        <li class="menu-list__item">
-          <a href="./pages/blog/" class="menu-list__link">Blog</a>
-        </li>
-
-        <li class="menu-list__item">
-          <a href="./" class="menu-list__link">Portfolio</a>
-        </li>
-      </ul>
-      
-      <p class="license">© 2022 Carlos S. Aldazosa - All Rights Reserved.</p>
-    </div>
-  </footer>
 
   <script src="./utils/setTheme.js"></script>
   <script type="module" src="./main.js"></script>
