@@ -1,5 +1,5 @@
-import clipboardLink from "../../utils/clipboardLink.js";
-import toggleModal from "../../utils/toggleModal.js";
+import clipboardLink from "../../../utils/clipboardLink.js";
+import toggleModal from "../../../utils/toggleModal.js";
 
 const like = document.querySelector('#like');
 const likeIcon = document.querySelector('#icon-like');

@@ -341,6 +341,9 @@ body::-webkit-scrollbar-thumb:hover {
 .footer .greetings {
   font-size: var(--font-m);
 }
+.footer .logo {
+  margin: 0 auto;
+}
 .footer .list{
   height: 40px;
   display: flex;
