@@ -98,7 +98,7 @@
           href="./assets/files/Frontend_Developer_Carlos_Sanjines_Aldazosa_CV.pdf"
           class="secondary-button"
           id="cv-english"
-          download="Frontend_Developer_Carlos_Sanjines_Aldazosa_CV"
+          target="_blank"
         >
           English <i class="cv__icon usa"></i>
         </a>
@@ -106,7 +106,7 @@
           href="./assets/files/Desarrollador_Frontend_Carlos_Sanjines_Aldazosa_CV.pdf" 
           class="secondary-button"
           id="cv-espanol"
-          download="Desarrollador_Frontend_Carlos_Sanjines_Aldazosa_CV"
+          target="_blank"
         >
           Español <i class="cv__icon spain"></i>
         </a>
@@ -346,16 +346,14 @@
   </footer>
 
   <script src="./utils/setTheme.js"></script>
-  <script src="./utils/openPdf.js"></script>
-  <script type="module" src="./utils/projectsSelect.js"></script>
   <script type="module" src="./main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-        (function() {
-            // https://dashboard.emailjs.com/admin/account
-            emailjs.init('kJTLdpz6P0uu9UyjB');
-        })();
-    </script>
+  <script>
+      (function() {
+          // https://dashboard.emailjs.com/admin/account
+          emailjs.init('kJTLdpz6P0uu9UyjB');
+      })();
+  </script>
   <script type="module" src="./utils/sendEmail.js"></script>
 </body>
 </html>
