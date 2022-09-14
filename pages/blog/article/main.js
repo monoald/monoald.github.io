@@ -1,27 +1,18 @@
 import clipboardLink from "../../../utils/clipboardLink.js";
 import toggleModal from "../../../utils/toggleModal.js";
+import display from '../../../utils/display.js';
 
-const like = document.querySelector('#like');
-const likeIcon = document.querySelector('#icon-like');
-const dislike = document.querySelector('#dislike');
-const dislikeIcon = document.querySelector('#icon-dislike')
-like.addEventListener('click', () => {
-  if (document.querySelector('.icon-dislike-fill')) {
-    dislikeIcon.classList.toggle('icon-dislike');
-    dislikeIcon.classList.toggle('icon-dislike-fill')
-  }
-    likeIcon.classList.toggle('icon-heart');
-    likeIcon.classList.toggle('icon-heart-fill')
-  
+// Toggle Menu
+const menu = document.getElementById('menu');
+const menuClass = menu.className;
+const menuIcon = document.getElementById('menu-icon');
+const menuClose = document.getElementById('menu-close')
+
+menuIcon.addEventListener('click', () => { 
+  display(menu, menuClass);
 });
-dislike.addEventListener('click', () => {
-  if (document.querySelector('.icon-heart-fill')) {
-    likeIcon.classList.toggle('icon-heart');
-    likeIcon.classList.toggle('icon-heart-fill')
-  }
-    dislikeIcon.classList.toggle('icon-dislike');
-    dislikeIcon.classList.toggle('icon-dislike-fill')
-  
+menuClose.addEventListener('click', () => { 
+  display(menu, menuClass);
 });
 
 const clipIcon = document.querySelector('#clip-icon');
