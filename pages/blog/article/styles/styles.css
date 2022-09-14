@@ -99,7 +99,7 @@ body {
   padding: 0 var(--spacing-unit);
 }
 .article__header .article__title{
-  /* margin: var(--spacing-unit-x2) 0 var(--spacing-unit-x3); */
+  margin: var(--spacing-unit-x2) 0 var(--spacing-unit-x3);
   font-size: var(--font-xl);
   font-weight: 600;
   color: var(--tertiary);
@@ -193,4 +193,6 @@ body {
 .social-media__link {
   width: 30px;
   height: 30px;
+  border: none;
+  background-color: transparent;
 }

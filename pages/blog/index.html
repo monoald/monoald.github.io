@@ -51,17 +51,31 @@
   </header>
 
   <main class="main">
-    <div class="container">
-      <div class="image"></div>
+    <section class="recent-articles container">
+      <h2 class="subtitle">ARTICLES</h2>
 
-      <h1 class="title">Under Construction</h1>
-      
-      <p class="message">
-        This page isn't full coded yet, you can try later.
-      </p>
+      <div class="articles-container">
+        <article class="article">
+          <div class="tag-section">
+            <h3 class="tag-title">Tags:</h3>
+            <ul class="article__tags" aria-label="Tags">
+              <li class="tag js">JavaScript</li>
+              <li class="tag html">HTML</li>
+            </ul>
+          </div>
+          
+          <p class="article__info">September 13th - 14 min read</p>
+          <h4 class="article__title">Understanding Event Propagation</h4>
+    
+          <p class="article__preview">
+            Event propagation is a DOM mechanism that triggers the ancestor's events of the target event. It will have a different execution order depending on the propagation type. 
+          </p>
+    
+          <a href="./article/" class="primary-button">Read <i class="icon-arrow-right"></i></a>
+        </article>
+      </div>
+    </section>
 
-      <a href="../../" class="secondary-button" focus="true">Back to home</a>
-    </div>
   </main>
 
   <footer class="footer">
