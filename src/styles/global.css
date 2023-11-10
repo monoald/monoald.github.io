@@ -1,9 +1,3 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-
 html {
 	--primary: rgb(9 11 21);
 	--secondary: rgb(194 198 218);
@@ -109,7 +103,6 @@ main {
 	max-width: calc(100% - 2em);
 	margin: auto;
 	padding: 3em 1em;
-	/* background-image: url('../images/nnnoise.svg'); */
 	color: var(--secondary);
 }
 h1,
@@ -198,6 +191,24 @@ hr {
 		padding: 1em;
 	}
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background: var(--primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-variation);
+  border-radius: 10px;
+  border: 3px solid var(--primary);
+}
+::-webkit-scrollbar-thumb:hover {
+	background: var(--secondary);
+}
+::-webkit-scrollbar-corner {
+  display: none;
+}
+
 
 .sr-only {
 	border: 0;

@@ -4,55 +4,91 @@ import { SITE_TITLE } from '../consts';
 ---
 
 <header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="header__nav">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-		</div>
+	<nav class='header__nav'>
+		<h2 class="logo"><a href='/'>{SITE_TITLE}</a></h2>
+
+		<ul>
+			<HeaderLink href='/'>Portfolio</HeaderLink>
+			<HeaderLink href='/blog'>Blog</HeaderLink>
+		</ul>
 	</nav>
 </header>
 <style>
 	header {
 		position: sticky;
 		top: 0;
+		height: 3.4em;
 		margin: 0;
-		padding: 0.5em 1em;
+		padding: 0em 1em;
 		border-bottom: 1px solid var(--secondary-variation);
+		display: flex;
+		background: rgb(9, 11, 21, 0.5);
 		backdrop-filter: blur(10px);
-	}
-	h2 {
-		margin: 0;
-		font-size: 0.9em;
-	}
-
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
+		z-index: 1;
 	}
 	.header__nav {
-		font-size: 1.15rem;
-	}
-	nav {
+		width: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 	}
-	nav a {
-		padding: 0.5em 0.5em;
+	.header__nav ul {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		font-size: 1.15rem;
+		list-style: none;
+	}
+	.logo {
+		margin: 0;
+		font-size: 1.2em;
+	}
+	.logo a {
+		text-decoration: none;
 		color: var(--secondary);
-		border-bottom: 4px solid transparent;
+	}
+	.header__nav a {
+		padding: 0.5em 1em;
+		color: var(--secondary);
 		text-decoration: none;
 	}
-	.header__nav,
-	.header__nav a {
-		display: flex;
-		gap: 20px;
+	.header__nav [aria-current='page'] {
+		position: relative;
+		/* color: #059D8A; */
+		font-weight: 500;
 	}
-	@media (max-width: 720px) {
-		.header__nav {
-			display: none;
+	.header__nav [aria-current='page']::before {
+		content: '';
+		position: absolute;
+		top: 0; bottom: 0;
+		left: 0; right: 0;
+		border: 1px solid var(--secondary-variation);
+		border-radius: 22px;
+		backdrop-filter: blur(16px);
+		z-index: -1;
+	}
+	.header__nav [aria-current='page']::after {
+		content: '';
+		position: absolute;
+		top: 0; bottom: 0;
+		left: 0; right: 0;
+		border: 1px solid rgba(5, 157, 138, 0.5);
+		border-radius: 22px;
+		z-index: -2;
+	}
+	.header__nav [aria-current='page']:focus-visible {
+		outline: 2px solid var(--secondary);
+		border-radius: 4px;
+	}
+	@media (min-width: 720px) {
+		header {
+			padding-inline: 2em;
+		}
+		.header__nav ul {
+			gap: 30px;
 		}
 	}
 </style>

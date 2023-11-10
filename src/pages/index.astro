@@ -4,17 +4,6 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION, frontSkills, backSkills } from '../consts';
-// import html from "../icons/html5.svg";
-// import css from "../icons/css.svg";
-// import javaScript from "../icons/javascript.svg";
-// import typeScript from "../icons/typescript.svg";
-// import tailwind from "../icons/tailwindcss.svg";
-// import react from "../icons/react.svg";
-// import redux from "../icons/redux.svg";
-// import next from "../icons/nextjs.svg";
-// import astro from "../icons/astro.svg"
-
-
 ---
 
 <!doctype html>
@@ -22,16 +11,47 @@ import { SITE_TITLE, SITE_DESCRIPTION, frontSkills, backSkills } from '../consts
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
+			.glow1 {
+				position: absolute;
+				top: 150px;
+				left: 50px;
+				width: 0px;
+				height: 0px;
+				box-shadow:
+					0 0 40px 8px #efefef,
+					0 0 70px 16px #f0f,
+					0 0 100px 24px #0ff;
+				z-index: -1;
+			}
+			.glow2 {
+				position: absolute;
+				bottom: 200px;
+				right: 50px;
+				width: 0px;
+				height: 0px;
+				box-shadow:
+					0 0 30px 6px #fff,
+					0 0 60px 12px #f0f,
+					0 0 80px 18px #0ff;
+				z-index: -1;
+			}
+			.portfolio {
+				padding: 0;
+			}
 			.home {
-				height: 30em;
+				position: relative;
+				height: calc(100vh - 3.6em);
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
 			}
 			.title {
+				display: flex;
+				flex-direction: column;
+				gap: 0.5em;
 				text-align: center;
-				text-wrap: wrap;
+				text-wrap: pretty;
 			}
 			.title h2 {
 				color: var(--secondary);
@@ -41,7 +61,7 @@ import { SITE_TITLE, SITE_DESCRIPTION, frontSkills, backSkills } from '../consts
 				font-size: 2.5rem;
 				color: var(--secondary);
 			}
-			.title h3 span {
+			.title h3 {
 				background: linear-gradient(90deg, #03df41 0%, #0835fc 100%);
 				background-size: 200%;
 				-webkit-background-clip: text;
@@ -50,32 +70,37 @@ import { SITE_TITLE, SITE_DESCRIPTION, frontSkills, backSkills } from '../consts
 				-moz-text-fill-color: transparent;
 				animation: horizontal 5s linear infinite;
 			}
+			.title p {
+				margin-top: 1.5em;
+				font-size: 1em;
+			}
 			.skills {
 				display: flex;
-				margin-top: 3em;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				gap: 3em;
 			}
 			.skills__container {
-				width: 50%;
+				/* width: 50%;
+				padding: 0 2em; */
 				text-align: center;
-				padding: 0 2em;
 			}
 			.skills ul {
+				padding: 0.8em 1em;
 				display: flex;
 				flex-wrap: wrap;
-				gap: 1em;
+				justify-content: center;
+				gap: 1.5em;
 				list-style: none;
-				padding: 0;
 			}
 			.skills h3 {
-				color: hsl(240, 84%, 66%);
-				color: hsl(65, 85%, 54%);
-				color:  #03df9d;
+				color: #059D8A;
 			}
 			.skill {
 				position: relative;
-				width: 4em;
-				height: 4em;
-				background-color: rgba(50, 50, 50, 0.1);
+				width: 3.3em;
+				height: 3.3em;
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -84,8 +109,8 @@ import { SITE_TITLE, SITE_DESCRIPTION, frontSkills, backSkills } from '../consts
 			.skill::after {
 				content: "";
 				position: absolute;
-				width: 40px;
-				height: 40px;
+				width: 25px;
+				height: 25px;
 				border-radius: 50%;
 				background: var(--background-dif);
 				z-index: -2;
@@ -98,7 +123,7 @@ import { SITE_TITLE, SITE_DESCRIPTION, frontSkills, backSkills } from '../consts
 				border: 1px solid var(--secondary-variation);
 				border-radius: 1em;
 				overflow: none;
-				backdrop-filter: blur(13px);
+				backdrop-filter: blur(20px);
 				z-index: -1;
 			}
 
@@ -126,35 +151,42 @@ import { SITE_TITLE, SITE_DESCRIPTION, frontSkills, backSkills } from '../consts
 	</head>
 	<body>
 		<Header title={SITE_TITLE} />
-		<main>
+		<main class="portfolio">
 			<section class="home">
-				<div class="title">
+				<span class="glow1"/>
+				<span class="glow2"/>
+				<article class="title">
 					<h2>Carlos S. Aldazosa</h2>
 					<h3>Software Engineer & <span>Bug Exterminator</span></h3>
+
+					<p>
+						Web developer with hands on front-end, backend and mobile development.
+						Always learning about new paradigms and technologies to apply right solution in the right place.
+					</p>
+				</article>
+			</section>
+
+			<section class="skills">
+				<div class="skills__container">
+					<h3>Front-end</h3>
+					<ul>
+					{ frontSkills.map(skill => (
+						<li class="skill" style={{ '--background-dif': skill.color }}>
+							<Image src={skill.icon} alt={`Icon of ${skill.name}`} width={30} height={30} />
+						</li>
+					))}
+					</ul>
 				</div>
 
-				<div class="skills">
-					<div class="skills__container">
-						<h3>Front-end</h3>
-						<ul>
-						{ frontSkills.map(skill => (
+				<div class="skills__container">
+					<h3>Backend</h3>
+					<ul>
+						{ backSkills.map(skill => (
 							<li class="skill" style={{ '--background-dif': skill.color }}>
-								<Image src={skill.icon} alt={`Icon of ${skill.name}`} width={35} height={35} />
+								<Image src={skill.icon} alt={`Icon of ${skill.name}`} width={30} height={30} />
 							</li>
 						))}
-						</ul>
-					</div>
-
-					<div class="skills__container">
-						<h3>Backend</h3>
-						<ul>
-							{ backSkills.map(skill => (
-								<li class="skill" style={{ '--background-dif': skill.color }}>
-									<Image src={skill.icon} alt={`Icon of ${skill.name}`} width={35} height={35} />
-								</li>
-							))}
-						</ul>
-					</div>
+					</ul>
 				</div>
 			</section>
 		</main>
