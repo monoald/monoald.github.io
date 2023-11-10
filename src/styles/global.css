@@ -4,7 +4,10 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
-:root {
+html {
+	--primary: rgb(9 11 21);
+	--secondary: rgb(194 198 218);
+	--secondary-variation: rgba(194, 198, 218, 0.4);
 	--accent: #2337ff;
 	--accent-dark: #000d8a;
 	--black: 15, 18, 25;
@@ -29,8 +32,64 @@
 	font-style: normal;
 	font-display: swap;
 }
+@font-face {
+	font-family: 'Satoshi';
+	src: url('/fonts/Satoshi-Regular.woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Satoshi';
+	src: url('/fonts/Satoshi-Medium.woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Satoshi';
+	src: url('/fonts/Satoshi-Black.woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Satoshi';
+	src: url('/fonts/Satoshi-Italic.woff');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Switzer';
+	src: url('/fonts/Switzer-Regular.woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Switzer';
+	src: url('/fonts/Switzer-Medium.woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Switzer';
+	src: url('/fonts/Switzer-Bold.woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Switzer';
+	src: url('/fonts/Switzer-Italic.woff');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
 body {
-	font-family: 'Atkinson', sans-serif;
+	font-family: 'Satoshi', sans-serif;
 	margin: 0;
 	padding: 0;
 	text-align: left;
@@ -41,12 +100,17 @@ body {
 	color: rgb(var(--gray-dark));
 	font-size: 20px;
 	line-height: 1.7;
+	background-image: url('../icons/background.svg');
+	background-repeat: repeat;
+	background-size: cover;
 }
 main {
-	width: 720px;
+	width: 820px;
 	max-width: calc(100% - 2em);
 	margin: auto;
 	padding: 3em 1em;
+	/* background-image: url('../images/nnnoise.svg'); */
+	color: var(--secondary);
 }
 h1,
 h2,

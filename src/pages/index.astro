@@ -1,49 +1,162 @@
 ---
+import { Image } from "astro:assets";
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION, frontSkills, backSkills } from '../consts';
+// import html from "../icons/html5.svg";
+// import css from "../icons/css.svg";
+// import javaScript from "../icons/javascript.svg";
+// import typeScript from "../icons/typescript.svg";
+// import tailwind from "../icons/tailwindcss.svg";
+// import react from "../icons/react.svg";
+// import redux from "../icons/redux.svg";
+// import next from "../icons/nextjs.svg";
+// import astro from "../icons/astro.svg"
+
+
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			.home {
+				height: 30em;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+			.title {
+				text-align: center;
+				text-wrap: wrap;
+			}
+			.title h2 {
+				color: var(--secondary);
+				font-size: 3.5rem;
+			}
+			.title h3 {
+				font-size: 2.5rem;
+				color: var(--secondary);
+			}
+			.title h3 span {
+				background: linear-gradient(90deg, #03df41 0%, #0835fc 100%);
+				background-size: 200%;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent; 
+				-moz-background-clip: text;
+				-moz-text-fill-color: transparent;
+				animation: horizontal 5s linear infinite;
+			}
+			.skills {
+				display: flex;
+				margin-top: 3em;
+			}
+			.skills__container {
+				width: 50%;
+				text-align: center;
+				padding: 0 2em;
+			}
+			.skills ul {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 1em;
+				list-style: none;
+				padding: 0;
+			}
+			.skills h3 {
+				color: hsl(240, 84%, 66%);
+				color: hsl(65, 85%, 54%);
+				color:  #03df9d;
+			}
+			.skill {
+				position: relative;
+				width: 4em;
+				height: 4em;
+				background-color: rgba(50, 50, 50, 0.1);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				z-index: 0;
+			}
+			.skill::after {
+				content: "";
+				position: absolute;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background: var(--background-dif);
+				z-index: -2;
+			}
+			.skill::before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				border: 1px solid var(--secondary-variation);
+				border-radius: 1em;
+				overflow: none;
+				backdrop-filter: blur(13px);
+				z-index: -1;
+			}
+
+			@keyframes horizontal {
+				0% { background-position: 0% 50% }
+				50% { background-position: 100% 50% }
+				100% { background-position: 0% 50% }
+			}
+			@-o-keyframes horizontal {
+				0% { background-position: 0% 50% }
+				50% { background-position: 100% 50% }
+				100% { background-position: 0% 50% }
+			}
+			@-moz-keyframes horizontal {
+				0% { background-position: 0% 50% }
+				50% { background-position: 100% 50% }
+				100% { background-position: 0% 50% }
+			}
+			@-webkit-keyframes horizontal {
+				0% { background-position: 0% 50% }
+				50% { background-position: 100% 50% }
+				100% { background-position: 0% 50% }
+			}
+		</style>
 	</head>
 	<body>
 		<Header title={SITE_TITLE} />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to
-				build a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like
-				Tailwind, React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/pages/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="home">
+				<div class="title">
+					<h2>Carlos S. Aldazosa</h2>
+					<h3>Software Engineer & <span>Bug Exterminator</span></h3>
+				</div>
+
+				<div class="skills">
+					<div class="skills__container">
+						<h3>Front-end</h3>
+						<ul>
+						{ frontSkills.map(skill => (
+							<li class="skill" style={{ '--background-dif': skill.color }}>
+								<Image src={skill.icon} alt={`Icon of ${skill.name}`} width={35} height={35} />
+							</li>
+						))}
+						</ul>
+					</div>
+
+					<div class="skills__container">
+						<h3>Backend</h3>
+						<ul>
+							{ backSkills.map(skill => (
+								<li class="skill" style={{ '--background-dif': skill.color }}>
+									<Image src={skill.icon} alt={`Icon of ${skill.name}`} width={35} height={35} />
+								</li>
+							))}
+						</ul>
+					</div>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>
