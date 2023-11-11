@@ -3,7 +3,8 @@ import { Image } from "astro:assets";
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION, frontSkills, backSkills } from '../consts';
+import ToolTip from '../components/Tooltip.astro'
+import { SITE_TITLE, SITE_DESCRIPTION, stack } from '../consts';
 ---
 
 <!doctype html>
@@ -38,6 +39,9 @@ import { SITE_TITLE, SITE_DESCRIPTION, frontSkills, backSkills } from '../consts
 			.portfolio {
 				padding: 0;
 			}
+			.portfolio h2 {
+				color: var(--secondary);
+			}
 			.home {
 				position: relative;
 				height: calc(100vh - 3.6em);
@@ -53,15 +57,13 @@ import { SITE_TITLE, SITE_DESCRIPTION, frontSkills, backSkills } from '../consts
 				text-align: center;
 				text-wrap: pretty;
 			}
-			.title h2 {
+			.title h1 {
 				color: var(--secondary);
 				font-size: 3.5rem;
 			}
-			.title h3 {
+			.title h2 {
 				font-size: 2.5rem;
 				color: var(--secondary);
-			}
-			.title h3 {
 				background: linear-gradient(90deg, #03df41 0%, #0835fc 100%);
 				background-size: 200%;
 				-webkit-background-clip: text;
@@ -74,19 +76,13 @@ import { SITE_TITLE, SITE_DESCRIPTION, frontSkills, backSkills } from '../consts
 				margin-top: 1.5em;
 				font-size: 1em;
 			}
-			.skills {
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
-				gap: 3em;
+			.subtitle {
+				margin-bottom: 1em;
 			}
-			.skills__container {
-				/* width: 50%;
-				padding: 0 2em; */
+			.stacks {
 				text-align: center;
 			}
-			.skills ul {
+			.stacks ul {
 				padding: 0.8em 1em;
 				display: flex;
 				flex-wrap: wrap;
@@ -94,19 +90,18 @@ import { SITE_TITLE, SITE_DESCRIPTION, frontSkills, backSkills } from '../consts
 				gap: 1.5em;
 				list-style: none;
 			}
-			.skills h3 {
-				color: #059D8A;
-			}
-			.skill {
+			.stack {
 				position: relative;
 				width: 3.3em;
 				height: 3.3em;
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				z-index: 0;
 			}
-			.skill::after {
+			.stack:hover::before {
+				border-color: var(--background-dif);
+			}
+			.stack::after {
 				content: "";
 				position: absolute;
 				width: 25px;
@@ -115,7 +110,7 @@ import { SITE_TITLE, SITE_DESCRIPTION, frontSkills, backSkills } from '../consts
 				background: var(--background-dif);
 				z-index: -2;
 			}
-			.skill::before {
+			.stack::before {
 				content: "";
 				position: absolute;
 				width: 100%;
@@ -147,6 +142,12 @@ import { SITE_TITLE, SITE_DESCRIPTION, frontSkills, backSkills } from '../consts
 				50% { background-position: 100% 50% }
 				100% { background-position: 0% 50% }
 			}
+
+			@media (min-width: 574px) {
+				.stacks ul {
+					padding: 0;
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -156,8 +157,8 @@ import { SITE_TITLE, SITE_DESCRIPTION, frontSkills, backSkills } from '../consts
 				<span class="glow1"/>
 				<span class="glow2"/>
 				<article class="title">
-					<h2>Carlos S. Aldazosa</h2>
-					<h3>Software Engineer & <span>Bug Exterminator</span></h3>
+					<h1>Carlos S. Aldazosa</h1>
+					<h2>Software Engineer & Bug Exterminator</h2>
 
 					<p>
 						Web developer with hands on front-end, backend and mobile development.
@@ -166,28 +167,16 @@ import { SITE_TITLE, SITE_DESCRIPTION, frontSkills, backSkills } from '../consts
 				</article>
 			</section>
 
-			<section class="skills">
-				<div class="skills__container">
-					<h3>Front-end</h3>
-					<ul>
-					{ frontSkills.map(skill => (
-						<li class="skill" style={{ '--background-dif': skill.color }}>
-							<Image src={skill.icon} alt={`Icon of ${skill.name}`} width={30} height={30} />
+			<section class="stacks">
+				<h2 class="subtitle">Stack</h2>
+				<ul>
+					{ stack.map(stack => (
+						<li class="stack" style={{ '--background-dif': stack.color }} tool-tip>
+							<ToolTip>{stack.name}</ToolTip>
+							<Image src={stack.icon} alt={`Icon of ${stack.name}`} height={32} />
 						</li>
 					))}
-					</ul>
-				</div>
-
-				<div class="skills__container">
-					<h3>Backend</h3>
-					<ul>
-						{ backSkills.map(skill => (
-							<li class="skill" style={{ '--background-dif': skill.color }}>
-								<Image src={skill.icon} alt={`Icon of ${skill.name}`} width={30} height={30} />
-							</li>
-						))}
-					</ul>
-				</div>
+				</ul>
 			</section>
 		</main>
 		<Footer />
