@@ -5,6 +5,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ToolTip from '../components/Tooltip.astro'
 import { SITE_TITLE, SITE_DESCRIPTION, stack } from '../consts';
+import nevoBitLogo from '../icons/nevobit.svg'
 ---
 
 <!doctype html>
@@ -12,32 +13,11 @@ import { SITE_TITLE, SITE_DESCRIPTION, stack } from '../consts';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
-			.glow1 {
-				position: absolute;
-				top: 150px;
-				left: 50px;
-				width: 0px;
-				height: 0px;
-				box-shadow:
-					0 0 40px 8px #efefef,
-					0 0 70px 16px #f0f,
-					0 0 100px 24px #0ff;
-				z-index: -1;
-			}
-			.glow2 {
-				position: absolute;
-				bottom: 200px;
-				right: 50px;
-				width: 0px;
-				height: 0px;
-				box-shadow:
-					0 0 30px 6px #fff,
-					0 0 60px 12px #f0f,
-					0 0 80px 18px #0ff;
-				z-index: -1;
-			}
 			.portfolio {
 				padding: 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
 			}
 			.portfolio h2 {
 				color: var(--secondary);
@@ -53,18 +33,19 @@ import { SITE_TITLE, SITE_DESCRIPTION, stack } from '../consts';
 			.title {
 				display: flex;
 				flex-direction: column;
-				gap: 0.5em;
 				text-align: center;
 				text-wrap: pretty;
 			}
 			.title h1 {
 				color: var(--secondary);
 				font-size: 3.5rem;
+				height: fit-content;
 			}
 			.title h2 {
 				font-size: 2.5rem;
 				color: var(--secondary);
 				background: linear-gradient(90deg, #03df41 0%, #0835fc 100%);
+				background: linear-gradient(90deg, #28eb59 0%, #1b45ff 100%);
 				background-size: 200%;
 				-webkit-background-clip: text;
 				-webkit-text-fill-color: transparent; 
@@ -79,8 +60,17 @@ import { SITE_TITLE, SITE_DESCRIPTION, stack } from '../consts';
 			.subtitle {
 				margin-bottom: 1em;
 			}
-			.stacks {
+			.stacks, .experiences {
 				text-align: center;
+			}
+			.experience {
+				width: 500px;
+				height: 300px;
+				border-radius: 20px;
+				margin: 0 auto;
+			}
+			.experience h3 {
+				font-size: 0px;
 			}
 			.stacks ul {
 				padding: 0.8em 1em;
@@ -99,15 +89,16 @@ import { SITE_TITLE, SITE_DESCRIPTION, stack } from '../consts';
 				align-items: center;
 			}
 			.stack:hover::before {
-				border-color: var(--background-dif);
+				border: 1px solid var(--background-dif);
 			}
 			.stack::after {
 				content: "";
 				position: absolute;
-				width: 25px;
-				height: 25px;
+				width: 5px;
+				height: 5px;
 				border-radius: 50%;
-				background: var(--background-dif);
+				box-shadow:
+					0 0 35px 12px var(--background-dif);
 				z-index: -2;
 			}
 			.stack::before {
@@ -115,10 +106,19 @@ import { SITE_TITLE, SITE_DESCRIPTION, stack } from '../consts';
 				position: absolute;
 				width: 100%;
 				height: 100%;
-				border: 1px solid var(--secondary-variation);
 				border-radius: 1em;
-				overflow: none;
-				backdrop-filter: blur(20px);
+				backdrop-filter: blur(30px);
+				z-index: -1;
+			}
+			.glow {
+				position: absolute;
+				top: 25em;
+				width: 35em;
+				height: 35em;
+				border-radius: 50%;
+				display: block;
+				background: linear-gradient(#a043dfaa 0%, #11a0d8aa 100%);
+				filter: blur(100px);
 				z-index: -1;
 			}
 
@@ -151,20 +151,33 @@ import { SITE_TITLE, SITE_DESCRIPTION, stack } from '../consts';
 		</style>
 	</head>
 	<body>
+		<span class="glow"/>
 		<Header title={SITE_TITLE} />
 		<main class="portfolio">
 			<section class="home">
-				<span class="glow1"/>
-				<span class="glow2"/>
 				<article class="title">
 					<h1>Carlos S. Aldazosa</h1>
 					<h2>Software Engineer & Bug Exterminator</h2>
 
 					<p>
-						Web developer with hands on front-end, backend and mobile development.
 						Always learning about new paradigms and technologies to apply right solution in the right place.
 					</p>
 				</article>
+			</section>
+
+			<section class="experiences">
+				<h2 class="subtitle">Experience</h2>
+
+				<div class="experience">
+					<div class="experience__title">
+						<h3>Nevobit</h3>
+						<Image src={nevoBitLogo} alt="NevoBit Logo" height={30} />
+					</div>
+					<span>
+						
+					</span>
+				</div>
+
 			</section>
 
 			<section class="stacks">

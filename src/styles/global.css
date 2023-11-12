@@ -12,10 +12,10 @@ html {
 	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
 		0 16px 32px rgba(var(--gray), 33%);
 }
-/* * {
+* {
 	margin: 0;
 	padding: 0;
-} */
+}
 @font-face {
 	font-family: 'Atkinson';
 	src: url('/fonts/atkinson-regular.woff') format('woff');
@@ -97,13 +97,17 @@ body {
 	color: rgb(var(--gray-dark));
 	font-size: 20px;
 	line-height: 1.7;
-	/* background-image: url('../images/back.webp');
-	background-size: cover;
-	background-repeat: no-repeat; */
-	/* background-repeat: repeat; */
-	/* background-size: cover; */
 	background: #090b15;
+	background-image: url('../icons/noisy.webp');
+}
+body::after {
+	content: '';
+	position: absolute;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
 	background-image: url('../icons/background.svg');
+	opacity: 0.5;
+	z-index: -1;
 }
 main {
 	width: 820px;
@@ -273,7 +277,7 @@ tool-tip {
 	line-height: initial;
 	padding: var(--_p-block) var(--_p-inline);
 	margin: 0;
-	border-radius: 10px;
+	border-radius: 12px;
 	border: 1px solid var(--background-dif);
 	background: transparent;
 	color: var(--background-dif);
