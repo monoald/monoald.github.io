@@ -1,5 +1,5 @@
 html {
-	--primary: rgb(9 11 21);
+	--primary: #0d1021;
 	--secondary: rgb(194 198 218);
 	--secondary-variation: rgba(194, 198, 218, 0.4);
 	--accent: #2337ff;
@@ -97,7 +97,7 @@ body {
 	color: rgb(var(--gray-dark));
 	font-size: 20px;
 	line-height: 1.7;
-	background: #090b15;
+	background: var(--primary);
 	background-image: url('../icons/noisy.webp');
 }
 body::after {
@@ -106,7 +106,7 @@ body::after {
 	top: 0; bottom: 0;
 	left: 0; right: 0;
 	background-image: url('../icons/background.svg');
-	opacity: 0.5;
+	opacity: 0.8;
 	z-index: -1;
 }
 main {

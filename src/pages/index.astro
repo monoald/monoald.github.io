@@ -24,37 +24,34 @@ import nevoBitLogo from '../icons/nevobit.svg'
 			}
 			.home {
 				position: relative;
-				height: calc(100vh - 3.6em);
+				height: 25em;
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
 			}
 			.title {
-				display: flex;
-				flex-direction: column;
 				text-align: center;
 				text-wrap: pretty;
 			}
 			.title h1 {
 				color: var(--secondary);
 				font-size: 3.5rem;
-				height: fit-content;
 			}
 			.title h2 {
 				font-size: 2.5rem;
 				color: var(--secondary);
-				background: linear-gradient(90deg, #03df41 0%, #0835fc 100%);
-				background: linear-gradient(90deg, #28eb59 0%, #1b45ff 100%);
-				background-size: 200%;
+				background: linear-gradient(270deg, #f76927 0%, #fdfa29 100%);
+				background-size: 150%;
 				-webkit-background-clip: text;
 				-webkit-text-fill-color: transparent; 
 				-moz-background-clip: text;
 				-moz-text-fill-color: transparent;
-				animation: horizontal 5s linear infinite;
+				animation: horizontal 4s linear infinite;
 			}
 			.title p {
-				margin-top: 1.5em;
+				padding-inline: 2.5em;
+				margin-top: 1em;
 				font-size: 1em;
 			}
 			.subtitle {
@@ -62,15 +59,41 @@ import nevoBitLogo from '../icons/nevobit.svg'
 			}
 			.stacks, .experiences {
 				text-align: center;
+				width: 100%;
 			}
 			.experience {
-				width: 500px;
-				height: 300px;
+				height: fit-content;
+				padding: 2em;
 				border-radius: 20px;
 				margin: 0 auto;
+				background: rgba(255, 255, 255, 0.05);
+				text-align: start;
+			}
+			.experience__title {
+				display: flex;
+				justify-content: start;
+				gap: 0.8rem;
+			}
+			.experience__title span {
+				font-weight: 500;
 			}
 			.experience h3 {
 				font-size: 0px;
+			}
+			.experience__role {
+				font-weight: 500;
+			}
+			.experience__date {
+				font-size: 1rem;
+				color: var(--secondary);
+			}
+			.experience__tasks {
+				padding-block-start: 1em;
+				padding-inline-start: 2em;
+				font-size: 1.1rem;
+			}
+			.experience__tasks b {
+				color: #FAA628;
 			}
 			.stacks ul {
 				padding: 0.8em 1em;
@@ -112,12 +135,15 @@ import nevoBitLogo from '../icons/nevobit.svg'
 			}
 			.glow {
 				position: absolute;
-				top: 25em;
-				width: 35em;
-				height: 35em;
-				border-radius: 50%;
+				top: 15em;
+				left: 50%;
+				width: 40em;
+				height: 25em;
+				border-radius: 30%;
 				display: block;
-				background: linear-gradient(#a043dfaa 0%, #11a0d8aa 100%);
+				background: radial-gradient(#460631aa 20%, #d886c455 100%);
+				transform: translate(-50%, 0%);
+				will-change: transform;
 				filter: blur(100px);
 				z-index: -1;
 			}
@@ -168,15 +194,26 @@ import nevoBitLogo from '../icons/nevobit.svg'
 			<section class="experiences">
 				<h2 class="subtitle">Experience</h2>
 
-				<div class="experience">
+				<article class="experience">
 					<div class="experience__title">
-						<h3>Nevobit</h3>
-						<Image src={nevoBitLogo} alt="NevoBit Logo" height={30} />
+						<h3>Nevobit
+							<Image src={nevoBitLogo} alt="NevoBit Logo" height={30} />
+						</h3>
+						<span>-</span>
+						<p class="experience__role">Front-end Developer</p>
 					</div>
-					<span>
-						
-					</span>
-				</div>
+
+					<p class="experience__date"><time datetime="2018-09-07">September 05, 2022</time> - <time datetime="2023-10-27">October 27, 2023</time></p>
+					<ul class="experience__tasks">
+						<li><p>Develop <b>high-quality</b>, responsive, and <b>user-friendly</b> web applications.</p></li>
+						<li><p>Write <b>reusable</b> libraries and components for future use.</p></li>
+						<li><p><b>Optimize</b> applications performance, size and scalability.</p></li>
+						<li><p>Develop administration web apps (cms, dashboard, etc).</p></li>
+						<li><p>Build <b>customer-facing</b> web and mobile apps.</p></li>
+						<li><p>Review the code of new employees and <b>help</b> them with their onboarding process.</p></li>
+						<li><p>Help <b>Backend team</b> adding new enpoints, features and missing types.</p></li>
+					</ul>
+				</article>
 
 			</section>
 

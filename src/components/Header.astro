@@ -22,7 +22,6 @@ import { SITE_TITLE } from '../consts';
 		padding: 0em 1em;
 		border-bottom: 1px solid var(--secondary-variation);
 		display: flex;
-		background: rgb(9, 11, 21, 0.5);
 		background-image: url('../icons/noisy.webp');
 		backdrop-filter: blur(10px);
 		z-index: 1;
@@ -58,7 +57,6 @@ import { SITE_TITLE } from '../consts';
 	}
 	.header__nav [aria-current='page'] {
 		position: relative;
-		/* color: #059D8A; */
 		font-weight: 500;
 	}
 	.header__nav [aria-current='page']::before {
@@ -66,9 +64,9 @@ import { SITE_TITLE } from '../consts';
 		position: absolute;
 		top: 0; bottom: 0;
 		left: 0; right: 0;
-		border: 1px solid var(--secondary-variation);
 		border-radius: 22px;
 		backdrop-filter: blur(16px);
+		border: 1px solid #5f1446;
 		z-index: -1;
 	}
 	.header__nav [aria-current='page']::after {
@@ -76,7 +74,8 @@ import { SITE_TITLE } from '../consts';
 		position: absolute;
 		top: 0; bottom: 0;
 		left: 0; right: 0;
-		border: 2px solid rgba(5, 157, 138, 0.5);
+		border: 3px solid #5f1446;
+		background: var(--primary);
 		border-radius: 22px;
 		z-index: -2;
 	}
