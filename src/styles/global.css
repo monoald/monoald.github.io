@@ -15,6 +15,7 @@ html {
 * {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 @font-face {
 	font-family: 'Atkinson';
@@ -87,6 +88,7 @@ html {
 	font-display: swap;
 }
 body {
+	position: relative;
 	font-family: 'Satoshi', sans-serif;
 	margin: 0;
 	padding: 0;
@@ -98,7 +100,16 @@ body {
 	font-size: 20px;
 	line-height: 1.7;
 	background: var(--primary);
+}
+.back {
+	position: absolute;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
+	width: 100%;
+	height: 100%;
 	background-image: url('../icons/noisy.webp');
+	pointer-events: none;
+	user-select: none;
 }
 body::after {
 	content: '';
@@ -243,9 +254,80 @@ hr {
 
 
 
+/*--Icons--*/
+[class^="icon-"], [class*=" icon-"] {
+	width: 40px;
+	height: 32px;
+	display: block;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.icon-HTML {
+	background-image: url('../icons/html5.svg');
+}
+.icon-CSS {
+	background-image: url('../icons/css.svg');
+}
+.icon-JavaScript {
+	background-image: url('../icons/javascript.svg');
+}
+.icon-TypeScript {
+	background-image: url('../icons/typescript.svg');
+}
+.icon-Tailwind {
+	background-image: url('../icons/tailwindcss.svg');
+}
+.icon-React {
+	background-image: url('../icons/react.svg');
+}
+.icon-Redux {
+	background-image: url('../icons/redux.svg');
+}
+.icon-Next {
+	background-image: url('../icons/nextjs.svg');
+}
+.icon-Astro {
+	background-image: url('../icons/astro.svg');
+}
+.icon-NodeJS {
+	background-image: url('../icons/nodejs.svg');
+}
+.icon-ExpressJS {
+	background-image: url('../icons/expressjs.svg');
+}
+.icon-GraphQL {
+	background-image: url('../icons/graphql.svg');
+}
+.icon-Deno {
+	background-image: url('../icons/deno.svg');
+}
+.icon-Hono {
+	background-image: url('../icons/hono.svg');
+}
+.icon-Jasmine {
+	background-image: url('../icons/jasmine.svg');
+}
+.icon-Jest {
+	background-image: url('../icons/jest.svg');
+}
+.icon-Testing {
+	background-image: url('../icons/testinglibrary.svg');
+}
+.icon-Git {
+	background-image: url('../icons/git.svg');
+}
+.icon-Linux {
+	background-image: url('../icons/linux.png');
+}
+.icon-VS {
+	background-image: url('../icons/vscode.svg');
+}
+.icon-Figma {
+	background-image: url('../icons/figma.svg');
+}
 
-
-
+/*--Tooltip--*/
 tool-tip {
 	--_p-inline: 1.5em;
 	--_p-block: 0.4em;
@@ -407,5 +489,112 @@ tool-tip[tip-position="right"]:dir(rtl)::after {
 
 	:has(> tool-tip:is([tip-position="left"], [tip-position="inline-start"])):not(:hover):not(:focus-visible):not(:active) tool-tip {
 		--_x: 3px;
+	}
+}
+
+@keyframes horizontal {
+	0% { background-position: 0% 50% }
+	50% { background-position: 100% 50% }
+	100% { background-position: 0% 50% }
+}
+@-o-keyframes horizontal {
+	0% { background-position: 0% 50% }
+	50% { background-position: 100% 50% }
+	100% { background-position: 0% 50% }
+}
+@-moz-keyframes horizontal {
+	0% { background-position: 0% 50% }
+	50% { background-position: 100% 50% }
+	100% { background-position: 0% 50% }
+}
+@-webkit-keyframes horizontal {
+	0% { background-position: 0% 50% }
+	50% { background-position: 100% 50% }
+	100% { background-position: 0% 50% }
+}
+@keyframes bord {
+	0% {
+		bottom: calc(100% - var(--length));
+		left: 0;
+		width: var(--weight);
+		height: var(--length);
+	}
+	22% {
+		bottom: 1em;
+		left: 0;
+		height: var(--length);
+		width: var(--weight);
+	}
+	24% {
+		bottom: 0;
+		left: 0.4em;
+		height: 5px;
+		width: 5px;
+		background: linear-gradient(rgba(255,255,255,0), #f76927);
+	}
+	26% {
+		left: 1em;
+		height: var(--weight);
+		width: var(--length);
+		background: linear-gradient(90deg, rgba(255,255,255,0), #f76927);
+	}
+	45% {
+		bottom: 0;
+		left: calc(100% - var(--length));
+		width: var(--length);
+		height: var(--weight);
+	}
+	47% {
+		bottom: 0.4em;
+		left: calc(100% - 0.4em);
+		width: 5px;
+		height: 5px;
+		background: linear-gradient(90deg, rgba(255,255,255,0), #f76927);
+	}
+	49% {
+		bottom: 1em;
+		left: 100%;
+		width: var(--weight);
+		height: var(--length);
+		background: linear-gradient(0deg, rgba(255,255,255,0), #f76927);
+	}
+	72% {
+		bottom: calc(100% - var(--length));
+		left: 100%;
+		width: var(--weight);
+		height: var(--length);
+	}
+	74% {
+		bottom: calc(100% - 0.2em);
+		left: calc(100% - 1em);
+		width: 5px;
+		height: 5px;
+		background: linear-gradient(0deg, rgba(255,255,255,0), #f76927);
+	}
+	76% {
+		bottom: 100%;
+		left: calc(100% - var(--length));
+		width: var(--length);
+		height: var(--weight);
+		background: linear-gradient(270deg, rgba(255,255,255,0), #f76927);
+	}
+	95% {
+		bottom: 100%;
+		left: 1em;
+		width: var(--length);
+		height: var(--weight);
+		background: linear-gradient(270deg, rgba(255,255,255,0), #f76927);
+	}
+	97% {
+		bottom: calc(100% - 0.4rem);
+		left: 0.4rem;
+		width: 5px;
+		height: 5px;
+	}
+	100% {
+		bottom: calc(100% - var(--length));
+		left: 0;
+		width: var(--weight);
+		height: var(--length);
 	}
 }

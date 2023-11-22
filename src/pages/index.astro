@@ -1,15 +1,15 @@
 ---
-import { Image } from "astro:assets";
+import { Image } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ToolTip from '../components/Tooltip.astro'
-import { SITE_TITLE, SITE_DESCRIPTION, stack } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION, stack, projects } from '../consts';
 import nevoBitLogo from '../icons/nevobit.svg'
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang='en'>
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
@@ -56,10 +56,12 @@ import nevoBitLogo from '../icons/nevobit.svg'
 			}
 			.subtitle {
 				margin-bottom: 1em;
+				font-size: 2.4rem;
 			}
-			.stacks, .experiences {
-				text-align: center;
+			.stacks, .experiences, .projects {
 				width: 100%;
+				margin-bottom: 7em;
+				text-align: center;
 			}
 			.experience {
 				height: fit-content;
@@ -95,6 +97,17 @@ import nevoBitLogo from '../icons/nevobit.svg'
 			.experience__tasks b {
 				color: #FAA628;
 			}
+			.experience__stack {
+				margin-top: 1.4em;
+				display: flex;
+				align-items: center;
+				justify-content: start;
+				gap: 1em;
+				list-style: none;
+			}
+			.stack__name {
+				font-size: 0px;
+			}
 			.stacks ul {
 				padding: 0.8em 1em;
 				display: flex;
@@ -110,22 +123,22 @@ import nevoBitLogo from '../icons/nevobit.svg'
 				display: flex;
 				justify-content: center;
 				align-items: center;
+				user-select: none;
 			}
 			.stack:hover::before {
 				border: 1px solid var(--background-dif);
 			}
 			.stack::after {
-				content: "";
+				content: '';
 				position: absolute;
-				width: 5px;
-				height: 5px;
+				width: 10px;
+				height: 10px;
 				border-radius: 50%;
-				box-shadow:
-					0 0 35px 12px var(--background-dif);
+				box-shadow: 0 0 35px 12px var(--background-dif);
 				z-index: -2;
 			}
 			.stack::before {
-				content: "";
+				content: '';
 				position: absolute;
 				width: 100%;
 				height: 100%;
@@ -138,7 +151,7 @@ import nevoBitLogo from '../icons/nevobit.svg'
 				top: 15em;
 				left: 50%;
 				width: 40em;
-				height: 25em;
+				height: 20em;
 				border-radius: 30%;
 				display: block;
 				background: radial-gradient(#460631aa 20%, #d886c455 100%);
@@ -147,28 +160,74 @@ import nevoBitLogo from '../icons/nevobit.svg'
 				filter: blur(100px);
 				z-index: -1;
 			}
-
-			@keyframes horizontal {
-				0% { background-position: 0% 50% }
-				50% { background-position: 100% 50% }
-				100% { background-position: 0% 50% }
+			.glow1 {
+				position: absolute;
+				top: 15em;
+				left: 50%;
+				width: 40em;
+				height: 20em;
+				border-radius: 30%;
+				display: block;
+				background: radial-gradient(#198ba4aa 20%, #198ba455 100%);
+				transform: translate(-50%, 0%);
+				will-change: transform;
+				filter: blur(100px);
+				z-index: -1;
 			}
-			@-o-keyframes horizontal {
-				0% { background-position: 0% 50% }
-				50% { background-position: 100% 50% }
-				100% { background-position: 0% 50% }
+			.projects {
+				position: relative;
 			}
-			@-moz-keyframes horizontal {
-				0% { background-position: 0% 50% }
-				50% { background-position: 100% 50% }
-				100% { background-position: 0% 50% }
+			.projects__container {
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+				gap: 5em;
 			}
-			@-webkit-keyframes horizontal {
-				0% { background-position: 0% 50% }
-				50% { background-position: 100% 50% }
-				100% { background-position: 0% 50% }
+			.project {
+				position: relative;
+				width: 480px;
+				height: fit-content;
+				padding: 1em 2em;
+				border: 1px solid rgba(255,255,255, 0.5);
+				border-radius: 1em;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				gap: 1em;
+				background: rgba(255,255,255, 0.05);
 			}
-
+			.project:hover {
+				border-color: #f76927aa;
+			}
+			.project:hover::before {
+				--length: 50px;
+				--weight: 2px;
+				--radius: 5em;
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: -1px;
+				width: var(--weight);
+				height: var(--length);
+				border-radius: var(--radius);
+				background: linear-gradient(rgba(255,255,255,0), #f76927);
+				background-size: 50%;
+				animation: bord 5s linear infinite;
+				box-shadow: 0px 0px 30px 5px #f7692733;
+			}
+			.project__title {
+				color: #FAA628;
+				font-size: 1.6rem;
+				font-weight: 600;
+			}
+			.project__description {
+				font-size: 1.1rem;
+				color: white;
+				margin-bottom: 1em;
+			}
+			.project__description b {
+				color: #FAA628;
+			}
 			@media (min-width: 574px) {
 				.stacks ul {
 					padding: 0;
@@ -177,11 +236,12 @@ import nevoBitLogo from '../icons/nevobit.svg'
 		</style>
 	</head>
 	<body>
-		<span class="glow"/>
+		<span class='glow'/>
+		<div class='back'></div>
 		<Header title={SITE_TITLE} />
-		<main class="portfolio">
-			<section class="home">
-				<article class="title">
+		<main class='portfolio'>
+			<section class='home'>
+				<article class='title'>
 					<h1>Carlos S. Aldazosa</h1>
 					<h2>Software Engineer & Bug Exterminator</h2>
 
@@ -191,20 +251,20 @@ import nevoBitLogo from '../icons/nevobit.svg'
 				</article>
 			</section>
 
-			<section class="experiences">
-				<h2 class="subtitle">Experience</h2>
+			<section class='experiences'>
+				<h2 class='subtitle'>Experience</h2>
 
-				<article class="experience">
-					<div class="experience__title">
+				<article class='experience'>
+					<div class='experience__title'>
 						<h3>Nevobit
-							<Image src={nevoBitLogo} alt="NevoBit Logo" height={30} />
+							<Image src={nevoBitLogo} alt='NevoBit Logo' height={30} />
 						</h3>
 						<span>-</span>
-						<p class="experience__role">Front-end Developer</p>
+						<p class='experience__role'>Front-end Developer</p>
 					</div>
 
-					<p class="experience__date"><time datetime="2018-09-07">September 05, 2022</time> - <time datetime="2023-10-27">October 27, 2023</time></p>
-					<ul class="experience__tasks">
+					<p class='experience__date'><time datetime='2018-09-07'>September 05, 2022</time> - <time datetime='2023-10-27'>October 27, 2023</time></p>
+					<ul class='experience__tasks'>
 						<li><p>Develop <b>high-quality</b>, responsive, and <b>user-friendly</b> web applications.</p></li>
 						<li><p>Write <b>reusable</b> libraries and components for future use.</p></li>
 						<li><p><b>Optimize</b> applications performance, size and scalability.</p></li>
@@ -214,19 +274,39 @@ import nevoBitLogo from '../icons/nevobit.svg'
 						<li><p>Help <b>Backend team</b> adding new enpoints, features and missing types.</p></li>
 					</ul>
 				</article>
-
 			</section>
 
-			<section class="stacks">
-				<h2 class="subtitle">Stack</h2>
+			<section class='stacks'>
+				<h2 class='subtitle'>Stack</h2>
 				<ul>
 					{ stack.map(stack => (
-						<li class="stack" style={{ '--background-dif': stack.color }} tool-tip>
-							<ToolTip>{stack.name}</ToolTip>
-							<Image src={stack.icon} alt={`Icon of ${stack.name}`} height={32} />
+						<li class='stack' style={{ '--background-dif': stack.color }} tool-tip>
+							<p class="stack__name">{stack.name}</p>
+							<ToolTip aria-hidden='true'>{stack.name}</ToolTip>
+							<span class={`icon-${stack.name}`} />
 						</li>
 					))}
 				</ul>
+			</section>
+
+			<section class='projects'>
+				<span class='glow1'/>
+				<h2 class='subtitle'>Projects</h2>
+				<div class='projects__container'>
+					{
+						projects.map(project => (
+							<article class="project">
+								<h3 class="project__title">{project.name}</h3>
+		
+								<p class="project__description" set:html={project.description}></p>
+		
+								<figure class="project__image">
+									<Image src={project.image} alt='Colors Kit logo' height={150} />
+								</figure>
+							</article>
+						))
+					}
+				</div>
 			</section>
 		</main>
 		<Footer />
