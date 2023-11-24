@@ -119,7 +119,7 @@ body::after {
 }
 main {
 	width: 880px;
-	max-width: calc(100% - 2em);
+	max-width: calc(100% - 5em);
 	margin: auto;
 	/* padding: 3em 1em; */
 	color: var(--secondary);
