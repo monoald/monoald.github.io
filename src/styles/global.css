@@ -1,6 +1,6 @@
 html {
 	--primary: #090c1a;
-	--secondary: rgb(194 198 218);
+	--secondary: #c2c6da;
 	--secondary-variation: rgba(194, 198, 218, 0.4);
 	--accent: #2337ff;
 	--accent-dark: #000d8a;
@@ -322,6 +322,32 @@ hr {
 }
 .icon-Figma {
 	background-image: url('../icons/figma.svg');
+}
+
+.categories {
+	margin-inline: auto;
+	display: flex;
+	gap: 1em;
+	font-size: 14px;
+	list-style: none;
+}
+.categories li {
+	width: fit-content;
+	padding: 0.2em 1.3em;
+	border: 1px solid;
+	border-radius: 5em;
+}
+.category-React {
+	color: #119099;
+	border-color: #119099;
+}
+.category-Redux {
+	color: #a94de6;
+	border-color: #a94de6;
+}
+.category-JavaScript {
+	color: #e4e13d;
+	border-color: #e4e13d;
 }
 
 /*--Tooltip--*/

@@ -65,31 +65,6 @@ const posts = (await getCollection('blog')).sort(
 				color: var(--secondary);
 				text-align: center;
 			}
-			.post__categories {
-				margin-inline: auto;
-				display: flex;
-				gap: 1em;
-				font-size: 14px;
-				list-style: none;
-			}
-			.post__categories li {
-				width: fit-content;
-				padding: 0.2em 1.3em;
-				border: 1px solid;
-				border-radius: 5em;
-			}
-			.category-React {
-				color: #119099;
-				border-color: #119099;
-			}
-			.category-Redux {
-				color: #a94de6;
-				border-color: #a94de6;
-			}
-			.category-JavaScript {
-				color: #e4e13d;
-				border-color: #e4e13d;
-			}
 			.post__title {
 				margin: 0;
 				margin-top: 0.4em;
@@ -127,10 +102,10 @@ const posts = (await getCollection('blog')).sort(
 					gap: 1em;
 					border: none;
 				}
-				.posts__container li:first-child .post__categories {
+				.posts__container li:first-child .categories {
 					gap: 2em;
 				}
-				.posts__container li:first-child .post__categories li {
+				.posts__container li:first-child .categories li {
 					font-size: 0.9rem;
 					padding: 0.3em 2em;
 				}
@@ -168,7 +143,7 @@ const posts = (await getCollection('blog')).sort(
 								<a class="post" href={`/blog/${post.slug}/`}>
 									<img width={410} height={360} src={post.data.heroImage} alt="" />
 									<div class="post__info">
-										<ul class="post__categories">
+										<ul class="categories">
 											{
 												post.data.categories.map(category => (
 													<li class={`category-${category}`}>{category}</li>
