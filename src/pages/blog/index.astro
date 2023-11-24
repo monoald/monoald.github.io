@@ -7,7 +7,7 @@ import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 
 const posts = (await getCollection('blog')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
@@ -16,71 +16,139 @@ const posts = (await getCollection('blog')).sort(
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
-			main {
-				width: 960px;
+			body main {
+				width: 1220px;
 			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
+			.posts__container {
 				padding: 0;
+				padding-top: 4em;
+				margin: 0;
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+				row-gap: 4em;
+				list-style-type: none;
 			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
+			.posts__container li * {
 				text-decoration: none;
-				transition: 0.2s ease;
+				transition: 0.8s ease;
 			}
-			ul li:first-child {
+			.posts__container > li:first-child {
 				width: 100%;
 				margin-bottom: 1rem;
+			}
+			.posts__container li:first-child .post {
+				width: 100%;
+				border: none;
+				grid-template-columns: 60% 40%;
+				grid-template-rows: 1fr;
+				grid-template-areas: 'image preview';
+			}
+			.posts__container li:first-child img {
+				height: 360px;
+				border-radius: 1em;
+			}
+			.posts__container li:first-child .post__info {
+				padding: 1em 0 1em 2em;
+				gap: 1em;
+				border: none;
+			}
+			.posts__container li:first-child .post__categories {
+				gap: 2em;
+			}
+			.posts__container li:first-child .post__categories li {
+				font-size: 0.9rem;
+				padding: 0.3em 2em;
+			}
+			.posts__container li:first-child .post__date {
+				font-size: 1.3rem;
+			}
+			.posts__container li:first-child .post__title {
+				margin-top: 0;
+				font-size: 2.8rem;
+			}
+			.posts__container li:first-child .post__description {
+				margin-top: 1em;
+				font-size: 1.2rem;
+			}
+			.posts__container li img {
+				grid-area: image;
+				width: 100%;
+				height: 190px;
+			}
+			.posts__container .post {
+				width: 350px;
+				border-radius: 18px;
+				display: grid;
+				grid-template-columns: 1fr;
+				grid-template-areas:
+				'image'
+				'preview';
+				overflow: hidden;
+			}
+			.posts__container .post:hover .post__info {
+				border-color: #FAA628;
+			}
+			.posts__container .post:hover .post__title {
+				color: #FAA628;
+			}
+			.post__info {
+				grid-area: preview;
+				height: 250px;
+				border: 1px solid rgba(255,255,255,0.2);
+				border-top: none;
+				border-bottom-left-radius: 1em;
+				border-bottom-right-radius: 1em;
+				padding: 1em;
+				display: flex;
+				flex-direction: column;
+				gap: 0.4em;
+				color: var(--secondary);
 				text-align: center;
 			}
-			ul li:first-child img {
-				width: 100%;
+			.post__categories {
+				margin-inline: auto;
+				display: flex;
+				gap: 1em;
+				font-size: 14px;
+				list-style: none;
 			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
+			.post__categories li {
+				width: fit-content;
+				padding: 0.2em 1.3em;
+				border: 1px solid;
+				border-radius: 5em;
 			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
+			.category-React {
+				color: #119099;
+				border-color: #119099;
 			}
-			ul li a {
-				display: block;
+			.category-Redux {
+				color: #a94de6;
+				border-color: #a94de6;
 			}
-			.title {
+			.category-JavaScript {
+				color: #e4e13d;
+				border-color: #e4e13d;
+			}
+			.post__title {
 				margin: 0;
-				color: rgb(var(--black));
+				margin-top: 0.4em;
+				font-size: 1.4rem;
+				color: var(--secondary);
 				line-height: 1;
 			}
-			.date {
+			.post__date {
 				margin: 0;
-				color: rgb(var(--gray));
+				font-size: 0.9rem;
 			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
+			.post__description {
+				margin-top: 0.5em;
+				font-size: 1.1rem;
 			}
 			@media (max-width: 720px) {
-				ul {
+				.posts__container {
 					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
 				}
 			}
 		</style>
@@ -89,16 +157,28 @@ const posts = (await getCollection('blog')).sort(
 		<Header />
 		<main>
 			<section>
-				<ul>
+				<ul class="posts__container">
 					{
 						posts.map((post) => (
 							<li>
-								<a href={`/blog/${post.slug}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
+								<a class="post" href={`/blog/${post.slug}/`}>
+									<img width={410} height={360} src={post.data.heroImage} alt="" />
+									<div class="post__info">
+										<ul class="post__categories">
+											{
+												post.data.categories.map(category => (
+													<li class={`category-${category}`}>{category}</li>
+												))
+											}
+										</ul>
+										<h4 class="post__title">{post.data.title}</h4>
+										<p class="post__date">
+											<FormattedDate date={post.data.pubDate} />
+										</p>
+										<p class="post__description">
+											{post.data.description}
+										</p>
+									</div>
 								</a>
 							</li>
 						))

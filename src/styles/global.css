@@ -1,5 +1,5 @@
 html {
-	--primary: #0d1021;
+	--primary: #090c1a;
 	--secondary: rgb(194 198 218);
 	--secondary-variation: rgba(194, 198, 218, 0.4);
 	--accent: #2337ff;
@@ -16,6 +16,10 @@ html {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	transition: 0.7s ease;
+}
+*::after, *::before {
+	transition: 0.7s ease;
 }
 @font-face {
 	font-family: 'Atkinson';
@@ -117,7 +121,7 @@ main {
 	width: 880px;
 	max-width: calc(100% - 2em);
 	margin: auto;
-	padding: 3em 1em;
+	/* padding: 3em 1em; */
 	color: var(--secondary);
 }
 /* h1,
@@ -498,15 +502,18 @@ tool-tip[tip-position="right"]:dir(rtl)::after {
 	text-decoration: none;
 	color: var(--secondary);
 }
-.social-links a:hover::before {
+.social-links a::before {
 	content: '';
 	position: absolute;
 	top: 48%;
 	left: 48%;
 	width: 2%;
 	height: 2%;
-	box-shadow: 0px 0px 40px 20px rgba(255, 255, 255, 0.4);
+	box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.4);
 	z-index: -1;
+}
+.social-links a:hover::before {
+	box-shadow: 0px 0px 40px 20px rgba(255, 255, 255, 0.4);
 }
 
 @keyframes horizontal {

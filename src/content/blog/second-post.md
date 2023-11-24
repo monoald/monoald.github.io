@@ -1,6 +1,7 @@
 ---
 title: 'Second post'
-description: 'Lorem ipsum dolor sit amet'
+description: 'Learn about server side rendering in node js with a project suited to your portfolio'
+categories: ['React', 'Redux']
 pubDate: 'Jul 22 2022'
 heroImage: '/blog-placeholder-4.jpg'
 ---

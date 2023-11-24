@@ -1,8 +1,9 @@
-export const SITE_TITLE = 'Monoald'
-export const SITE_DESCRIPTION = 'Welcome to my website!'
 import colorsKitLogo from './icons/colors-kit-logo.svg'
 import auraWeb from './images/aura-web.webp'
 import paletteLogo from './icons/palette-logo.svg'
+
+export const SITE_TITLE = 'Monoald'
+export const SITE_DESCRIPTION = 'Welcome to my website!'
 
 export const stack = [
   {

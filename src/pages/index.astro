@@ -70,6 +70,7 @@ import avatar from '../images/avatar.webp'
 			}
 			.avatar {
 				animation: floating ease-in-out 4s infinite;
+				z-index: 2;
 			}
 			.about__description {
 				display: flex;
@@ -149,7 +150,7 @@ import avatar from '../images/avatar.webp'
 				user-select: none;
 			}
 			.stack:hover::before {
-				border: 1px solid var(--background-dif);
+				border-color: var(--background-dif);
 				backdrop-filter: blur(14px);
 			}
 			.stack:hover::after {
@@ -169,6 +170,7 @@ import avatar from '../images/avatar.webp'
 				position: absolute;
 				width: 100%;
 				height: 100%;
+				border: 1px solid transparent;
 				border-radius: 1em;
 				backdrop-filter: blur(30px);
 				z-index: -1;

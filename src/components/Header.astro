@@ -60,39 +60,9 @@ import { SITE_TITLE } from '../consts';
 	.header__nav ul [aria-current='page'] {
 		color: #FAA628;
 		font-weight: 500;
+		text-decoration: underline;
+		text-decoration-thickness: 2px;
 	}
-	/* .header__nav ul [aria-current='page'],
-	.header__nav ul a:hover {
-		font-weight: 500;
-	}
-	.header__nav ul [aria-current='page']::before,
-	.header__nav ul a:hover::before {
-		content: '';
-		position: absolute;
-		top: 0; bottom: 0;
-		left: 0; right: 0;
-		border-radius: 22px;
-		backdrop-filter: blur(16px);
-		border: 1px solid #851d62;
-		z-index: -1;
-	}
-	.header__nav ul [aria-current='page']::after,
-	.header__nav ul a:hover::after {
-		content: '';
-		position: absolute;
-		top: 49%;
-		left: 48%;
-		width: 2%;
-		height: 4%;
-		box-shadow: 0px 0px 30px 10px #851d62;
-		border-radius: 22px;
-		z-index: -2;
-	}
-	.header__nav ul [aria-current='page']:focus-visible,
-	.header__nav ul a:hover:focus-visible {
-		outline: 2px solid var(--secondary);
-		border-radius: 4px;
-	} */
 	@media (min-width: 720px) {
 		header {
 			padding-inline: 2em;
