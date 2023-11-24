@@ -1,6 +1,8 @@
 export const SITE_TITLE = 'Monoald'
 export const SITE_DESCRIPTION = 'Welcome to my website!'
 import colorsKitLogo from './icons/colors-kit-logo.svg'
+import auraWeb from './images/aura-web.webp'
+import paletteLogo from './icons/palette-logo.svg'
 
 export const stack = [
   {
@@ -92,12 +94,20 @@ export const stack = [
 export const projects = [
   {
     name: 'Colors Kit',
-    description: 'Colors Kit is an <b>npm package</b> for color manipulation in formats like CMYK, HSL, RGB, etc. With it, you can convert a color between formats, simulate color blindness, generate all sorts of palettes, extract colors from an image, and more.',
-    image: colorsKitLogo
+    description: 'Colors Kit is an <b style="color: #FAA628;">npm package</b> for color manipulation in formats like CMYK, HSL, RGB, etc. With it, you can convert a color between formats, simulate color blindness, generate all sorts of palettes, extract colors from an image, and more.',
+    image: colorsKitLogo,
+    url: '/colors-kit-docs'
   },
   {
-    name: 'Colors Kit',
-    description: 'Colors Kit is an <b>npm package</b> for color manipulation in formats like CMYK, HSL, RGB, etc. With it, you can convert a color between formats, simulate color blindness, generate all sorts of palettes, extract colors from an image, and more.',
-    image: colorsKitLogo
+    name: 'Aura',
+    description: '<b style="color: #FAA628;">Web page</b> for a real estate company, initially built with React and later migrated to Astro. With the migration, the load time was reduced from <b style="color: #FAA628;">1.6 seconds</b> for the entire web app to an average of <b style="color: #FAA628;">0.4 seconds</b> per page.',
+    image: auraWeb,
+    url: '/aura-web'
   },
+  {
+    name: 'Palette',
+    description: 'A <b style="color: #FAA628;">Web App</b> to craft stunning color palettes, simulate color blindness for accessibility, create eye-catching gradients and animations, and save your favorites for easy access. Plus, add a personal touch with font icon creation.',
+    image: paletteLogo,
+    url: 'https://app-palette.vercel.app'
+  }
 ]
