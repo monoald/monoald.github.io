@@ -121,8 +121,90 @@ main {
 	width: 880px;
 	max-width: calc(100% - 5em);
 	margin: auto;
-	/* padding: 3em 1em; */
 	color: var(--secondary);
+}
+main pre {
+	position: relative;
+	padding: 2.5em 2.5rem 1em;
+	margin-block: 2em;
+	border-radius: 0.375rem;
+}
+pre code {
+	display: block;
+	border-left: 1px solid var(--secondary-variation);
+	line-height: 1.60;
+	font-size: 1rem;
+	tab-size: 2em;
+	counter-reset: step;
+	counter-increment: step 0;
+}
+pre code .line {
+	position: relative;
+	padding-inline: 1em;
+}
+pre code .line::before {
+	position: absolute;
+	left: -3em;
+	top: 0px;
+	padding-left: 0.5em;
+	overflow: hidden;
+	width: 1.75rem;
+	height: 1rem;
+	content: counter(step);
+	counter-increment: step;
+	color: var(--secondary-variation);
+	text-align: right;
+	line-height: 1.25;
+}
+pre::after {
+	position: absolute;
+	top: 0.7em;
+	left: 2em;
+	color: var(--secondary);
+	font-size: 1rem;
+	text-transform: uppercase;
+	content: attr(lang);
+}
+.prose p {
+	margin-bottom: 1.5em;
+}
+.prose ul,
+.prose ol {
+	padding-left: 2em;
+	margin-bottom: 2em;
+}
+.prose h2 {
+	margin-top: 2em;
+	margin-bottom: 1rem;
+}
+.prose h3 {
+	margin-bottom: 1rem;
+}
+.prose strong,
+.prose a {
+	color: #FAA628;
+}
+.prose picture {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 2em;
+}
+blockquote {
+	padding: 1em 0 1em 1em;
+	margin: 0px;
+	border-left: 4px solid #f76927;
+	margin-bottom: 1.5em;
+	background: rgba(255,255,255,0.05);
+}
+.prose blockquote p {
+	margin-bottom: 0;
+}
+p code {
+	padding: 0.2em 0.4em;
+	background: #212121;
+	color: #EEFFFF;
+	font-size: 1rem;
 }
 /* h1,
 h2,
@@ -159,12 +241,6 @@ a {
 a:hover {
 	color: var(--accent);
 }
-p {
-	margin-bottom: 1em;
-}
-.prose p {
-	margin-bottom: 2em;
-}
 textarea {
 	width: 100%;
 	font-size: 16px;
@@ -179,24 +255,6 @@ img {
 	max-width: 100%;
 	height: auto;
 	border-radius: 8px;
-}
-code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
-}
-pre {
-	padding: 1.5em;
-	border-radius: 8px;
-}
-pre > code {
-	all: unset;
-}
-blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0px;
-	font-size: 1.333em;
 }
 hr {
 	border: none;

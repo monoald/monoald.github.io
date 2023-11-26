@@ -1,0 +1,777 @@
+---
+title: 'Understanding Event Propagation'
+description: 'Event propagation is a powerful'
+pubDate: 'Jul 02 2022'
+categories: ['JavaScript']
+heroImage: '/blog-placeholder-5.jpg'
+---
+import Scripts from '../../article-scripts/event-propagation.astro';
+import '../../article-scripts/event-propagation.css';
+
+Event propagation is a DOM mechanism that triggers the ancestor's events of the target event. It will have a different execution order depending on the propagation type. 
+
+DOM reads your HTML like a **hierarchy tree**, where each node is an HTML element. In the following code, the **anchor** has an event that displays an alert saying “Hi!!”. 
+
+```html
+<div class="node" id="top-node">
+	Top Node
+	<div class="node" id="mid-node">
+		Mid Node
+		<a class="node" id="bottom-node" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+			Bottom Node
+		</a>
+	</div>
+</div> 
+```
+
+```js
+const anchor = document.querySelector('#bottom-node');
+anchor.addEventListener('click', sayHi);
+
+function sayHi() {
+	alert('Hi');
+}
+```
+
+<div class="example-1">
+  <div class="node-1" id="top-node-1">
+    Top Node
+    <div class="node-1" id="mid-node-1">
+      Mid Node
+      <a class="node-1" id="bottom-node-1" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+        Bottom Node
+      </a>
+    </div>
+  </div>
+</div>
+
+The HTML structure above in DOM will look like the following image. You may notice that every element is nested to each other, so to reach the anchor, you need to pass through every anchor’s parent. 
+
+<picture>
+	<img src='/dom.png'/>
+</picture>
+
+The browser can go ahead with 1 of 2 phases:
+
+- **Capturing Phase** - the browser searches for events from the window and dives down to reach the event target.
+- **Bubbling Phase** - the browser starts on the event target and Bubbles up to the window.
+- There is the **Target Phase**, this always happens when an event is executed.
+
+## Capturing Phase
+
+The browser builds a path from the **window** to the **event target**, then goes through every node. Each node is analyzed, and there will be some steps to do before moving forward:
+
+- Check if there is an event or events. If yes, then execute it.
+- Check if the node called an [event.stopPropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation) or [event.stopImmediatePropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation). If it was, stop the process, event target, or other nested events to not execute. If not, go to the next node.
+
+<picture>
+	<img src='/capturing_phase.png'/>
+</picture>
+
+### Example
+You are going to see event propagation with the capturing propagation. The structure will be the same as above, but some an URL to open a new page will be added to see how **default events** work in propagation. 
+
+```html
+<div class="node" id="top-node">
+	Top Node
+	<div class="node" id="mid-node">
+		Mid Node
+		<a class="node" id="bottom-node" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+			Bottom Node
+		</a>
+	</div>
+</div> 
+```
+
+```js
+let nodes = document.querySelectorAll('.node');
+nodes = [...nodes];
+
+// Add an event to the 3 elements to know its current phase
+nodes.map( node => {
+	// Enabling Capturing Propagation - Disabling Bubbling Propagation
+	node.addEventListener('click', showPhase, true);
+});
+
+// Add main event
+const anchor = document.querySelector('#bottom-node');
+anchor.addEventListener('click', sayHi);
+
+function sayHi() {
+	alert('Hi');
+}
+
+function showPhase(event) {
+	const phase = event.eventPhase;
+	let phaseName;
+	// Validate phase type
+	if (phase === 1) {
+		phaseName = 'Capturing'
+	} else if (phase === 2) {
+		phaseName = 'Target'
+	} else if (phase === 3) {
+		phaseName = 'Bubbling'
+	}
+	alert(`${this.id}: ${phaseName} Phase`)
+}
+```
+By default, the addEventListener parameter *useCapture* is false. To enable the capturing propagation and disable the bubbling one, just add the parameter true within the `addEventLister` after the listener. The `event.eventPhase()` will return 3 different values:
+
+1. Capturing Phase.
+2. Target Phase.
+3. Bubbling Phase.
+
+Click one of the elements to see how Capturing Propagation works: 
+
+<div class='example-2'>
+	<div class="node-2" id="top-node-2">
+		Top Node
+		<div class="node-2" id="mid-node-2">
+			Mid Node
+			<a class="node-2" id="bottom-node-2" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+				Bottom Node
+			</a>
+		</div>
+	</div> 
+</div>
+
+> After the main event is executed, the default event occurs. 
+
+## Target Phase
+
+Once every parent has been checked, the event target occurs. This event has to be declared with the `onClick` attribute or with the `addEventListener()` method.
+
+<picture>
+	<img src='/target_phase.png'/>
+</picture>
+
+This phase will always occur if there is no `event.stopPropagation()` or `event.stopImmediatePropagation()` to block it. During the Capturing Propagation, it will execute after the parent’s events, and during the Bubbling Propagation, it will execute before them. And always will be executed before the **default event**. 
+
+## Bubbling Phase
+
+When the event target executes its event, the browser goes all the way back to the path, checking each node with the same steps as the capturing one:
+
+1. Check if there is an event or events. If yes, then execute it.
+1. Check if the node called an `event.stopPropagation()` or `event.stopImmediatePropagation()`. If it was, stop the process, event target, or other nested events to not execute. If not, go to the next node.
+
+<picture>
+	<img src='/bubbling_phase.png'/>
+</picture>	
+
+Looking at the structure, you can notice if you want to reach `<a>`, you need to go through each parent, including the window and document. 
+
+### Example
+
+In the Bubbling Propagation, the event execution order goes backward. It starts with the **target event** and goes go towards the window. As the Bubbling Propagation is set by default, you don’t need to send an argument for the **useCapture** parameter, or you can set it to **false**. It is on you how to. 
+
+```html
+<div class="node" id="top-node">
+	Top Node <div class="node" id="mid-node">
+		Mid Node
+		<a class="node" id="bottom-node" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+			Bottom Node
+		</a>
+	</div>
+</div> 
+```
+
+```js
+let nodes = document.querySelectorAll('.node');
+nodes = [...nodes];
+
+// Add an event to the 3 elements to know its current phase
+nodes.map( node => {
+	// Enabling Bubbling Propagation - Disable Capturing Propagation 
+	node.addEventListener('click', showPhase, false);
+});
+
+function showPhase(event) {
+	const phase = event.eventPhase;
+	let phaseName;
+	// Validate phase type
+	if (phase === 1) {
+		phaseName = 'Capturing';
+	} else if (phase === 2) {
+		phaseName = 'Target';
+	} else if (phase === 3) {
+		phaseName = 'Bubbling';
+	}
+	alert(`${this.id}: ${phaseName} Phase`);
+}
+
+// Add main event
+const anchor = document.querySelector('#bottom-node');
+anchor.addEventListener('click', sayHi);
+
+function sayHi() {
+	alert('Hi');
+}
+```
+
+Click one of the elements to see how it works: 
+
+<div class='example-3'>
+	<div class="node-3" id="top-node-3">
+		Top Node
+		<div class="node-3" id="mid-node-3">
+			Mid Node
+			<a class="node-3" id="bottom-node-3" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+				Bottom Node
+			</a>
+		</div>
+	</div>
+</div> 
+
+> Once the Bubbling Propagation ends, the default event of the event target will be triggered. 
+
+## Stop Event Propagation
+
+`stopPropagation()`, `stopImmediatePropagation()` to stop a propagation you have to use one of these methods. The difference is that `stopPropagation()` stops the hierarchy propagation. It cancels any next node event (parents for bubbling and children for capturing). In the following examples, you can see how to stop propagation in both types of propagation.
+Example 1
+Using the `stopPropagation()` to stop a Capturing Propagation. The method is implemented on the mid-node. 
+
+### Example 1
+
+Using `stopPropagation()` to stop a Capturing Propagation. The method is implemented on the mid-node.
+
+```html
+<div class="node" id="top-node">
+	Top Node
+	<div class="node" id="mid-node">
+		Mid Node
+		<a class="node" id="bottom-node" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+			Bottom Node
+		</a>
+	</div>
+</div>
+```
+
+```js
+let nodes = document.querySelectorAll('.node');
+nodes = [...nodes];
+const div = document.querySelector('#mid-node');
+div.addEventListener('click', stopEvent, true);
+
+function stopEvent(event) {
+	// Stop Propagation
+	event.stopPropagation();
+	alert('Here ends');
+}
+
+// Add an event to the 3 elements to know its current phase
+nodes.map( node => {
+	// Enabling Bubbling Propagation - Disable Capturing Propagation 
+	node.addEventListener('click', showPhase, true);
+});
+
+function showPhase(event) {
+	const phase = event.eventPhase;
+	let phaseName;
+
+	// Validate phase type
+	if (phase === 1) {
+		phaseName = 'Capturing';
+	} else if (phase === 2) {
+		phaseName = 'Target';
+	} else if (phase === 3) {
+		phaseName = 'Bubbling';
+	}
+	alert(`${this.id}: ${phaseName} Phase`);
+}
+
+function sayHi() {
+	alert('Hi');
+}
+
+// Add main event
+const anchor = document.querySelector('#bottom-node');
+anchor.addEventListener('click', sayHi);
+```
+
+Click **bottom-node** to see what happens:
+
+<div class='example-4'>
+	<div class="node-4" id="top-node-4">
+		Top Node
+		<div class="node-4" id="mid-node-4">
+			Mid Node
+			<span class="node-4" id="bottom-node-4" href="" target="_blank">
+				Bottom Node
+			</span>
+		</div>
+	</div>
+</div>
+
+The alert for the **bottom-node** that is the **event target** is not executed because of the `stopPropagation()`. The `showPhase()` alert for **mid-node** is still displayed. 
+
+> The anchor URL was deleted to avoid continuous emerging rick rolls. 
+
+### Example 2
+
+Using `stopPropagation()` to stop a Bubbling Propagation. The method is implemented on **mid-node**.
+
+```html
+<div class="node" id="top-node">
+	Top Node
+	<div class="node" id="mid-node">
+		Mid Node
+		<a class="node" id="bottom-node" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+			Bottom Node
+		</a>
+	</div>
+</div>
+```
+
+```js
+let nodes = document.querySelectorAll('.node');
+nodes = [...nodes];
+
+const div = document.querySelector('#mid-node');
+div.addEventListener('click', stopEvent, false);
+
+function stopEvent(event) {
+	// Stop Propagation
+	event.stopPropagation();
+	alert('Here ends');
+}
+
+// Add an event to the 3 elements to know its current phase
+nodes.map( node => {
+	// Enabling Bubbling Propagation - Disable Capturing Propagation 
+	node.addEventListener('click', showPhase, false);
+});
+
+function showPhase(event) {
+	const phase = event.eventPhase;
+	let phaseName;
+
+	// Validate phase type
+	if (phase === 1) {
+		phaseName = 'Capturing';
+	} else if (phase === 2) {
+		phaseName = 'Target';
+	} else if (phase === 3) {
+		phaseName = 'Bubbling';
+	}
+	alert(`${this.id}: ${phaseName} Phase`);
+}
+
+function sayHi() {
+	alert('Hi');
+}
+
+// Add main event
+const anchor = document.querySelector('#bottom-node');
+anchor.addEventListener('click', sayHi);
+```
+
+Click **bottom-node** to see what happens:
+
+<div class='example-5'>
+	<div class="node-5" id="top-node-5">
+		Top Node
+		<div class="node-5" id="mid-node-5">
+			Mid Node
+			<a class="node-5" id="bottom-node-5" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+				Bottom Node
+			</a>
+		</div>
+	</div>
+</div>
+
+> The event bubbles until the mid-node events are executed 
+
+The section alert does not occur because of the `stopPropagation()`. The `showPhase()` alert for the `<div>` is still displayed. 
+
+### Example 3
+
+Using the `stopImmediatePropagation()` to stop a Capturing Propagation. The method is implemented on the **mid-node**. 
+
+```html
+<div class="node" id="top-node">
+	Top Node
+	<div class="node" id="mid-node">
+		Mid Node
+		<a class="node" id="bottom-node" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+			Bottom Node
+		</a>
+	</div>
+</div> 
+```
+
+```js
+let nodes = document.querySelectorAll('.node');
+nodes = [...nodes];
+
+const div = document.querySelector('#mid-node');
+div.addEventListener('click', stopEvent, true);
+
+function stopEvent(event) {
+	// Stop Propagation
+	event.stopImmediatePropagation();
+	alert('Here ends');
+}
+
+// Add an event to the 3 elements to know its current phase
+nodes.map( node => {
+	// Enabling Bubbling Propagation - Disable Capturing Propagation 
+	node.addEventListener('click', showPhase, true);
+});
+
+function showPhase(event) {
+	const phase = event.eventPhase;
+	let phaseName;
+
+	// Validate phase type
+	if (phase === 1) {
+		phaseName = 'Capturing';
+	} else if (phase === 2) {
+		phaseName = 'Target';
+	} else if (phase === 3) {
+		phaseName = 'Bubbling';
+	}
+	alert(`${this.id}: ${phaseName} Phase`);
+}
+
+// Add main event
+const anchor = document.querySelector('#bottom-node');
+anchor.addEventListener('click', sayHi);
+
+function sayHi() {
+	alert('Hi');
+}
+```
+
+Click **bottom-node** to see what happens:
+
+<div class='example-6'>
+	<div class="node-6" id="top-node-6">
+		Top Node
+		<div class="node-6" id="mid-node-6">
+			Mid Node
+			<a class="node-6" id="bottom-node-6" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+				Bottom Node
+			</a>
+		</div>
+	</div>
+</div>
+
+> The event drills down until the mid-node event is executed, the bottom-node alert does not occur. 
+
+The `showPhase()` alert of the **mid-node** is not displayed anymore because of the `stopImmediatePropagation()`. 
+
+### Example 4
+
+Using the `stopImmediatePropagation()` to stop a Bubbling Propagation. The method is implemented on the **mid-node**.
+
+```html
+<div class="node" id="top-node">
+	Top Node
+	<div class="node" id="mid-node">
+		Mid Node
+		<a class="node" id="bottom-node" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+			Bottom Node
+		</a>
+	</div>
+</div>
+```
+
+```js
+let nodes = document.querySelectorAll('.node');
+nodes = [...nodes];
+
+const div = document.querySelector('#mid-node');
+div.addEventListener('click', stopEvent, false);
+
+function stopEvent(event) {
+	// Stop Propagation
+	event.stopImmediatePropagation();
+	alert('Here ends');
+}
+
+// Add an event to the 3 elements to know its current phase
+nodes.map( node => {
+	// Enabling Bubbling Propagation - Disable Capturing Propagation 
+	node.addEventListener('click', showPhase, false);
+});
+
+function showPhase(event) {
+	const phase = event.eventPhase;
+	let phaseName;
+
+	// Validate phase type
+	if (phase === 1) {
+		phaseName = 'Capturing';
+	} else if (phase === 2) {
+		phaseName = 'Target';
+	} else if (phase === 3) {
+		phaseName = 'Bubbling';
+	}
+	alert(`${this.id}: ${phaseName} Phase`);
+
+}
+
+function sayHi() {
+	alert('Hi');
+} 
+// Add main event
+const anchor = document.querySelector('#bottom-node');
+anchor.addEventListener('click', sayHi);
+```
+
+Click **bottom-node** to see what happens:
+
+<div class='example-7'>
+	<div class="node-7" id="top-node-7">
+		Top Node
+		<div class="node-7" id="mid-node-7">
+			Mid Node
+			<a class="node-7" id="bottom-node-7" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+				Bottom Node
+			</a>
+		</div>
+	</div>
+</div>
+
+> The event Bubbles until the mid-node events are executed, and the top-node alert does not occur.
+
+The `showPhase()` of **mid-node** is not displayed anymore. 
+
+## Use Cases
+
+Maybe you are wondering when to use all of this. To be honest, there are not as many use cases for these concepts as are for Event Propagation, etc. But, your tool kit to create solutions has won a great tool. To apply propagation and how to stop it. You will see 2 use cases.
+
+> The following use cases can have a better solution without too much code and good practices, but we solve them with Event Propagation for the sake of the article.
+
+### Watch List
+
+In this use case, we got a list item that contains a `<span>` and a `<button>`. We added an event to open the series trailer once the **list item** is clicked. Also, a click event was added to the button to check the series you watched. 
+
+```html
+<div>
+	<h1>Watch List</h1>
+	<ul class="list">
+		<li>
+			<span>Game of Thrones</span>
+			<button type="submit">Check</button>
+		</li>
+		<li>
+			<span>Daredevil</span>
+			<button type="submit">Check</button>
+		</li>
+		<li>
+			<span>Brooklyn 99</span>
+			<button type="submit">Check</button>
+		</li>
+		<li>
+			<span>Breaking Bad</span>
+			<button type="submit">Check</button>
+		</li>
+	</ul>
+</div>
+```
+
+```js
+const items = [...document.querySelectorAll('li')];
+
+// Add event to every list item
+items.map( item => {
+	item.addEventListener('click', seeTrailer);
+});
+
+function seeTrailer() {
+	// Open trailer
+	window.open('https://www.youtube.com/watch?v=KPLWWIOCOOQ', '', 'width=600,height=340');
+}
+
+function checkItem(event) {
+	// Open trailer
+	const item = this.parentElement;
+	item.classList.toggle('list--check');
+}
+
+const buttons = [...document.querySelectorAll('button')];
+// Add event to every button
+buttons.map( button => {
+	button.addEventListener('click', checkItem);
+});
+```
+
+Click any place inside the **list item** to open the trailer and try to check it: 
+
+<div class='movies-example'>
+	<h5>Watch List</h5>
+	<ul class="list">
+		<li class='list-item-1'>
+			<span>Game of Thrones</span>
+			<button class='movie-button-1' type="submit">Check</button>
+		</li>
+		<li class='list-item-1'>
+			<span>Daredevil</span>
+			<button class='movie-button-1' type="submit">Check</button>
+		</li>
+		<li class='list-item-1'>
+			<span>Brooklyn 99</span>
+			<button class='movie-button-1' type="submit">Check</button>
+		</li>
+		<li class='list-item-1'>
+			<span>Breaking Bad</span>
+			<button class='movie-button-1' type="submit">Check</button>
+		</li>
+	</ul>
+</div>
+
+To solve it we just need to add the `stopPropagation()` method.
+
+```html
+<div>
+	<h1>Watch List</h1>
+	<ul class="list">
+		<li>
+			<span>Game of Thrones</span>
+			<button type="submit">Check</button>
+		</li>
+		<li>
+			<span>Daredevil</span>
+			<button type="submit">Check</button>
+		</li>
+		<li>
+			<span>Brooklyn 99</span>
+			<button type="submit">Check</button>
+		</li>
+		<li>
+			<span>Breaking Bad</span>
+			<button type="submit">Check</button>
+		</li>
+	</ul>
+</div>
+```
+
+```js
+const items = [...document.querySelectorAll('li')];
+
+// Add event to every list item
+items.map( item => {
+	item.addEventListener('click', seeTrailer);
+});
+
+function seeTrailer() {
+	// Open trailer
+	window.open('https://www.youtube.com/watch?v=KPLWWIOCOOQ', '', 'width=600,height=340');
+}
+
+function checkItem(event) {
+	event.stopPropagation(); // <-- Solution // Open trailer
+	const item = this.parentElement;
+	item.classList.toggle('list--check');
+}
+
+const buttons = [...document.querySelectorAll('button')];
+// Add event to every button
+buttons.map( button => {
+	button.addEventListener('click', checkItem);
+});
+```
+
+Click any place inside the **list item** to open the trailer and check a series: 
+
+<div class='movies-example'>
+	<h5>Watch List</h5>
+	<ul class="list">
+		<li class='list-item-2'>
+			<span>Game of Thrones</span>
+			<button class='movie-button-2' type="submit">Check</button>
+		</li>
+		<li class='list-item-2'>
+			<span>Daredevil</span>
+			<button class='movie-button-2' type="submit">Check</button>
+		</li>
+		<li class='list-item-2'>
+			<span>Brooklyn 99</span>
+			<button class='movie-button-2' type="submit">Check</button>
+		</li>
+		<li class='list-item-2'>
+			<span>Breaking Bad</span>
+			<button class='movie-button-2' type="submit">Check</button>
+		</li>
+	</ul>
+</div>
+
+### Modal
+
+We can add a fancy modal that only disappears if the background is clicked. First, we add an event to the button to toggle the modal, and then we add the same event to the **modal container** to toggle it.
+
+```html
+<div>
+	<h1>Click the button to open the modal</h1>
+	<button type="button">Modal</button>
+	<div>
+		<p>Touch any place out of the modal to close it </p>
+	</div>
+</div> 
+```
+
+```js
+const button = document.querySelector('button');
+const modalContainer = document.querySelector('div');
+// Show modal
+button.addEventListener('click', toggleModal);
+
+function toggleModal() {
+	modalContainer.classList.toggle('active-div');
+}
+// Hide modal
+modalContainer.addEventListener('click', toggleModal); 
+```
+
+Click the button and try click whitin the modal to see if it stays open:
+
+<div class="modal">
+	<p>Click the button to open the modal</p>
+	<button class='modal-button-1' type="button">Modal</button>
+	<div class='modal-1 modal-div'>
+		<p>Click in or out of the modal to close it.</p>
+	</div>
+</div>
+
+Wait a minute. This works even if you click within the modal. This is not the behavior we want. To fix it, we can add an event to the modal to stop the Bubbling Propagation.
+
+```html
+<div>
+	<h1>Click the button to open the modal</h1>
+	<button type="button">Modal</button>
+	<div>
+		<p>Touch any place out of the modal to close it </p>
+	</div>
+</div> 
+```
+
+```js
+const button = document.querySelector('button');
+const modalContainer = document.querySelector('div');
+const modal = document.querySelector('.modal');
+
+// Show modal
+button.addEventListener('click', toggleModal);
+
+function toggleModal() {
+	modalContainer.classList.toggle('active-div')
+}
+// Hide modal
+modalContainer.addEventListener('click', toggleModal);
+modal.addEventListener('click', event => event.stopPropagation()); //<--Solution
+```
+
+Click the button and click out the modal to close it: 
+
+<div class="modal">
+	<p>Click the button to open the modal</p>
+	<button class='modal-button-2' type="button">Modal</button>
+	<div class='modal-2 modal-div'>
+		<p>Click in or out of the modal to close it.</p>
+	</div>
+</div>
+
+It is Done! You learned how DOM manages events with propagation, building a path to the event target, looking for events or stop event methods in 2 different phases, top to bottom for Capturing and upside down for Bubbling Propagation. You can now stop propagation and create divergent behaviors and effects in your web apps.
+
+<Scripts/>

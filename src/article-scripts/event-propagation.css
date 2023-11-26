@@ -1,0 +1,72 @@
+[class^="node-"], [class*="node-"],
+[class^="node-"] a, [class*="node-"] a,
+[class^="node-"] span, [class*="node-"] span {
+  width: fit-content;
+  padding: 1em 2em 2em;
+  margin: auto;
+  display: block;
+  border: 1px solid #c2c6da;
+  color: #c2c6da;
+}
+[class^="example-"], [class*=" example-"] {
+  margin-bottom: 2em;
+}
+[class^="node-"] p, [class*=" node"] p {
+  margin-bottom: 0;
+}
+
+.movies-example {
+  width: 450px;
+  padding: 2em 2em;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  border: 1px solid var(--secondary);
+}
+.movies-example h5 {
+  text-align: center;
+}
+.movies-example ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  list-style: none;
+}
+.movies-example li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.movies-example button {
+  padding-inline: 1em;
+}
+.movies-example .list--check {
+  text-decoration: line-through;
+}
+
+.prose .modal {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  padding: 1em;
+  margin-inline: auto;
+  margin-bottom: 1.5em;
+  border: 1px solid var(--secondary);
+  text-align: center;
+}
+
+.prose .modal-div {
+  display: none;
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  padding: 1em 2em;
+  border-radius: 0.4rem;
+  background: var(--secondary);
+  font-size: 1rem;
+  color: var(--primary);
+}
+.prose .modal--active {
+  display: block;
+}
