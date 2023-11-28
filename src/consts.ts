@@ -1,6 +1,7 @@
 import colorsKitLogo from './icons/colors-kit-logo.svg'
 import auraWeb from './images/aura-web.webp'
 import paletteLogo from './icons/palette-logo.svg'
+import honoLogo from './icons/hono.svg'
 
 export const SITE_TITLE = 'Monoald'
 export const SITE_DESCRIPTION = 'Welcome to my website!'
@@ -94,6 +95,18 @@ export const stack = [
 
 export const projects = [
   {
+    name: 'Oauth Providers',
+    description: 'A light, simple and easy to use third party <b style="color: #FAA628;">Hono</b> middleware for <b style="color: #FAA628;">OAuth 2.0</b> authentication at the moment with Facebook, Github, Google and LinedIn providers. Part of the <b style="color: #FAA628;">official</b> Hono middlewares.',
+    image: honoLogo,
+    url: 'https://github.com/honojs/middleware/tree/main/packages/oauth-providers'
+  },
+  {
+    name: 'Palette',
+    description: 'A <b style="color: #FAA628;">Web App</b> to craft stunning color palettes, simulate color blindness for accessibility, create eye-catching gradients and animations, and save your favorites for easy access. Plus, add a personal touch with font icon creation.',
+    image: paletteLogo,
+    url: 'https://app-palette.vercel.app'
+  },
+  {
     name: 'Colors Kit',
     description: 'Colors Kit is an <b style="color: #FAA628;">npm package</b> for color manipulation in formats like CMYK, HSL, RGB, etc. With it, you can convert a color between formats, simulate color blindness, generate all sorts of palettes, extract colors from an image, and more.',
     image: colorsKitLogo,
@@ -105,10 +118,4 @@ export const projects = [
     image: auraWeb,
     url: '/aura-web'
   },
-  {
-    name: 'Palette',
-    description: 'A <b style="color: #FAA628;">Web App</b> to craft stunning color palettes, simulate color blindness for accessibility, create eye-catching gradients and animations, and save your favorites for easy access. Plus, add a personal touch with font icon creation.',
-    image: paletteLogo,
-    url: 'https://app-palette.vercel.app'
-  }
 ]
