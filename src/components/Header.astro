@@ -5,7 +5,7 @@ import { SITE_TITLE } from '../consts';
 
 <header>
 	<nav class='header__nav'>
-		<h2 class='logo'><a href='/'>{SITE_TITLE}</a></h2>
+		<h2 class='logo'><span class="icon-logo"/><a href='/'>{SITE_TITLE}</a></h2>
 
 		<ul>
 			<HeaderLink href='/'>Portfolio</HeaderLink>
@@ -42,7 +42,19 @@ import { SITE_TITLE } from '../consts';
 		font-size: 1.15rem;
 		list-style: none;
 	}
+	.icon-logo {
+		display: block;
+		width: 30px;
+		height: 30px;
+		background-image: url('/favicon.svg');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
 	.logo {
+		display: flex;
+		align-items: center;
+		gap: 10px;
 		margin: 0;
 		font-size: 1.2em;
 	}

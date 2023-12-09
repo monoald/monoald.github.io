@@ -11,6 +11,10 @@ import avatar from '../images/avatar.webp'
 
 <!doctype html>
 <html lang='en'>
+	<meta property="og:image" content="/" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta property="og:image:width" content="400" />
+	<meta property="og:image:height" content="300" />
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
@@ -391,7 +395,7 @@ import avatar from '../images/avatar.webp'
 				<div class='projects__container'>
 					{
 						projects.map(project => (
-							<a class="project" href={project.url}>
+							<a class="project" href={project.url} target="_blank">
 								<article>
 									<h3 class="project__title">{project.name}</h3>
 									<p class="project__description" set:html={project.description}></p>
