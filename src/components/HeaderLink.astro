@@ -1,0 +1,26 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'a'>;
+
+const { href, class: className, ...props } = Astro.props;
+
+const { pathname } = Astro.url;
+const isActive = href === pathname || href === pathname.replace(/\/$/, '') || 
+	(pathname !== '/' && (href as string).includes(pathname.split('/')[pathname.split.length - 1]));
+---
+
+<li>
+	<a href={href} aria-current={isActive ? 'page' : false} {...props} >
+		<slot />
+	</a>
+</li>
+<style>
+	a {
+		display: inline-block;
+		text-decoration: none;
+	}
+	a.active {
+		text-decoration: underline;
+	}
+</style>

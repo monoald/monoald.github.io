@@ -1,0 +1,86 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<header>
+	<nav class='header__nav'>
+		<h2 class='logo'><span class="icon-logo"/><a href='/'>{SITE_TITLE}</a></h2>
+
+		<ul>
+			<HeaderLink href='/'>Portfolio</HeaderLink>
+			<HeaderLink href='/blog'>Blog</HeaderLink>
+		</ul>
+	</nav>
+</header>
+<style>
+	header {
+		position: sticky;
+		top: 0;
+		height: 3.4em;
+		margin: 0;
+		padding: 0em 1em;
+		border-bottom: 1px solid var(--secondary-variation);
+		display: flex;
+		background-image: url('../icons/noisy.webp');
+		backdrop-filter: blur(10px);
+		z-index: 3;
+	}
+	.header__nav {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.header__nav ul {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		font-size: 1.15rem;
+		list-style: none;
+	}
+	.icon-logo {
+		display: block;
+		width: 30px;
+		height: 30px;
+		background-image: url('/favicon.svg');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.logo {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin: 0;
+		font-size: 1.2em;
+	}
+	.logo a {
+		text-decoration: none;
+		color: var(--secondary);
+	}
+	.header__nav ul a {
+		position: relative;
+		padding: 0.4em 1em;
+		color: var(--secondary);
+		text-align: center;
+		text-decoration: none;
+	}
+	.header__nav ul [aria-current='page'] {
+		color: #FAA628;
+		font-weight: 500;
+		text-decoration: underline;
+		text-decoration-thickness: 2px;
+	}
+	@media (min-width: 720px) {
+		header {
+			padding-inline: 2em;
+		}
+		.header__nav ul {
+			gap: 30px;
+		}
+	}
+</style>
