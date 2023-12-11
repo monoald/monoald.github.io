@@ -1,15 +1,15 @@
-import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
+import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
 
-import sitemap from '@astrojs/sitemap';
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
-	integrations: [mdx(), sitemap()],
-	markdown: {
-		shikiConfig: {
-			theme: 'material-theme-darker',
-		}
-	}
+  site: "https://monoald.github.io",
+  integrations: [mdx(), sitemap()],
+  markdown: {
+    shikiConfig: {
+      theme: "material-theme-darker",
+    },
+  },
 });
