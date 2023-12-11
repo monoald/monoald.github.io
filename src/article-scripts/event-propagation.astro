@@ -1,0 +1,200 @@
+---
+---
+<script is:inline>
+  // Example 1
+  const anchor1 = document.querySelector('#bottom-node-1');
+  anchor1.addEventListener('click', sayHi);
+
+  function sayHi() {
+    alert('Hi');
+  }
+
+  // Example 2
+  let nodes = document.querySelectorAll('.node-2');
+  nodes = [...nodes];
+
+  // Add an event to the 3 elements to know its current phase
+  nodes.map( node => {
+    // Enabling Capturing Propagation - Disabling Bubbling Propagation
+    node.addEventListener('click', showPhase, true);
+  });
+
+  // Add main event
+  const anchor2 = document.querySelector('#bottom-node-2');
+  anchor2.addEventListener('click', sayHi);
+
+  function showPhase(event) {
+    const phase = event.eventPhase;
+    let phaseName;
+    // Validate phase type
+    if (phase === 1) {
+      phaseName = 'Capturing'
+    } else if (phase === 2) {
+      phaseName = 'Target'
+    } else if (phase === 3) {
+      phaseName = 'Bubbling'
+    }
+    alert(`${this.id}: ${phaseName} Phase`)
+  }
+
+  // Example 3
+  let nodes3 = document.querySelectorAll('.node-3');
+  nodes3 = [...nodes3];
+
+  // Add an event to the 3 elements to know its current phase
+  nodes3.map( node => {
+    // Enabling Bubbling Propagation - Disable Capturing Propagation 
+    node.addEventListener('click', showPhase, false);
+  });
+
+  // Add main event
+  const anchor3 = document.querySelector('#bottom-node-3');
+  anchor3.addEventListener('click', sayHi);
+
+  // Example 4
+  let nodes4 = document.querySelectorAll('.node-4');
+  nodes4 = [...nodes4];
+  const div = document.querySelector('#mid-node-4');
+  div.addEventListener('click', stopEvent, true);
+
+  function stopEvent(event) {
+    // Stop Propagation
+    event.stopPropagation();
+    alert('Here ends');
+  }
+
+  // Add an event to the 3 elements to know its current phase
+  nodes4.map( node => {
+    // Enabling Bubbling Propagation - Disable Capturing Propagation 
+    node.addEventListener('click', showPhase, true);
+  });
+
+  // Add main event
+  const anchor4 = document.querySelector('#bottom-node-4');
+  anchor4.addEventListener('click', sayHi);
+
+  //Example 5
+  let nodes5 = document.querySelectorAll('.node-5');
+  nodes5 = [...nodes5];
+
+  const div5 = document.querySelector('#mid-node-5');
+  div5.addEventListener('click', stopEvent, false);
+
+  // Add an event to the 3 elements to know its current phase
+  nodes5.map( node => {
+    // Enabling Bubbling Propagation - Disable Capturing Propagation 
+    node.addEventListener('click', showPhase, false);
+  });
+
+  // Add main event
+  const anchor5 = document.querySelector('#bottom-node-5');
+  anchor5.addEventListener('click', sayHi);
+
+  // Example 6
+  let nodes6 = document.querySelectorAll('.node-6');
+  nodes6 = [...nodes6];
+
+  const div6 = document.querySelector('#mid-node-6');
+  div6.addEventListener('click', stopEvent, true);
+
+  // Add an event to the 3 elements to know its current phase
+  nodes6.map( node => {
+    // Enabling Bubbling Propagation - Disable Capturing Propagation 
+    node.addEventListener('click', showPhase, true);
+  });
+
+  // Add main event
+  const anchor6 = document.querySelector('#bottom-node-6');
+  anchor6.addEventListener('click', sayHi);
+
+  // Example 7
+  let nodes7 = document.querySelectorAll('.node-7');
+  nodes7 = [...nodes7];
+
+  const div7 = document.querySelector('#mid-node-7');
+  div7.addEventListener('click', stopEvent, false);
+
+  // Add an event to the 3 elements to know its current phase
+  nodes7.map( node => {
+    // Enabling Bubbling Propagation - Disable Capturing Propagation 
+    node.addEventListener('click', showPhase, false);
+  });
+
+  // Add main event
+  const anchor7 = document.querySelector('#bottom-node-7');
+  anchor7.addEventListener('click', sayHi);
+
+
+  // Movies Example
+  const items = [...document.querySelectorAll('.list-item-1')];
+
+  // Add event to every list item
+  items.map( item => {
+    item.addEventListener('click', seeTrailer);
+  });
+
+  function seeTrailer() {
+    // Open trailer
+    window.open('https://www.youtube.com/watch?v=KPLWWIOCOOQ', '', 'width=600,height=340');
+  }
+
+  function checkItem() {
+    // Open trailer
+    const item = this.parentElement;
+    item.classList.toggle('list--check');
+  }
+
+  const buttons = [...document.querySelectorAll('.movie-button-1')];
+  // Add event to every button
+  buttons.map( button => {
+    button.addEventListener('click', checkItem);
+  });
+
+  // Movie Example 2
+  const items2 = [...document.querySelectorAll('.list-item-2')];
+
+  // Add event to every list item
+  items2.map( item => {
+    item.addEventListener('click', seeTrailer);
+  });
+
+  function checkItemSolved(event) {
+    event.stopPropagation(); // <-- Solution // Open trailer
+    const item = this.parentElement;
+    item.classList.toggle('list--check');
+  }
+
+  const buttons2 = [...document.querySelectorAll('.movie-button-2')];
+  // Add event to every button
+  buttons2.map( button => {
+    button.addEventListener('click', checkItemSolved);
+  });
+
+
+  // Modal Example
+  const button = document.querySelector('.modal-button-1');
+  const modalContainer = document.querySelector('.modal-1');
+  // Show modal
+  button.addEventListener('click', toggleModal);
+
+  function toggleModal() {
+    modalContainer.classList.toggle('modal--active');
+  }
+  // Hide modal
+  modalContainer.addEventListener('click', toggleModal); 
+
+
+  // Modal Example 2
+  const button2 = document.querySelector('.modal-button-2');
+  const modalContainer2 = document.querySelector('.modal-2');
+  const modal = document.querySelector('.modal-2');
+  // Show modal
+  button2.addEventListener('click', toggleModal);
+
+  function toggleModal() {
+    modalContainer2.classList.toggle('modal--active')
+  }
+  // Hide modal
+  modalContainer2.addEventListener('click', toggleModal);
+  modal.addEventListener('click', event => event.stopPropagation()); //<--Solution
+</script>

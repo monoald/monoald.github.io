@@ -1,0 +1,170 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			body main {
+				width: 1020px;
+			}
+			.posts__container {
+				padding: 0;
+				padding-top: 4em;
+				margin: 0;
+				display: flex;
+				justify-content: space-around;
+				flex-wrap: wrap;
+				row-gap: 4em;
+				column-gap: 1em;
+				list-style-type: none;
+			}
+			.posts__container li * {
+				text-decoration: none;
+				transition: 0.8s ease;
+			}
+			
+			.posts__container li img {
+				grid-area: image;
+				width: 100%;
+				height: 190px;
+			}
+			.posts__container .post {
+				width: 100%;
+				max-width: 300px;
+				border-radius: 18px;
+				display: grid;
+				grid-template-columns: 1fr;
+				grid-template-areas:
+				'image'
+				'preview';
+				overflow: hidden;
+			}
+			.post__info {
+				grid-area: preview;
+				height: 250px;
+				border: 1px solid rgba(255,255,255,0.2);
+				border-top: none;
+				border-bottom-left-radius: 1em;
+				border-bottom-right-radius: 1em;
+				padding: 1em;
+				display: flex;
+				flex-direction: column;
+				gap: 0.4em;
+				color: var(--secondary);
+				text-align: center;
+			}
+			.post__title {
+				margin: 0;
+				margin-top: 0.4em;
+				font-size: 1.4rem;
+				color: var(--secondary);
+				line-height: 1;
+			}
+			.post__date {
+				margin: 0;
+				font-size: 0.9rem;
+			}
+			.post__description {
+				margin-top: 0.5em;
+				font-size: 1.1rem;
+			}
+			@media (min-width: 790px) {
+				.posts__container > li:first-child {
+					width: 100%;
+					margin-bottom: 1rem;
+				}
+				.posts__container li:first-child .post {
+					width: 100%;
+					max-width: none;
+					border: none;
+					grid-template-columns: 60% 40%;
+					grid-template-rows: 1fr;
+					grid-template-areas: 'image preview';
+				}
+				.posts__container li:first-child img {
+					height: 360px;
+					border-radius: 1em;
+				}
+				.posts__container li:first-child .post__info {
+					padding: 1em 0 1em 2em;
+					gap: 1em;
+					border: none;
+				}
+				.posts__container li:first-child .categories {
+					gap: 2em;
+				}
+				.posts__container li:first-child .categories li {
+					font-size: 0.9rem;
+					padding: 0.3em 2em;
+				}
+				.posts__container li:first-child .post__date {
+					font-size: 1.3rem;
+				}
+				.posts__container li:first-child .post__title {
+					margin-top: 0;
+					font-size: 2.8rem;
+				}
+				.posts__container li:first-child .post__description {
+					margin-top: 1em;
+					font-size: 1.2rem;
+				}
+				.posts__container  .post {
+					max-width: 320px;
+				}
+			}
+			@media (min-width: 1120px) {
+				.posts__container {
+					column-gap: 1.5em;
+					justify-content: space-between;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section>
+				<ul class="posts__container">
+					{
+						posts.map((post) => (
+							<li>
+								<a class="post" href={`/blog/${post.slug}/`}>
+									<img width={410} height={360} src={post.data.heroImage} alt="" />
+									<div class="post__info">
+										<ul class="categories">
+											{
+												post.data.categories.map(category => (
+													<li class={`category-${category}`}>{category}</li>
+												))
+											}
+										</ul>
+										<h4 class="post__title">{post.data.title}</h4>
+										<p class="post__date">
+											<FormattedDate date={post.data.pubDate} />
+										</p>
+										<p class="post__description">
+											{post.data.description}
+										</p>
+									</div>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
