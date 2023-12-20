@@ -4,7 +4,7 @@ import paletteLogo from "./icons/palette-logo.svg";
 import honoLogo from "./icons/hono.svg";
 import berlinLogo from "./images/berlin.png";
 
-export const SITE_TITLE = "Monoald";
+export const SITE_TITLE = "MonoAld";
 export const SITE_DESCRIPTION = "Welcome to my website!";
 
 export const stack = [
