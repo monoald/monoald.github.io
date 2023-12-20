@@ -9,26 +9,6 @@ import { ViewTransitions } from 'astro:transitions';
 type Props = CollectionEntry<'blog'>['data'];
 
 const { id, title, description, pubDate, updatedDate, heroImage, categories } = Astro.props;
-
-const anim = {
-  old: {
-    name: 'fadeIn',
-    duration: '0.2s',
-    easing: 'linear',
-    fillMode: 'forwards',
-  },
-  new: {
-    name: 'fadeOut',
-    duration: '0.3s',
-    easing: 'linear',
-    fillMode: 'backwards',
-  }
-};
-
-const myFade = {
-  forwards: anim,
-  backwards: anim,
-};
 ---
 
 <html lang="en">
