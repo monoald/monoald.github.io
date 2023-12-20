@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
+import { ViewTransitions } from 'astro:transitions';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -15,6 +16,7 @@ const posts = (await getCollection('blog')).sort(
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} image='banner.webp' />
+		<ViewTransitions />
 		<style>
 			body main {
 				width: 1020px;
@@ -141,16 +143,16 @@ const posts = (await getCollection('blog')).sort(
 						posts.map((post) => (
 							<li>
 								<a class="post" href={`/blog/${post.slug}/`}>
-									<img width={410} height={360} src={post.data.heroImage} alt="" />
+									<img transition:name={`image-${post.data.id}`} width={410} height={360} src={post.data.heroImage} alt="" />
 									<div class="post__info">
-										<ul class="categories">
+										<ul class="categories" transition:name={`categories-${post.data.id}`}>
 											{
 												post.data.categories.map(category => (
 													<li class={`category-${category}`}>{category}</li>
 												))
 											}
 										</ul>
-										<h4 class="post__title">{post.data.title}</h4>
+										<h4 class="post__title" transition:name={`title-${post.data.id}`}>{post.data.title}</h4>
 										<p class="post__date">
 											<FormattedDate date={post.data.pubDate} />
 										</p>
