@@ -4,15 +4,37 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import { ViewTransitions } from 'astro:transitions';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage, categories } = Astro.props;
+const { id, title, description, pubDate, updatedDate, heroImage, categories } = Astro.props;
+
+const anim = {
+  old: {
+    name: 'fadeIn',
+    duration: '0.2s',
+    easing: 'linear',
+    fillMode: 'forwards',
+  },
+  new: {
+    name: 'fadeOut',
+    duration: '0.3s',
+    easing: 'linear',
+    fillMode: 'backwards',
+  }
+};
+
+const myFade = {
+  forwards: anim,
+  backwards: anim,
+};
 ---
 
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} image={heroImage} />
+		<ViewTransitions />
 		<style>
 			main {
 				padding-top: 4em;
@@ -88,7 +110,7 @@ const { title, description, pubDate, updatedDate, heroImage, categories } = Astr
 								)
 							}
 						</div>
-						<ul class="categories">
+						<ul class="categories" transition:name={`categories-${ id}`}>
 							{
 								categories.map(category => (
 									<li class={`category-${category}`}>{category}</li>
@@ -96,10 +118,10 @@ const { title, description, pubDate, updatedDate, heroImage, categories } = Astr
 							}
 						</ul>
 					</div>
-					<h1>{title}</h1>
+					<h1 transition:name={`title-${id}`}>{title}</h1>
 				</div>
 				<div class="hero-image">
-					{heroImage && <img width={924} src={heroImage} alt="" />}
+					<img transition:name={`image-${id}`} width={924} src={heroImage} alt="" />
 				</div>
 				<div class="prose">
 					
