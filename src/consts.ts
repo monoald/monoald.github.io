@@ -110,13 +110,6 @@ export const projects = [
     url: "https://app-palette.vercel.app",
   },
   {
-    name: "Aura",
-    description:
-      '<b style="color: #FAA628;">Web page</b> for a real estate company, initially built with React and later migrated to Astro. With the migration, the load time was reduced from <b style="color: #FAA628;">1.6 seconds</b> for the entire web app to an average of <b style="color: #FAA628;">0.4 seconds</b> per page.',
-    image: auraWeb,
-    url: "/aura-web",
-  },
-  {
     name: "Oauth Providers",
     description:
       'A light, simple and easy to use third party <b style="color: #FAA628;">Hono</b> middleware for <b style="color: #FAA628;">OAuth 2.0</b> authentication with providers like Facebook, Github, Google, X, etc. Part of the <b style="color: #FAA628;">official</b> Hono middlewares.',
