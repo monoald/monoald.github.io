@@ -1,6 +1,5 @@
 import colorsKitLogo from "./icons/colors-kit-logo.svg";
-import auraWeb from "./images/aura-web.webp";
-import paletteLogo from "./icons/palette-logo.svg";
+import paletaLogo from "./icons/paleta.webp";
 import honoLogo from "./icons/hono.svg";
 import berlinLogo from "./images/berlin.png";
 
@@ -96,6 +95,13 @@ export const stack = [
 
 export const projects = [
   {
+    name: "Oauth Providers",
+    description:
+      'A light, simple and easy to use third party <b style="color: #FAA628;">Hono</b> middleware for <b style="color: #FAA628;">OAuth 2.0</b> authentication with providers like Facebook, Github, Google, X, etc. Part of the <b style="color: #FAA628;">official</b> Hono middlewares.',
+    image: honoLogo,
+    url: "https://github.com/honojs/middleware/tree/main/packages/oauth-providers",
+  },
+  {
     name: "Berlin",
     description:
       'AI generative web app that converts <b style="color: #FAA628;">Images to code</b>, offering a freemium subscription that provides 8 free credits per month to every user. The code generation is made by ChatGPT using the OpenAI API.',
@@ -103,20 +109,12 @@ export const projects = [
     url: "https://berlin-ai.vercel.app/",
   },
   {
-    name: "Palette",
+    name: "Paleta",
     description:
       'A <b style="color: #FAA628;">Web App</b> to craft stunning color palettes, simulate color blindness for accessibility, create eye-catching gradients and animations, and save your favorites for easy access. Plus, add a personal touch with font icon creation.',
-    image: paletteLogo,
+    image: paletaLogo,
     url: "https://app-palette.vercel.app",
   },
-  {
-    name: "Oauth Providers",
-    description:
-      'A light, simple and easy to use third party <b style="color: #FAA628;">Hono</b> middleware for <b style="color: #FAA628;">OAuth 2.0</b> authentication with providers like Facebook, Github, Google, X, etc. Part of the <b style="color: #FAA628;">official</b> Hono middlewares.',
-    image: honoLogo,
-    url: "https://github.com/honojs/middleware/tree/main/packages/oauth-providers",
-  },
-
   {
     name: "Colors Kit",
     description:
