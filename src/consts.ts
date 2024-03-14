@@ -24,6 +24,10 @@ export const stack = [
     color: "#3178C6",
   },
   {
+    name: "Solana",
+    color: "#10EFAA",
+  },
+  {
     name: "Tailwind",
     color: "#17BAB8",
   },
