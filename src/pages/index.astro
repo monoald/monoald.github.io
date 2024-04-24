@@ -134,21 +134,24 @@ import avatar from '../images/avatar.webp'
 			.experience:hover {
 				border-color: #f76927aa;
 			}
-			.experience:hover:before {
-				--length: 50px;
-				--weight: 2px;
-				--radius: 5em;
+			.project:hover::before,
+			.experience:hover::before {
 				content: '';
 				position: absolute;
 				bottom: 0;
 				left: -1px;
-				width: var(--weight);
-				height: var(--length);
-				border-radius: var(--radius);
-				background: linear-gradient(rgba(255,255,255,0), #f76927);
-				background-size: 50%;
+				width: 4px;
+				height: 4px;
+				border-radius: 50%;
+				background: #fc7e44;
+				
+				box-shadow: 0px 0px 10px 3px #f76927aa, 0px 0px 25px 6px #f7692788, 0px 0px 40px 10px #f7692733;
+			}
+			.project:hover::before {
 				animation: bord 5s linear infinite;
-				box-shadow: 0px 0px 50px 10px #f7692733;
+			}
+			.experience:hover::before {
+				animation: bord 7s linear infinite;
 			}
 			.experience__title {
 				display: flex;
@@ -302,24 +305,11 @@ import avatar from '../images/avatar.webp'
 			.project a {
 				text-decoration: none;
 			}
+			.project a p:not(p) {
+				color: #4fc45f;
+			}
 			.project:hover {
 				border-color: #f76927aa;
-			}
-			.project:hover::before {
-				--length: 50px;
-				--weight: 2px;
-				--radius: 5em;
-				content: '';
-				position: absolute;
-				bottom: 0;
-				left: -1px;
-				width: var(--weight);
-				height: var(--length);
-				border-radius: var(--radius);
-				background: linear-gradient(rgba(255,255,255,0), #f76927);
-				background-size: 50%;
-				animation: bord 5s linear infinite;
-				box-shadow: 0px 0px 50px 10px #f7692733;
 			}
 			.project__title {
 				margin-bottom: 12px;

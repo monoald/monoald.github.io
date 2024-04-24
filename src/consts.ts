@@ -97,7 +97,7 @@ export const projects = [
   {
     name: "Oauth Providers",
     description:
-      'A light, simple and easy to use third party <b style="color: #FAA628;">Hono</b> middleware for <b style="color: #FAA628;">OAuth 2.0</b> authentication with providers like Facebook, Github, Google, X, etc. Part of the <b style="color: #FAA628;">official</b> Hono middlewares.',
+      'A light, simple and easy to use third party **<b** style="color: #FAA628;">Hono</b**> middleware for <b style="color: #FAA628;">OAuth 2.0</b> authentication with providers like Facebook, Github, Google, X, etc. Part of the <b style="color: #FAA628;">official</b> Hono middlewares.',
     image: honoLogo,
     url: "https://github.com/honojs/middleware/tree/main/packages/oauth-providers",
   },
@@ -113,7 +113,7 @@ export const projects = [
     description:
       'A <b style="color: #FAA628;">Web App</b> to craft stunning color palettes, simulate color blindness for accessibility, create eye-catching gradients and animations, and save your favorites for easy access. Plus, add a personal touch with font icon creation.',
     image: paletaLogo,
-    url: "https://app-palette.vercel.app",
+    url: "https://paleta-v3.vercel.app/",
   },
   {
     name: "Colors Kit",
