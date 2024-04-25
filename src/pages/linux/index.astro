@@ -1,0 +1,81 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+import { ViewTransitions } from 'astro:transitions';
+
+const scripts = (await getCollection('linux')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={"Linux Stuff"} description={"Find my latest linux scripts and dotfile"} image='banner.webp' />
+		<ViewTransitions />
+		<style>
+			main {
+				min-height: calc(100vh - 3.4em - 5em);
+				padding: 4em 0;
+			}
+			h2 {
+				color: #FAA628;
+				font-size: 2.4rem;
+			}
+			.scripts {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+			}
+			.scripts a {
+				text-decoration: none;
+			}
+			.script {
+				position: relative;
+				padding: 1em 1.5em;
+				border: 1px solid rgba(255,255,255, 0.2);
+				border-radius: 1em;
+				background: rgba(255, 255, 255, 0.05);
+				color: var(--secondary);
+				font-size: 1.1rem;
+				cursor: pointer;
+			}
+			.script:hover {
+				transform: scale(1.05);
+			}
+			.script h3 {
+				display: flex;
+				align-items: center;
+				gap: 14px;
+				font-size: 1.4rem;
+				margin-bottom: 0.6em;
+			}
+			section {
+				display: flex;
+				flex-direction: column;
+				gap: 2em;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section>
+				<h2>Scripts</h2>
+
+				<div class="scripts">
+					{scripts.map(script => (
+						<a href={`/linux/${script.slug}`}>
+							<article class="script">
+								<h3>{script.data.title} <span class="goto"></span></h3>
+								<p>{script.data.description}</p>
+							</article>
+						</a>
+					))}
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

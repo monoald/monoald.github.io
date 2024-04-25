@@ -1,0 +1,20 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import Script from '../../layouts/Script.astro';
+
+export async function getStaticPaths() {
+	const scripts = await getCollection('linux');
+	return scripts.map((script) => ({
+		params: { slug: script.slug },
+		props: script,
+	}));
+}
+type Props = CollectionEntry<'blog'>;
+
+const script = Astro.props;
+const { Content } = await script.render();
+---
+
+<Script {...script.data}>
+	<Content />
+</Script>

@@ -10,6 +10,7 @@ import { SITE_TITLE } from '../consts';
 		<ul>
 			<HeaderLink href='/'>Portfolio</HeaderLink>
 			<HeaderLink href='/blog'>Blog</HeaderLink>
+			<HeaderLink href='/linux'>Linux Stuff</HeaderLink>
 		</ul>
 	</nav>
 </header>
@@ -38,7 +39,7 @@ import { SITE_TITLE } from '../consts';
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 10px;
+		gap: 0px;
 		font-size: 1.15rem;
 		list-style: none;
 	}
@@ -61,6 +62,7 @@ import { SITE_TITLE } from '../consts';
 	.logo a {
 		text-decoration: none;
 		color: var(--secondary);
+		display: none;
 	}
 	.header__nav ul a {
 		position: relative;
@@ -69,9 +71,10 @@ import { SITE_TITLE } from '../consts';
 		text-align: center;
 		text-decoration: none;
 	}
+	.header__nav ul a:hover,
 	.header__nav ul [aria-current='page'] {
 		color: #FAA628;
-		font-weight: 500;
+		/* font-weight: 500; */
 		text-decoration: underline;
 		text-decoration-thickness: 2px;
 	}
@@ -80,7 +83,7 @@ import { SITE_TITLE } from '../consts';
 			padding-inline: 2em;
 		}
 		.header__nav ul {
-			gap: 30px;
+			gap: 14px;
 		}
 		.logo {
 			font-size: 1.2em;

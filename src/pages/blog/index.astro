@@ -163,7 +163,7 @@ const posts = (await getCollection('blog')).sort(
 									<div class="post__info">
 										<ul class="categories" transition:name={`categories-${post.data.id}`}>
 											{
-												post.data.categories.map(category => (
+												post.data.categories.map((category: unknown) => (
 													<li class={`category-${category}`}>{category}</li>
 												))
 											}
