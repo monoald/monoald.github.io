@@ -703,3 +703,12 @@ tool-tip[tip-position="right"]:dir(rtl)::after {
     transform: translateY(0em);
   }
 }
+.goto {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background-image: url("/goto.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
