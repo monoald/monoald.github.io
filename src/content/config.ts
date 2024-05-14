@@ -13,7 +13,7 @@ const blog = defineCollection({
   }),
 });
 
-const linux = defineCollection({
+const scripts = defineCollection({
   type: "content",
   schema: z.object({
     id: z.string(),
@@ -24,4 +24,4 @@ const linux = defineCollection({
   }),
 });
 
-export const collections = { blog: blog, linux: linux };
+export const collections = { blog: blog, scripts: scripts };

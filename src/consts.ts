@@ -56,12 +56,20 @@ export const stack = [
     color: "#F6009C",
   },
   {
-    name: "Deno",
-    color: "#FAFAFA",
-  },
-  {
     name: "Hono",
     color: "#FD5A11",
+  },
+  {
+    name: "Shopify",
+    color: "#51ed45",
+  },
+  {
+    name: "Hydrogen",
+    color: "#6864e8",
+  },
+  {
+    name: "Deno",
+    color: "#FAFAFA",
   },
   {
     name: "Jasmine",

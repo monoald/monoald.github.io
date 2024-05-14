@@ -3,7 +3,7 @@ import { type CollectionEntry, getCollection } from 'astro:content';
 import Script from '../../layouts/Script.astro';
 
 export async function getStaticPaths() {
-	const scripts = await getCollection('linux');
+	const scripts = await getCollection('scripts');
 	return scripts.map((script) => ({
 		params: { slug: script.slug },
 		props: script,
