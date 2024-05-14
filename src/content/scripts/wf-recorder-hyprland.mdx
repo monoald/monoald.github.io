@@ -1,0 +1,55 @@
+---
+id: "wf-recorder-hyprland"
+title: "wf-recorder with hyprland"
+description: "A simple wf-recorder script to record the screen on Linux, with a keybind for Hyprland."
+pubDate: "Apr 24 2024"
+---
+
+The other day, my friend asked me to test an app he developed. I had just reset Arch a few days ago and didn't want to use Obs again, so I decided to use [wf-recorder](https://github.com/ammen99/wf-recorder). I wanted to use it properly and not record how I left the terminal after using wf-recorder ... or how I killed the process in the terminal to stop recording. So, I made a script and added a keybind to use it.
+
+First, it checks if wf-recorder is running by trying to get its process ID and then finishes the script. If no instance of wf-recorder is running, it starts recording.
+
+```bash
+#!/bin/env bash
+
+pgrep -x "wf-recorder" && pkill -INT -x wf-recorder && exit 0
+
+dateTime=$(date +%m-%d-%Y-%H:%M:%S)
+wf-recorder --bframes max_b_frames -f $HOME/Videos/$dateTime.mp4
+```
+
+Then I added a keybind to my Hyprland config file to execute the script using `Win + R`.
+
+```conf
+...
+bind = $mainMod, R, exec, /script/path
+```
+
+It works! I think so...
+
+Using the keybind, I don't know for sure if it is recording or if it stopped recording until I see the file saved. It is really annoying, so I added some notifications using notify-send to know when recording starts and stops.
+
+```bash
+#!/bin/env bash
+
+pgrep -x "wf-recorder" && pkill -INT -x wf-recorder && notify-send -h string:wf-recorder:record -t 1000 "Finished Recording" && exit 0
+
+notify-send -h string:wf-recorder:record -t 1000 "Recording in:" "<span color='#90a4f4' font='26px'><i><b>3</b></i></span>"
+
+sleep 1
+
+notify-send -h string:wf-recorder:record -t 1000 "Recording in:" "<span color='#90a4f4' font='26px'><i><b>2</b></i></span>"
+
+sleep 1
+
+notify-send -h string:wf-recorder:record -t 950 "Recording in:" "<span color='#90a4f4' font='26px'><i><b>1</b></i></span>"
+
+sleep 1
+
+dateTime=$(date +%m-%d-%Y-%H:%M:%S)
+wf-recorder --bframes max_b_frames -f $HOME/Videos/$dateTime.mp4
+```
+
+If you have a better script or want to improve this you can reach me in social media.
+
+> Don't forget to give execute permission to the `.sh` File.
