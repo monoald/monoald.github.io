@@ -99,11 +99,55 @@ import avatar from '../images/avatar.webp'
 			.exp_subtitle {
 				font-size: 2.4rem;
 			}
+			.experiences {
+				display: flex;
+				flex-direction: column;
+				gap: 1.5em;
+			}
+			.highlights {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(7.5em, 1fr));
+				gap: 1em;
+				padding: 0;
+				list-style: none;
+			}
+			.highlights li {
+				padding: 1.2em 1em;
+				display: flex;
+				flex-direction: column;
+				gap: 0.3em;
+				border: 1px solid rgba(255,255,255, 0.2);
+				border-radius: 1em;
+				background: rgba(255, 255, 255, 0.05);
+			}
+			.highlights strong {
+				font-size: 2.2rem;
+				line-height: 1;
+				background: linear-gradient(270deg, #f76927 0%, #fdfa29 100%);
+				-webkit-background-clip: text;
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+			.highlights span {
+				font-size: 0.95rem;
+				text-wrap: balance;
+			}
+			.experience .experience__company {
+				font-size: 1.4rem;
+			}
+			.experience__position {
+				margin-top: 1.4em;
+				padding-left: 1em;
+				border-left: 2px solid rgba(255,255,255, 0.2);
+			}
+			.experience__position .experience__role {
+				font-size: 1.15rem;
+				color: var(--secondary);
+			}
 			.experiences_title {
 				display: flex;
 				flex-direction: column;
 				gap: 0.2em;
-				margin-bottom: 1em;
 			}
 			.open-to-work {
 				font-size: 0.9rem;
@@ -331,6 +375,16 @@ import avatar from '../images/avatar.webp'
 				height: auto;
 			}
 			@media (max-width: 574px) {
+				.highlights {
+					grid-template-columns: repeat(2, 1fr);
+					gap: 0.6em;
+				}
+				.highlights li {
+					padding: 1em 0.5em;
+				}
+				.highlights strong {
+					font-size: 1.8rem;
+				}
 				.title h1 {
 					font-size: 2.2rem;
 				}
@@ -390,10 +444,10 @@ import avatar from '../images/avatar.webp'
 			<section class='home'>
 				<article class='title'>
 					<h1>Carlos S. Aldazosa</h1>
-					<h2>Software Engineer & Bug Exterminator</h2>
+					<h2>Growth Engineer & Frontend Team Lead</h2>
 
 					<p class="caption">
-						Always learning about new paradigms and technologies to apply right solution in the right place.
+						I write code that makes e-commerce brands more money: A/B tests, CRO and the tracking behind them for Shopify and DTC brands.
 					</p>
 				</article>
 			</section>
@@ -441,7 +495,7 @@ import avatar from '../images/avatar.webp'
 						</li>
 					</ul>
 					<p>
-						Hi there! I'm Carlos S. Aldazosa a software developer with <b>2 years</b> of experience building user-friendly applications. Throughout my journey, I've <b>collaborated</b> with my co-workers in their duties across diverse areas like backend, design, and database management, <b>learning</b> a lot from them. I <b>constantly explore</b> new technologies and resources to build smooth and scalable apps.
+						Hi there! I'm Carlos S. Aldazosa, a <b>growth engineer</b>. At a US supplements brand I lead the frontend team and run the experimentation program: <b>30+ A/B tests</b> on conversion rate, average order value and subscription take rate. I judge tests on <b>profit and lifetime value</b>, not just first-order revenue, and I build the tracking to do it. Remote from LATAM (UTC-4), working with US teams <b>since 2021</b>.
 					</p>
 				</div>
 			</section>
@@ -452,26 +506,60 @@ import avatar from '../images/avatar.webp'
 					<p class="open-to-work">Open to work</p>
 				</div>
 
+				<ul class='highlights'>
+					<li><strong>2.9x</strong><span>subscription take rate at checkout</span></li>
+					<li><strong>+20%</strong><span>average order value</span></li>
+					<li><strong>+15%</strong><span>conversion rate</span></li>
+					<li><strong>30+</strong><span>A/B tests shipped</span></li>
+				</ul>
+
+				<article class='experience'>
+					<div class='experience__title'>
+						<h3 class='experience__company'>Black Forest Supplements</h3>
+						<span>-</span>
+						<p class='experience__role'>Full-time · Remote (Miami, US)</p>
+					</div>
+
+					<div class='experience__position'>
+						<p class='experience__role'>Frontend Team Lead, Growth &amp; Experimentation</p>
+						<p class='experience__date'><time datetime='2026-03'>March 2026</time> - Present</p>
+						<ul class='experience__tasks'>
+							<li><p><b>Lead the frontend team</b>, owning the experimentation roadmap, code reviews and storefront releases.</p></li>
+							<li><p>Run a program of <b>30+ A/B tests</b> across product pages, side cart and checkout. Most lose or bring small gains that shape the next test; the 4 biggest winners all shipped.</p></li>
+							<li><p><b>Product page:</b> heatmaps showed only 30% of mobile visitors reached the product section, so I rebuilt it with shorter copy, benefit badges and margin-optimized quantity tiers: <b>+20.5% AOV</b>, <b>+21.5% profit per visitor</b>, +62% subscription revenue per visitor.</p></li>
+							<li><p><b>Checkout:</b> designed and built a subscription widget that beat two competitor-style designs, nearly <b>tripling subscription take rate</b> (1.85% → 5.30%) and raising MRR added per shopper 162%.</p></li>
+							<li><p><b>Side cart:</b> a subscription upgrade widget added <b>33% more subscription orders</b> per visitor, with no loss in overall revenue.</p></li>
+						</ul>
+					</div>
+
+					<div class='experience__position'>
+						<p class='experience__role'>Growth Engineer</p>
+						<p class='experience__date'><time datetime='2024-06'>June 2024</time> - <time datetime='2026-03'>March 2026</time></p>
+						<ul class='experience__tasks'>
+							<li><p><b>Trust:</b> built a product-page widget showing third-party lab results; on the top 3 bestsellers it lifted <b>conversion rate 15%</b> and revenue per visitor 9%.</p></li>
+							<li><p><b>Measurement:</b> built internal tools that isolate subscription cohorts by funnel source and test variant, tracking retention and LTV beyond the first order.</p></li>
+							<li><p><b>Personalization:</b> built an influencer personalization engine that tailors the storefront per referral link, supporting <b>$827K+</b> in targeted promo revenue.</p></li>
+							<li><p><b>Analytics:</b> server-side GA4 events and cross-domain pixels for reliable test data.</p></li>
+						</ul>
+					</div>
+				</article>
+
 				<article class='experience'>
 					<div class='experience__title'>
 						<h3>Nevobit
 							<Image src={nevoBitLogo} alt='NevoBit Logo' height={30} />
 						</h3>
 						<span>-</span>
-						<p class='experience__role'>Front-end Developer</p>
+						<p class='experience__role'>Software Engineer</p>
 					</div>
 
-					<p class='experience__date'><time datetime='2018-09-07'>November 2021</time> - <time datetime='2023-10-27'>November 2023</time></p>
+					<p class='experience__date'><time datetime='2021-11'>November 2021</time> - <time datetime='2023-11'>November 2023</time></p>
 					<ul class='experience__tasks'>
-						<li><p>Develop <b>high-quality</b>, responsive, and <b>user-friendly</b> web applications.</p></li>
-						<li><p>Write <b>reusable</b> libraries and components for future use.</p></li>
-						<li><p><b>Optimize</b> applications performance, size and scalability.</p></li>
-						<li><p>Development and <b>maintenance</b> of web stores in Shopify and <b>Hydrogen</b>.</p></li>
-						<li><p>Develop administration web apps (cms, dashboard, etc).</p></li>
-						<li><p>Build <b>customer-facing</b> web and mobile apps.</p></li>
-						<li><p>Review the code of new employees and <b>help</b> them with their onboarding process.</p></li>
-						<li><p>Help <b>Backend team</b> adding new enpoints, features and missing types.</p></li>
-						<li><p><b>Migrate</b> projects from JavaScript to TypeScript and from React to NextJS.</p></li>
+						<li><p><b>E-commerce:</b> built custom Shopify and <b>Hydrogen</b> stores, and migrated client stores from GemPages to native Shopify Liquid themes.</p></li>
+						<li><p>Built web apps, admin dashboards and CMSs with <b>React, Next.js, Node.js and TypeScript</b>.</p></li>
+						<li><p>Built cross-platform <b>mobile apps</b> with React Native.</p></li>
+						<li><p><b>Migrated</b> projects from JavaScript to TypeScript and from React to Next.js.</p></li>
+						<li><p>Reviewed new engineers' code and <b>helped</b> them through onboarding.</p></li>
 					</ul>
 				</article>
 			</section>
